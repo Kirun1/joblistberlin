@@ -1,4 +1,14 @@
 import env from './env.json';
+import firebase from 'firebase';
+
+var config = {
+  "apiKey": env.apiKey,
+  "databaseURL": env.databaseURL,
+  "authDomain": env.authDomain,
+  "storageBucket": env.storageBucket
+};
+
+firebase.initializeApp(config);
 
 function buildUrl(endPoint) {
     return `${env.apiRootUrl}/${endPoint}.json`;
