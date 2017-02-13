@@ -1,5 +1,7 @@
 import React from 'react';
 import Jobs from './Jobs';
+import PostJob from './PostJob';
+import {callAPI} from './api';
 
 export default class App extends React.Component {
 
@@ -10,8 +12,7 @@ export default class App extends React.Component {
     
     fetchData()
     {
-	let url = 'https://joblistberlin-staging.firebaseio.com/links.json';
-	return fetch(url).then(response => response.json());
+	return callAPI('/links');
 
     }
     render()
@@ -19,7 +20,13 @@ export default class App extends React.Component {
 	if(!this.state) {
 	    return null;
 	}
-	return<Jobs data={ this.state.data }/>;
+	
+	return (
+		<div>
+		<PostJob/>
+		<Jobs data={ this.state.data }/>
+		</div>
+	);
     }
 }
 
