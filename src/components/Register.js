@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {
 	getServerTime as getTime,
-	loginWithEmail } from '../api';
+	registerWithEmail } from '../api';
 
-export default class Login extends Component {
+export default class Register extends Component {
 	constructor() {
 		super();
 		this.state = {

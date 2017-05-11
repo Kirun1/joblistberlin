@@ -8,14 +8,21 @@ var config = {
   "storageBucket": env.storageBucket
 };
 
-const fb = firebase.initializeApp(config);
+firebase.initializeApp(config);
 
-// https://firebase.google.com/docs/auth/web/anonymous-auth
-export function getAuth() {
-	fb.auth().signInAnonymously()
-		.then(data => console.log('Login sucess:', data))
-		.catch(onLoginError);
+export function loginWithEmail(email, password) {
+	firebase.auth().signInWithEmailAndPassword(email, password)
+					.then(console.log)
+					.catch(onLoginError);
 }
+
+export function registerWithEmail(email, password) {
+	firebase.auth()
+					.createUserWithEmailAndPassword(email, password)
+					.then(console.log)
+					.catch(onLoginError);
+}
+
 function onLoginError(e) {
 	console.log('Login error', e);
 }

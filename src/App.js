@@ -4,14 +4,9 @@ import { Link, Route } from 'react-router-dom';
 import Companies from './components/Companies';
 import Jobs from './components/Jobs';
 import Login from './components/Login';
-
-import { getAuth } from './api';
-
+import Register from './components/Login';
 
 export default class App extends Component {
-	componentDidMount() {
-		console.log(getAuth())
-	}
 	render() {
 		return (
 			<div className="App">
@@ -27,6 +22,7 @@ export default class App extends Component {
 					<Route exact path="/" component={ Companies }/>
 					<Route path="/jobs" component={ Jobs }/>
 					<Route path="/auth/login" component={ Login }/>
+					<Route path="/auth/register" component={ Register }/>
 				</section>
 			</div>
 		)
