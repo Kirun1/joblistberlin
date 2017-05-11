@@ -5,8 +5,8 @@ class PostJob extends React.Component {
   constructor() {
 		super();
 		this.state = {
-	    url: '',
-	    title: ''
+	    title: '',
+			description: ''
 		};
   }
 
@@ -25,25 +25,19 @@ class PostJob extends React.Component {
 
 
   render() {
-		const { url, title } = this.state;
+		const { description, title } = this.state;
 
 		return (
 			<form onSubmit={ this.handleSubmit }>
 				<article>
-					<label>Url:
-						<input name="url" type="text" placeholder="Job URL" onChange={ this.handleChange } value={ url }/>
-					</label>
-				</article>
-
-				<article>
 					<label>Title:
-						<input name="title"  type="text" placeholder="Job title" onChange={ this.handleChange } value={ title }/>
+						<input name="title"  type="text" placeholder="Job's title" onChange={ this.handleChange } value={ title }/>
 					</label>
 				</article>
 
 				<article>
 					<label>Url:
-						<textarea name="description" type="text" placeholder="Job URL" onChange={ this.handleChange } value={ url }/>
+						<textarea name="description" type="text" placeholder="Job's description" onChange={ this.handleChange } value={ description }/>
 					</label>
 				</article>
 				<button type="submit">Post job</button>
