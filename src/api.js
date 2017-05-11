@@ -1,5 +1,5 @@
 import env from './env.json';
-import firebase from 'firebase';
+import firebase, { database } from 'firebase';
 
 var config = {
   "apiKey": env.apiKey,
@@ -12,6 +12,10 @@ firebase.initializeApp(config);
 
 function buildUrl(endPoint) {
   return `${env.apiRootUrl}/${endPoint}.json`;
+}
+
+export function getServerTime() {
+	return database.ServerValue.TIMESTAMP;
 }
 
 export function callAPI(endPoint, options) {

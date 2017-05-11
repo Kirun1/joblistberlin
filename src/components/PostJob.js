@@ -1,5 +1,8 @@
 import React from 'react';
-import {postToJobs} from '../api.js';
+import {
+	postToJobs,
+	getServerTime as getTime
+} from '../api.js';
 
 class PostJob extends React.Component {
   constructor() {
@@ -19,7 +22,8 @@ class PostJob extends React.Component {
 		// if it is a URL fetch and set title
 		console.log(e.target.value);
 		this.setState({
-	    [e.target.name] : e.target.value
+	    [e.target.name] : e.target.value,
+			createdAt: getTime()
 		});
   }
 
@@ -40,7 +44,7 @@ class PostJob extends React.Component {
 						<textarea name="description" type="text" placeholder="Job's description" onChange={ this.handleChange } value={ description }/>
 					</label>
 				</article>
-				<button type="submit">Post job</button>
+				<button type="submit">add Job</button>
 			</form>
 		)
   }

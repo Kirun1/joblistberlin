@@ -1,5 +1,8 @@
 import React from 'react';
-import {postToCompanies} from '../api';
+import {
+	postToCompanies,
+	getServerTime as getTime
+} from '../api';
 
 class PostCompany extends React.Component {
   constructor() {
@@ -19,7 +22,8 @@ class PostCompany extends React.Component {
 		// if it is a URL fetch and set title
 		console.log(e.target.value);
 		this.setState({
-	    [e.target.name] : e.target.value
+	    [e.target.name] : e.target.value,
+			createdAt: getTime()
 		});
   }
 
