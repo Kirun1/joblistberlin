@@ -8,14 +8,21 @@ var config = {
   "storageBucket": env.storageBucket
 };
 
-firebase.initializeApp(config);
+const fb = firebase.initializeApp(config);
 
-function buildUrl(endPoint) {
-  return `${env.apiRootUrl}/${endPoint}.json`;
+export function getAuth() {
+	console.log('getAuth');
+	fb.auth().signInAnonymously().catch(function(error) {
+		console.log(error);
+	});
 }
 
 export function getServerTime() {
 	return database.ServerValue.TIMESTAMP;
+}
+
+function buildUrl(endPoint) {
+  return `${env.apiRootUrl}/${endPoint}.json`;
 }
 
 export function callAPI(endPoint, options) {
