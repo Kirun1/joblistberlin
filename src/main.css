@@ -1,3 +1,11 @@
+section {
+	padding: 1rem;
+}
+
 .Title {
     background-color: red;
+}
+
+.Nav a {
+	padding: 2rem;
 }
