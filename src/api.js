@@ -10,11 +10,14 @@ var config = {
 
 const fb = firebase.initializeApp(config);
 
+// https://firebase.google.com/docs/auth/web/anonymous-auth
 export function getAuth() {
-	console.log('getAuth');
-	fb.auth().signInAnonymously().catch(function(error) {
-		console.log(error);
-	});
+	fb.auth().signInAnonymously()
+		.then(data => console.log('Login sucess:', data))
+		.catch(onLoginError);
+}
+function onLoginError(e) {
+	console.log('Login error', e);
 }
 
 export function getServerTime() {
