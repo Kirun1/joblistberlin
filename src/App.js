@@ -10,13 +10,13 @@ export default function App() {
 		<div className="App">
 			<section>
 				<nav className="Nav">
-					<Link to="/companies">Companies</Link>
+					<Link to="/">Companies</Link>
 					<Link to="/jobs">Jobs</Link>
 				</nav>
 			</section>
 
 			<section>
-				<Route path="/companies" component={ Companies }/>
+				<Route exact path="/" component={ Companies }/>
 				<Route path="/jobs" component={ Jobs }/>
 			</section>
 		</div>
