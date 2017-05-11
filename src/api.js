@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 
 export function loginWithEmail(email, password) {
 	firebase.auth().signInWithEmailAndPassword(email, password)
-					.then(console.log)
+					.then(onLogin)
 					.catch(onLoginError);
 }
 
@@ -23,6 +23,10 @@ export function registerWithEmail(email, password) {
 					.catch(onLoginError);
 }
 
+function onLogin(user) {
+	console.log('on login user:', user)
+	window.localStorage.setItem('user', user);
+}
 function onLoginError(e) {
 	console.log('Login error', e);
 }

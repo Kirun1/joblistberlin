@@ -8,6 +8,8 @@ import Register from './components/Login';
 
 export default class App extends Component {
 	render() {
+		var user = window.localStorage.getItem('user');
+		console.log('user', user);
 		return (
 			<div className="App">
 				<section>
