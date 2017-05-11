@@ -1,8 +1,8 @@
 import React from 'react';
 // BrowserRouter as Router is in <Root/>
 import { Link, Route } from 'react-router-dom';
-import Companies from './Companies';
-import Jobs from './Jobs';
+import Companies from './components/Companies';
+import Jobs from './components/Jobs';
 
 
 export default function App() {

@@ -1,7 +1,7 @@
 import React from 'react';
-import {postToCompany} from './api';
+import {postToJobs} from '../api.js';
 
-class PostCompany extends React.Component {
+class PostJob extends React.Component {
   constructor() {
 		super();
 		this.state = {
@@ -12,7 +12,7 @@ class PostCompany extends React.Component {
 
   handleSubmit = (e) => {
 		e.preventDefault();
-		postToCompany(this.state);
+		postToJobs(this.state);
   }
 
   handleChange = (e) => {
@@ -31,19 +31,25 @@ class PostCompany extends React.Component {
 			<form onSubmit={ this.handleSubmit }>
 				<article>
 					<label>Url:
-						<input name="url" type="text" placeholder="Company URL" onChange={ this.handleChange } value={ url } title="https://..."/>
+						<input name="url" type="text" placeholder="Job URL" onChange={ this.handleChange } value={ url }/>
 					</label>
 				</article>
 
 				<article>
 					<label>Title:
-						<input name="title"  type="text" placeholder="Company name" onChange={ this.handleChange } value={ title }/>
+						<input name="title"  type="text" placeholder="Job title" onChange={ this.handleChange } value={ title }/>
 					</label>
 				</article>
-				<button type="submit">add Company</button>
+
+				<article>
+					<label>Url:
+						<textarea name="description" type="text" placeholder="Job URL" onChange={ this.handleChange } value={ url }/>
+					</label>
+				</article>
+				<button type="submit">Post job</button>
 			</form>
 		)
   }
 }
 
-export default PostCompany;
+export default PostJob;

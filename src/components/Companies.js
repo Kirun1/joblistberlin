@@ -1,5 +1,5 @@
 import React from 'react';
-import {callAPI} from './api';
+import {callAPI} from '../api';
 import Loading from './Loading';
 import Company from './Company';
 import PostCompany from './PostCompany';
