@@ -1,5 +1,5 @@
 import React from 'react';
-import {postToCompany} from '../api';
+import {postToCompanies} from '../api';
 
 class PostCompany extends React.Component {
   constructor() {
@@ -12,7 +12,7 @@ class PostCompany extends React.Component {
 
   handleSubmit = (e) => {
 		e.preventDefault();
-		postToCompany(this.state);
+		postToCompanies(this.state);
   }
 
   handleChange = (e) => {
