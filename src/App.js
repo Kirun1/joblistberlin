@@ -8,13 +8,17 @@ import Jobs from './Jobs';
 export default function App() {
 	return (
 		<div className="App">
-			<nav className="Nav">
-				<Link to="/companies">Companies</Link>
-				<Link to="/jobs">Jobs</Link>
-			</nav>
+			<section>
+				<nav className="Nav">
+					<Link to="/companies">Companies</Link>
+					<Link to="/jobs">Jobs</Link>
+				</nav>
+			</section>
 
-			<Route path="/companies" component={ Companies }/>
-			<Route path="/jobs" component={ Jobs }/>
+			<section>
+				<Route path="/companies" component={ Companies }/>
+				<Route path="/jobs" component={ Jobs }/>
+			</section>
 		</div>
 	)
 }

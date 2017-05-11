@@ -1,6 +1,6 @@
 import React from 'react';
 import {callAPI} from './api';
-import Job from './Job.js';
+import Company from './Company.js';
 import Loading from './Loading.js';
 
 export default class Companies extends React.Component {
@@ -13,12 +13,12 @@ export default class Companies extends React.Component {
 	render() {
 		if( !this.state ) return <Loading/>
 		return (
-		<section>
+		<div className="Companies">
 			{
 				Object.values(this.state.data)
-							.map((job, index) => <Job key={ index } { ...job }/>)
+							.map((job, index) => <Company key={ index } { ...job }/>)
 			}
-		</section>
+		</div>
 		)
 	}
 }
