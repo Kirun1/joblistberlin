@@ -35,6 +35,10 @@ label {
     display: block;
     padding-bottom: 1rem;
 }
+// input in a label = text above it
+label input {
+    margin-top: 0.3rem;
+}
 input,
 textarea {
 	width : 100%;
