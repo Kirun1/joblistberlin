@@ -1,11 +1,35 @@
+body {
+	margin: 0;
+}
+
 section {
-	padding: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .Title {
     background-color: red;
 }
 
+.Nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
 .Nav a {
-	padding: 2rem;
+	padding: 1rem;
+}
+
+form {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	max-width: 30rem;
+}
+label {
+    display: block;
+    padding-bottom: 1rem;
+}
+input,
+textarea {
+	width : 100%;
 }

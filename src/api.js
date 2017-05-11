@@ -27,7 +27,9 @@ export function postAPI(endpoint, data) {
 		console.log( 'answer', answer );
   });
 }
-
-export function postJobs(data) {
+export function postToCompany(data) {
   postAPI('links', data);
+}
+export function postJob(data) {
+  postAPI('jobs', data);
 }
