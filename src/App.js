@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute.js';
 import { auth } from './api';
 import Companies from './components/Companies';
 import Jobs from './components/Jobs';
@@ -41,7 +42,7 @@ export default class App extends Component {
 						<NavLink to="/" exact>Companies</NavLink>
 						<NavLink to="/jobs">Jobs</NavLink>
 						<NavLink to="/auth/login">Login</NavLink>
-						<NavLink to="/auth/settings">settings</NavLink>
+						<NavLink to="/auth/account">settings</NavLink>
 					</nav>
 				</section>
 
@@ -51,7 +52,7 @@ export default class App extends Component {
 					<Route path="/jobs" component={ Jobs }/>
 					<Route path="/auth/login" component={ Login }/>
 					<Route path="/auth/register" component={ Register }/>
-					<Route path="/auth/account" component={ Account }/>
+					<PrivateRoute path="/auth/account" component={ Account }/>
 				</section>
 			</div>
 		)
