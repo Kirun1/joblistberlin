@@ -15,20 +15,12 @@ export default class App extends Component {
 			uid: null
 		};
 	}
-	/* componentDidUpdate() {
-		 this.setState({
-		 user: getCurrentUser()
-		 });
-		 console.log('this.state.user', this.state.user)
-		 }*/
+
 	componentDidMount() {
     auth.onAuthStateChanged(user => {
-			const storageKey = user;
       if (user) {
-        window.localStorage.setItem(storageKey, user.uid);
         this.setState({uid: user.uid});
       } else {
-        window.localStorage.removeItem(storageKey);
         this.setState({uid: null});
       }
     });
