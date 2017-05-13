@@ -5,7 +5,7 @@ import Companies from './components/Companies';
 import Jobs from './components/Jobs';
 import Login from './components/Login';
 import Register from './components/Register';
-import Settings from './components/Settings';
+import Account from './components/Account';
 
 export default class App extends Component {
 	constructor() {
@@ -51,7 +51,7 @@ export default class App extends Component {
 					<Route path="/jobs" component={ Jobs }/>
 					<Route path="/auth/login" component={ Login }/>
 					<Route path="/auth/register" component={ Register }/>
-					<Route path="/auth/settings" component={ Settings }/>
+					<Route path="/auth/account" component={ Account }/>
 				</section>
 			</div>
 		)
