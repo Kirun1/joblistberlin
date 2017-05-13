@@ -57,26 +57,18 @@ export function isAuthenticated() {
 
 export function registerWithEmail(email, password) {
 	return auth.createUserWithEmailAndPassword(email, password)
-					.then(console.log)
-					.catch(onLoginError);
+					.then(console.log);
 }
 
 export function loginWithEmail(email, password) {
 	return auth.signInWithEmailAndPassword(email, password)
-								 .then(onLogin)
-								 .catch(onLoginError);
+								 .then(onLogin);
 }
 export function logoutUser() {
 	return auth.signOut()
-						 .then(data => console.log('logout success', data))
-						 .catch(e => console.log('logout error', e));
+						 .then(data => console.log('logout success', data));
 }
 
 function onLogin(user) {
 	console.log('on login user:', user)
-	window.localStorage.setItem('user', JSON.stringify(user));
-}
-
-function onLoginError(e) {
-	console.log('Login error', e);
 }

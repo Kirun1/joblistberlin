@@ -16,7 +16,9 @@ export default class Register extends Component {
   handleSubmit = (e) => {
 		e.preventDefault();
 		const { email, password } = this.state;
-		registerWithEmail(email, password, getTime());
+		registerWithEmail(email, password, getTime())
+			.then(() => this.props.history.push('/auth/login'))
+			.catch(e => console.log);
   }
 
   handleChange = (e) => {
@@ -45,9 +47,9 @@ export default class Register extends Component {
 							<input name="password" type="password" placeholder="Password" onChange={ this.handleChange } value={ password }/>
 						</label>
 					</article>
-					<button type="submit">Login</button>
+					<button type="submit">Register</button>
 				</form>
-				<p>Don't have an account yet? <Link to="/auth/register">Register</Link></p>
+				<p>Already have an account? <Link to="/auth/login">Login</Link></p>
 			</div>
 		)
   }

@@ -14,7 +14,8 @@ export default class Login extends Component {
   handleSubmit = (e) => {
 		e.preventDefault();
 		loginWithEmail(this.state.email, this.state.password)
-			.then(() => this.props.history.push('/'));
+			.then(() => this.props.history.push('/')
+			.catch(e => console.log);
   }
 
   handleChange = (e) => {
