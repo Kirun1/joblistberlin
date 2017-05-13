@@ -4,8 +4,8 @@ import { Redirect } from 'react-router-dom';
 
 export default class Logout extends Component {
 	componentDidMount() {
-		logoutUser();
+		logoutUser().then(() => this.props.history.push('/auth/login'));
 	}
 
-	render() {	return <Redirect to={ {pathname: '/auth/login'} }/> }
+	render() { return null }
 }

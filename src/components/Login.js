@@ -14,7 +14,7 @@ export default class Login extends Component {
   handleSubmit = (e) => {
 		e.preventDefault();
 		loginWithEmail(this.state.email, this.state.password)
-			.then(data => console.log('after login', data));
+			.then(() => this.props.history.push('/'));
   }
 
   handleChange = (e) => {
@@ -22,11 +22,6 @@ export default class Login extends Component {
 	    [e.target.name] : e.target.value
 		});
   }
-
-	logout() {
-		logoutUser();
-	}
-
 
   render() {
 		const { email, password } = this.state;
