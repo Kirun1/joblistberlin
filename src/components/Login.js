@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { loginWithEmail, logoutUser } from '../api';
+import { loginWithEmail } from '../api';
 
 export default class Login extends Component {
 	constructor() {
@@ -14,7 +14,7 @@ export default class Login extends Component {
   handleSubmit = (e) => {
 		e.preventDefault();
 		loginWithEmail(this.state.email, this.state.password)
-			.then(() => this.props.history.push('/')
+			.then(() => this.props.history.push('/'))
 			.catch(e => console.log);
   }
 
