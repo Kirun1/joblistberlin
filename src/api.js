@@ -65,6 +65,11 @@ export function loginWithEmail(email, password) {
 								 .then(onLogin)
 								 .catch(onLoginError);
 }
+export function logoutUser() {
+	return auth.signOut()
+						 .then(data => console.log('logout success', data))
+						 .catch(e => console.log('logout error', e));
+}
 
 function onLogin(user) {
 	console.log('on login user:', user)

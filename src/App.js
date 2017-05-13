@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
-import { auth, getCurrentUser } from './api';
+import { auth } from './api';
 import Companies from './components/Companies';
 import Jobs from './components/Jobs';
 import Login from './components/Login';

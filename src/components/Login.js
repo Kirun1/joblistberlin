@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { loginWithEmail } from '../api';
+import { loginWithEmail, logoutUser } from '../api';
 
 export default class Login extends Component {
 	constructor() {
@@ -18,12 +18,14 @@ export default class Login extends Component {
   }
 
   handleChange = (e) => {
-		// if it is a URL fetch and set title
-		console.log(e.target.value);
 		this.setState({
 	    [e.target.name] : e.target.value
 		});
   }
+
+	logout() {
+		logoutUser();
+	}
 
 
   render() {
@@ -46,6 +48,7 @@ export default class Login extends Component {
 					<button type="submit">Login</button>
 				</form>
 				<p>Don't have an account yet? <Link to="/auth/register">Register</Link></p>
+				<p><button onClick={ this.logout }>Logout</button></p>
 			</div>
 		)
   }
