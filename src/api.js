@@ -10,8 +10,6 @@ var config = {
 
 // root app just in case we need it
 const firebaseApp = firebase.initializeApp(config);
-// real-time database
-const db = firebaseApp.database();
 // firebase auth namespace
 export const auth = firebaseApp.auth();
 
@@ -52,6 +50,10 @@ export function postToJobs(data) {
 /*
 	 Auth
 */
+
+export function isAuthenticated() {
+	return auth.currentUser;
+}
 
 export function registerWithEmail(email, password) {
 	firebase.auth()

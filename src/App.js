@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.js';
+import PublicRoute from './components/PublicRoute.js';
 import { auth } from './api';
 import Companies from './components/Companies';
 import Jobs from './components/Jobs';
@@ -42,8 +43,8 @@ export default class App extends Component {
 					<p>uid: { this.state.uid }</p>
 					<Route exact path="/" component={ Companies }/>
 					<Route path="/jobs" component={ Jobs }/>
-					<Route path="/auth/login" component={ Login }/>
-					<Route path="/auth/register" component={ Register }/>
+					<PublicRoute path="/auth/login" component={ Login }/>
+					<PublicRoute path="/auth/register" component={ Register }/>
 					<PrivateRoute path="/auth/account" component={ Account }/>
 				</section>
 			</div>
