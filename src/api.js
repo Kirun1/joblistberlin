@@ -10,26 +10,9 @@ var config = {
 
 firebase.initializeApp(config);
 
-export function loginWithEmail(email, password) {
-	firebase.auth().signInWithEmailAndPassword(email, password)
-					.then(onLogin)
-					.catch(onLoginError);
-}
-
-export function registerWithEmail(email, password) {
-	firebase.auth()
-					.createUserWithEmailAndPassword(email, password)
-					.then(console.log)
-					.catch(onLoginError);
-}
-
-function onLogin(user) {
-	console.log('on login user:', user)
-	window.localStorage.setItem('user', user);
-}
-function onLoginError(e) {
-	console.log('Login error', e);
-}
+/*
+	 Database
+*/
 
 export function getServerTime() {
 	return database.ServerValue.TIMESTAMP;
@@ -57,4 +40,30 @@ export function postToCompanies(data) {
 }
 export function postToJobs(data) {
   postAPI('jobs', data);
+}
+
+/*
+	 Auth
+ */
+
+export function registerWithEmail(email, password) {
+	firebase.auth()
+					.createUserWithEmailAndPassword(email, password)
+					.then(console.log)
+					.catch(onLoginError);
+}
+
+export function loginWithEmail(email, password) {
+	return firebase.auth().signInWithEmailAndPassword(email, password)
+								 .then(onLogin)
+								 .catch(onLoginError);
+}
+
+function onLogin(user) {
+	console.log('on login user:', user)
+	window.localStorage.setItem('user', JSON.stringify(user));
+}
+
+function onLoginError(e) {
+	console.log('Login error', e);
 }
