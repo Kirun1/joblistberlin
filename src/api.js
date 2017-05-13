@@ -8,7 +8,13 @@ var config = {
   "storageBucket": env.storageBucket
 };
 
-firebase.initializeApp(config);
+// root app just in case we need it
+const firebaseApp = firebase.initializeApp(config);
+// real-time database
+const db = firebaseApp.database();
+// firebase auth namespace
+export const auth = firebaseApp.auth();
+
 
 /*
 	 Database
@@ -42,9 +48,10 @@ export function postToJobs(data) {
   postAPI('jobs', data);
 }
 
+
 /*
 	 Auth
- */
+*/
 
 export function registerWithEmail(email, password) {
 	firebase.auth()

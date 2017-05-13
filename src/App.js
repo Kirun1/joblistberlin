@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
-import { getCurrentUser } from './api';
+import { auth, getCurrentUser } from './api';
 import Companies from './components/Companies';
 import Jobs from './components/Jobs';
 import Login from './components/Login';
@@ -11,7 +11,7 @@ export default class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			user: null
+			uid: null
 		};
 	}
 	/* componentDidUpdate() {
@@ -22,6 +22,7 @@ export default class App extends Component {
 		 }*/
 	componentDidMount() {
     auth.onAuthStateChanged(user => {
+			const storageKey = user;
       if (user) {
         window.localStorage.setItem(storageKey, user.uid);
         this.setState({uid: user.uid});
@@ -45,7 +46,7 @@ export default class App extends Component {
 				</section>
 
 				<section>
-					<p>user: { this.state.user }</p>
+					<p>uid: { this.state.uid }</p>
 					<Route exact path="/" component={ Companies }/>
 					<Route path="/jobs" component={ Jobs }/>
 					<Route path="/auth/login" component={ Login }/>
