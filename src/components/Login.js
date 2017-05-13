@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {
-	getServerTime as getTime,
-	loginWithEmail } from '../api';
+import { loginWithEmail } from '../api';
 
 export default class Login extends Component {
 	constructor() {
@@ -15,7 +13,8 @@ export default class Login extends Component {
 
   handleSubmit = (e) => {
 		e.preventDefault();
-		loginWithEmail(this.state.email, this.state.password);
+		loginWithEmail(this.state.email, this.state.password)
+			.then(data => console.log('after login', data));
   }
 
   handleChange = (e) => {
