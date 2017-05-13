@@ -7,7 +7,7 @@ export default function PublicRoute({ component:Component, ...rest }) {
 	return (
 		<Route {...rest} render={ props => (
 				isAuthenticated() ? (
-					<Redirect to={{pathname: '/'}}/>
+					<Redirect to={ {pathname: '/'} }/>
 				) : (
 					<Component {...props}/>
 				)

@@ -48,7 +48,6 @@ export default class Login extends Component {
 					<button type="submit">Login</button>
 				</form>
 				<p>Don't have an account yet? <Link to="/auth/register">Register</Link></p>
-				<p><button onClick={ this.logout }>Logout</button></p>
 			</div>
 		)
   }

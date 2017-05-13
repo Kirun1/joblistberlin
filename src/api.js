@@ -56,14 +56,13 @@ export function isAuthenticated() {
 }
 
 export function registerWithEmail(email, password) {
-	firebase.auth()
-					.createUserWithEmailAndPassword(email, password)
+	return auth.createUserWithEmailAndPassword(email, password)
 					.then(console.log)
 					.catch(onLoginError);
 }
 
 export function loginWithEmail(email, password) {
-	return firebase.auth().signInWithEmailAndPassword(email, password)
+	return auth.signInWithEmailAndPassword(email, password)
 								 .then(onLogin)
 								 .catch(onLoginError);
 }

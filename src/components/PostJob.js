@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
 	postToJobs,
 	getServerTime as getTime
-} from '../api.js';
+} from '../api';
 
-class PostJob extends React.Component {
+class PostJob extends Component {
   constructor() {
 		super();
 		this.state = {
