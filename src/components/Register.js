@@ -15,7 +15,8 @@ export default class Register extends Component {
 
   handleSubmit = (e) => {
 		e.preventDefault();
-		loginWithEmail(this.state.email, this.state.password);
+		const { email, password } = this.state;
+		registerWithEmail(email, password, getTime());
   }
 
   handleChange = (e) => {
