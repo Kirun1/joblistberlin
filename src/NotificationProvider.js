@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class NotificationProvider extends Component {
+
+	static childContextTypes = {
+		messages: PropTypes.array,
+		addNotification: PropTypes.func
+	}
+
 	constructor() {
 		super();
 		this.state = {
@@ -30,8 +36,3 @@ export default class NotificationProvider extends Component {
 		)
 	}
 }
-
-NotificationProvider.childContextTypes = {
-  messages: PropTypes.array,
-	addNotification: PropTypes.func
-};
