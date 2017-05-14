@@ -67,6 +67,7 @@ textarea {
 	width: 100%;
 }
 .Notification {
+	font-size: 0.8rem;
 	background-color: #9a9a9a;
 	margin-top: 0.5rem;
 	margin-right: 0.5rem;
