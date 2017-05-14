@@ -2,9 +2,17 @@ import React, { Component } from 'react';
 
 export default class Notification extends Component {
 	componentDidMount() {
-		window.setTimeout(this.props.onRemove, 4000);
+		this.timer = setTimeout(this.props.onRemove, 8000);
+		console.log('letime', this.timer)
 	}
+
+	componentWillUnmount() {
+		clearTimeout(this.timer);
+		console.log('this.timer ciao', this.timer);
+	}
+
 	render() {
-		return <article>{ this.props.message }</article>
+		return <article className="Notification"
+										onClick={ this.props.onRemove }>{ this.props.message }</article>
 	}
 }

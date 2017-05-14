@@ -17,7 +17,7 @@ export default class Login extends Component {
 		loginWithEmail(this.state.email, this.state.password)
 			.then(() => this.props.history.push('/'))
 			.catch(e => {
-				this.context.addNotification('erori')
+				this.context.addNotification(e.message)
 				console.log('Login error:', e)
 			});
   }

@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import Notification from './Notification';
 
 export default function NotificationDisplay(props, context) {
+
+	if (!context.notifications.length) return null;
+
 	return (
-		<aside>
+		<aside className="Notifications">
 			{
 				context.notifications.map((notification, index) => {
 					return <Notification
-										 key={index}
+										 key={notification.id}
 										 onRemove={ () => context.removeNotification(notification.id) }
 										 message={ notification.message }/>
 				})
