@@ -61,7 +61,8 @@ export function getCurrentUser() {
 
 export function registerWithEmail(email, password) {
 	return auth.createUserWithEmailAndPassword(email, password)
-					.then(sendVerificationEmail);
+						 .then(sendVerificationEmail)
+						 .then(logoutUser);
 }
 
 export function logoutUser() {
