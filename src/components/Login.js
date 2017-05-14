@@ -15,7 +15,7 @@ export default class Login extends Component {
 		e.preventDefault();
 		loginWithEmail(this.state.email, this.state.password)
 			.then(() => this.props.history.push('/'))
-			.catch(e => console.log);
+			.catch(e => console.log('Login error:', e));
   }
 
   handleChange = (e) => {

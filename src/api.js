@@ -55,18 +55,37 @@ export function isAuthenticated() {
 	return auth.currentUser;
 }
 
-export function registerWithEmail(email, password) {
-	return auth.createUserWithEmailAndPassword(email, password)
-					.then(console.log);
+export function getCurrentUser() {
+	return auth.currentUser;
 }
 
-export function loginWithEmail(email, password) {
-	return auth.signInWithEmailAndPassword(email, password)
-								 .then(onLogin);
+export function registerWithEmail(email, password) {
+	return auth.createUserWithEmailAndPassword(email, password)
+					.then(sendVerificationEmail);
 }
+
 export function logoutUser() {
 	return auth.signOut()
 						 .then(data => console.log('logout success', data));
+}
+
+export function loginWithEmail(email, password) {
+	return auth.signInWithEmailAndPassword(email, password).then(user => {
+		if(user.emailVerified) {
+			return user;
+		} else {
+			sendVerificationEmail();
+			return logoutUser().then(() => {
+				throw new Error('Email is not verified, check your inbox');
+			});
+		}
+	});
+}
+function sendVerificationEmail() {
+	getCurrentUser().sendEmailVerification().then((data) => {
+		console.log('email verification sent:', data);
+		logoutUser();
+	}).catch(e => console.log('email verification error:', e))
 }
 
 function onLogin(user) {
