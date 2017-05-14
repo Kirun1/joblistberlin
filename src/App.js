@@ -20,7 +20,7 @@ export default function App() {
 					<NavLink to="/jobs">Jobs</NavLink>
 
 					{ auth && <NavLink to="/auth/account">Account</NavLink> }
-					{ auth && <NavLink to="/auth/logout">logout</NavLink> }
+					{ auth && <NavLink to="/auth/logout">Logout</NavLink> }
 					{ !auth && <NavLink to="/auth/login">Login</NavLink> }
 
 				</nav>
