@@ -9,11 +9,13 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import Register from './components/Register';
 import Account from './components/Account';
+import NotificationDisplay from './components/NotificationDisplay';
 
 export default function App() {
 	let auth = isAuthenticated();
 	return (
 		<div className="App">
+			<NotificationDisplay/>
 			<section>
 				<nav className="Nav">
 					<NavLink to="/" exact>Companies</NavLink>
@@ -22,7 +24,6 @@ export default function App() {
 					{ auth && <NavLink to="/auth/account">Account</NavLink> }
 					{ auth && <NavLink to="/auth/logout">Logout</NavLink> }
 					{ !auth && <NavLink to="/auth/login">Login</NavLink> }
-
 				</nav>
 			</section>
 

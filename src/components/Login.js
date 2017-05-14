@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { loginWithEmail } from '../api';
 
@@ -15,7 +16,10 @@ export default class Login extends Component {
 		e.preventDefault();
 		loginWithEmail(this.state.email, this.state.password)
 			.then(() => this.props.history.push('/'))
-			.catch(e => console.log('Login error:', e));
+			.catch(e => {
+				this.context.addNotification('erori')
+				console.log('Login error:', e)
+			});
   }
 
   handleChange = (e) => {
@@ -47,4 +51,8 @@ export default class Login extends Component {
 			</div>
 		)
   }
+}
+
+Login.contextTypes = {
+	addNotification: PropTypes.func
 }
