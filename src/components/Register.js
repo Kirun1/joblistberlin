@@ -22,8 +22,6 @@ export default class Register extends Component {
   }
 
   handleChange = (e) => {
-		// if it is a URL fetch and set title
-		console.log(e.target.value);
 		this.setState({
 	    [e.target.name] : e.target.value
 		});
