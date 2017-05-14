@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import reject from 'lodash/reject';
 
 export default class NotificationProvider extends Component {
 
 	static childContextTypes = {
-		messages: PropTypes.array,
-		addNotification: PropTypes.func
+		notifications: PropTypes.array,
+		addNotification: PropTypes.func,
+		removeNotification: PropTypes.func
 	}
 
 	constructor() {
 		super();
 		this.state = {
-			messages: []
+			notifications: []
 		}
 	}
 
 	getChildContext() {
     return {
-			messages: this.state.messages,
-			addNotification: this.addNotification.bind(this)
+			notifications: this.state.notifications,
+			addNotification: this.addNotification.bind(this),
+			removeNotification: this.removeNotification.bind(this)
 		};
   }
 
-	addNotification(message) {
+	removeNotification(id) {
 		this.setState({
-			messages: [...this.state.messages, message]
+			notifications: reject(this.state.notifications, {id})
+		})
+	}
+
+	addNotification(message) {
+		const notification = {
+			message,
+			id: Date.now()
+		}
+		this.setState({
+			notifications: [...this.state.notifications, notification]
 		})
 	}
 
