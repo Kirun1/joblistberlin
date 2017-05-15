@@ -10,7 +10,6 @@ import Logout from './components/Logout';
 import Register from './components/Register';
 import Account from './components/Account';
 import NotificationDisplay from './components/NotificationDisplay';
-import withNotification from './components/withNotification';
 
 export default function App() {
 	let auth = isAuthenticated();
@@ -32,9 +31,9 @@ export default function App() {
 				<Route exact path="/" component={ Companies }/>
 				<Route path="/jobs" component={ Jobs }/>
 				<PublicRoute path="/auth/register"
-										 component={ withNotification(Register) }/>
+										 component={ Register }/>
 				<PublicRoute path="/auth/login"
-										 component={ withNotification(Login) }/>
+										 component={ Login }/>
 				<PrivateRoute path="/auth/logout" component={ Logout }/>
 				<PrivateRoute path="/auth/account" component={ Account }/>
 			</section>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { loginWithEmail } from '../api';
+import withNotification from './withNotification';
 
-export default class Login extends Component {
+class Login extends Component {
 
 	constructor() {
 		super();
@@ -52,3 +53,5 @@ export default class Login extends Component {
 		)
   }
 }
+
+export default withNotification( Login );

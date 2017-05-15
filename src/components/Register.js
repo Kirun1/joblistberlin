@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import withNotification from './withNotification';
 import { Link } from 'react-router-dom';
 import {
 	getServerTime as getTime,
 	registerWithEmail } from '../api';
 
-export default class Register extends Component {
+class Register extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -56,3 +57,5 @@ export default class Register extends Component {
 		)
   }
 }
+
+export default withNotification( Register );
