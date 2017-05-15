@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { loginWithEmail } from '../api';
 
 export default class Login extends Component {
+
+	static contextTypes = {
+		addNotification: PropTypes.func
+	}
+
 	constructor() {
 		super();
 		this.state = {
@@ -51,8 +56,4 @@ export default class Login extends Component {
 			</div>
 		)
   }
-}
-
-Login.contextTypes = {
-	addNotification: PropTypes.func
 }
