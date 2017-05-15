@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { loginWithEmail } from '../api';
 
 export default class Login extends Component {
-
-	static contextTypes = {
-		addNotification: PropTypes.func
-	}
 
 	constructor() {
 		super();
@@ -22,7 +17,7 @@ export default class Login extends Component {
 		loginWithEmail(this.state.email, this.state.password)
 			.then(() => this.props.history.push('/'))
 			.catch(e => {
-				this.context.addNotification(e.message)
+				this.props.addNotification(e.message)
 				console.log('Login error:', e)
 			});
   }
