@@ -38,6 +38,7 @@ class Register extends Component {
 
 		return (
 			<div>
+				<h2>Register<small>, create an account</small></h2>
 				<form onSubmit={ this.handleSubmit }>
 					<article>
 						<label>Email:

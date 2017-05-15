@@ -15,6 +15,8 @@ export default class Companies extends React.Component {
 		if( !this.state ) return <Loading/>
 		return (
 		<div>
+			<h2><small>A list of </small>companies</h2>
+			<p>Companies in this list have <strong>officies in Berlin</strong>, and have <strong>job offers</strong> on their website.</p>
 			<PostCompany/>
 			<div className="Companies">
 				{
