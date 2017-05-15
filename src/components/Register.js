@@ -17,8 +17,12 @@ export default class Register extends Component {
 		e.preventDefault();
 		const { email, password } = this.state;
 		registerWithEmail(email, password, getTime())
-			.then(() => this.props.history.push('/auth/login'))
-			.catch(e => console.log);
+			.then(() => {
+				this.props.history.push('/auth/login');
+			})
+			.catch(e => {
+				return this.props.addNotification(e.message);
+			});
   }
 
   handleChange = (e) => {

@@ -31,7 +31,8 @@ export default function App() {
 			<section>
 				<Route exact path="/" component={ Companies }/>
 				<Route path="/jobs" component={ Jobs }/>
-				<PublicRoute path="/auth/register" component={ Register }/>
+				<PublicRoute path="/auth/register"
+										 component={ withNotification(Register) }/>
 				<PublicRoute path="/auth/login"
 										 component={ withNotification(Login) }/>
 				<PrivateRoute path="/auth/logout" component={ Logout }/>
