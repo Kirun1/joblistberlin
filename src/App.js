@@ -10,6 +10,7 @@ import Logout from './components/Logout';
 import Register from './components/Register';
 import Account from './components/Account';
 import NotificationDisplay from './components/NotificationDisplay';
+import logo from '../public/jlb-logo.png'
 
 export default function App() {
 	let auth = isAuthenticated();
@@ -18,6 +19,9 @@ export default function App() {
 			<NotificationDisplay/>
 			<section>
 				<nav className="Nav">
+					<NavLink to="/" exact>
+						<img className="Logo" src={logo}/>
+					</NavLink>
 					<NavLink to="/" exact>Companies</NavLink>
 					<NavLink to="/jobs">Jobs</NavLink>
 

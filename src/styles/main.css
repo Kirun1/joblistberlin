@@ -27,9 +27,14 @@ p {
 	display: flex;
 	flex-direction: row;
 }
+.Logo {
+	width: 100%;
+}
 .Nav {
 	display: flex;
 	flex-direction: column;
+	max-width: 8rem;
+	width: 100%;
 }
 .Nav a {
 	padding: 1rem;
