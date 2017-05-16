@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { getCurrentUser } from '../api';
+import withNotification from './withNotification';
+import { getCurrentUser,
+				 sendVerificationEmail,
+				 updateUserEmail } from '../api';
 
-export default class Account extends Component {
+class Account extends Component {
 	constructor() {
 		super();
 		this.state = {
-			user: null
+			user: null,
+			newEmail: null
 		}
 	}
 
@@ -19,10 +23,37 @@ export default class Account extends Component {
 	isEmailVerified() {
 		const { email, emailVerified} = this.state.user;
 		if (emailVerified) {
-			return `${email} (verified)`;
+			return `(verified) ${email}`;
 		} else {
-			return `${email} (not-verified)`;
+			return `(not-verified) ${email}`;
 		}
+	}
+
+	handleEmailUpdate = (e) => {
+		this.setState({
+	    newEmail : e.target.value
+		});
+	}
+
+	sendEmail = () => {
+		const { addNotification } = this.props;
+		sendVerificationEmail().then(() => {
+			addNotification('A confirmation email was again to your email adress. Check your inbox');
+		})
+	}
+	clearEmail() {
+		this.setState({
+			newEmail: ''
+		})
+	}
+	updateEmail = () => {
+		const { addNotification } = this.props
+		updateUserEmail(this.state.newEmail).then(() => {
+			addNotification('A confirmation email was sent to both your new and old email. Check your inbox!');
+			this.clearEmail();
+		}).catch(e => {
+			addNotification(e.message);
+		})
 	}
 
 	render() {
@@ -33,10 +64,17 @@ export default class Account extends Component {
 				<h2>Account <small>overview</small></h2>
 				<label>
 					Your email:
-					<input disabled={true} placeholder={ this.isEmailVerified() }/>
-					{ !this.state.user.emailVerified && <button onClick={ this.sendVerificationEmail }>Re-send verification email</button> }
+					<input title={ this.state.user.email }
+								 onChange={this.handleEmailUpdate }
+								 placeholder={ this.isEmailVerified() }/>
 				</label>
+				<div className="ButtonGroup">
+					{ this.state.newEmail && <button className="Button" onClick={ this.updateEmail }>Update email</button> }
+					{ !this.state.user.emailVerified && <button className="Button" onClick={ this.sendEmail }>Re-send verification email</button> }
+				</div>
 			</div>
 		)
 	}
 }
+
+export default withNotification(Account);

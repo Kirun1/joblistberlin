@@ -46,7 +46,6 @@ export function postToJobs(data) {
   postAPI('jobs', data);
 }
 
-
 /*
 	 Auth
 */
@@ -59,6 +58,10 @@ export function getCurrentUser() {
 	return auth.currentUser;
 }
 
+export function updateUserEmail(email) {
+	return auth.currentUser.updateEmail(email);
+}
+
 export function registerWithEmail(email, password) {
 	return auth.createUserWithEmailAndPassword(email, password)
 						 .then(sendVerificationEmail)
@@ -66,8 +69,7 @@ export function registerWithEmail(email, password) {
 }
 
 export function logoutUser() {
-	return auth.signOut()
-						 .then(data => console.log('logout success', data));
+	return auth.signOut();
 }
 
 export function loginWithEmail(email, password) {
@@ -82,13 +84,7 @@ export function loginWithEmail(email, password) {
 		}
 	});
 }
-function sendVerificationEmail() {
-	getCurrentUser().sendEmailVerification().then((data) => {
-		console.log('email verification sent:', data);
-		logoutUser();
-	}).catch(e => console.log('email verification error:', e))
-}
 
-function onLogin(user) {
-	console.log('on login user:', user)
+export function sendVerificationEmail() {
+	return getCurrentUser().sendEmailVerification();
 }
