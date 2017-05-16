@@ -8,16 +8,15 @@ export default function Account(props) {
 	const { match } = props;
 	return (
 		<div>
-			<h2>Account <small>overview</small></h2>
-
-			<section>
+			<section className="Section">
+				<h2>Account <small>overview</small></h2>
 				<nav className="Nav">
 					<NavLink exact to={`${match.url}`}>Jobs</NavLink>
 					<NavLink to={`${match.url}/settings`}>Settings</NavLink>
 				</nav>
 			</section>
 
-			<section>
+			<section className="Section">
 				<Route exact path={`${match.url}`} component={ UserJobs }/>
 				<Route path={`${match.url}/settings`} component={ UserSettings }/>
 			</section>

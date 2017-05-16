@@ -12,11 +12,19 @@ body {
 	font-size: 15px;
 	line-height: 1.4;
 }
-section {
+.Section {
+	padding-bottom: 2rem;
+}
+.Container {
 	padding-left: 1rem;
 	padding-right: 1rem;
-	padding-top: 1rem;
 }
+
+.App-main,
+.App-aside {
+	padding-top: 1.5rem;
+}
+
 a.active {
 	background-color: #e9e9e9;
 }

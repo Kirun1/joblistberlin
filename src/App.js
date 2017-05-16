@@ -17,7 +17,8 @@ export default function App() {
 	return (
 		<div className="App">
 			<NotificationDisplay/>
-			<section>
+
+			<aside className="App-aside Container Section">
 				<nav className="Nav Nav--main">
 					<NavLink className="Logo" to="/">
 						<img className="Logo-img" src={logo} alt="Job List Berlin logo"/>
@@ -29,9 +30,9 @@ export default function App() {
 					{ auth && <NavLink to="/auth/logout">Logout</NavLink> }
 					{ !auth && <NavLink to="/auth/login">Login</NavLink> }
 				</nav>
-			</section>
+			</aside>
 
-			<section>
+			<main className="App-main Container Section">
 				<Route exact path="/" component={ Companies }/>
 				<Route path="/jobs" component={ Jobs }/>
 				<PublicRoute path="/auth/register"
@@ -40,7 +41,7 @@ export default function App() {
 										 component={ Login }/>
 				<PrivateRoute path="/auth/logout" component={ Logout }/>
 				<PrivateRoute path="/auth/account" component={ Account }/>
-			</section>
+			</main>
 		</div>
 	)
 }
