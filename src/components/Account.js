@@ -62,20 +62,21 @@ class Account extends Component {
 
 	render() {
 		if(!this.state.email) return null;
+		const { email, newEmail, emailVerified } = this.state;
 
 		return (
 			<div>
 				<h2>Account <small>overview</small></h2>
 				<label>
 					Your email:
-					<input title={ this.state.email }
-								 value={ this.state.newEmail }
+					<input title={ email }
+								 value={ newEmail }
 								 onChange={this.handleEmailUpdate }
 								 placeholder={ this.isEmailVerified() }/>
 				</label>
 				<div className="ButtonGroup">
-					{ this.state.newEmail && <button className="Button" onClick={ this.updateEmail }>Update email</button> }
-					{ !this.state.emailVerified && <button className="Button" onClick={ this.sendEmail }>Re-send verification email</button> }
+					{ newEmail && <button className="Button" onClick={ this.updateEmail }>Update email</button> }
+					{ !emailVerified && !newEmail && <button className="Button" onClick={ this.sendEmail }>Re-send verification email</button> }
 				</div>
 			</div>
 		)
