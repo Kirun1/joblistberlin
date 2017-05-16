@@ -1,5 +1,6 @@
 import env from './env.json';
 import firebase, { database } from 'firebase';
+import _ from 'lodash';
 
 var config = {
   "apiKey": env.apiKey,
@@ -12,6 +13,7 @@ var config = {
 const firebaseApp = firebase.initializeApp(config);
 // firebase auth namespace
 export const auth = firebaseApp.auth();
+export const db = firebase.database();
 
 
 /*
@@ -22,12 +24,13 @@ export function getServerTime() {
 	return database.ServerValue.TIMESTAMP;
 }
 
-function buildUrl(endPoint) {
-  return `${env.apiRootUrl}/${endPoint}.json`;
-}
-
-export function callAPI(endPoint, options) {
-  return fetch(buildUrl(endPoint), options).then(response => response.json());
+export function callAPI(endPoint) {
+	return new Promise((resolve, reject) => {
+		db.ref(endPoint).on('value', (snapshot) => {
+			const res = _.values(snapshot.val());
+			resolve(res);
+		})
+	});
 }
 
 export function postAPI(endpoint, data) {
