@@ -19,8 +19,8 @@ export default function App() {
 			<NotificationDisplay/>
 			<section>
 				<nav className="Nav">
-					<NavLink className="Logo" to="/" exact>
-						<img className="Logo-img" src={logo}/>
+					<NavLink className="Logo" to="/">
+						<img className="Logo-img" src={logo} alt="Job List Berlin logo"/>
 					</NavLink>
 					<NavLink to="/" exact>Companies</NavLink>
 					<NavLink to="/jobs">Jobs</NavLink>
