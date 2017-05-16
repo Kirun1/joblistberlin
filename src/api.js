@@ -62,6 +62,10 @@ export function updateUserEmail(email) {
 	return auth.currentUser.updateEmail(email);
 }
 
+export function sendPasswordResetEmail(email) {
+	return auth.sendPasswordResetEmail(email);
+}
+
 export function registerWithEmail(email, password) {
 	return auth.createUserWithEmailAndPassword(email, password)
 						 .then(sendVerificationEmail)
