@@ -34,7 +34,7 @@ class Login extends Component {
 
 		return (
 			<div>
-				<h2>Login to <small>Job List Berlin</small></h2>
+				<h2>Login to <small><Link to="/">Job List Berlin</Link></small></h2>
 				<form onSubmit={ this.handleSubmit }>
 					<article>
 						<label>Email:
