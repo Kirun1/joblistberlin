@@ -25,7 +25,7 @@ class Account extends Component {
 			return `(verified) ${email}`;
 		} else {
 			return `(not-verified) ${email}`;
-		};
+		}
 	}
 
 	handleEmailUpdate = (e) => {
