@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { loginWithEmail } from '../api';
+import {
+	loginWithEmail,
+	sendPasswordResetEmail } from '../api';
 import withNotification from './withNotification';
 
 class Login extends Component {
@@ -16,7 +18,6 @@ class Login extends Component {
   handleSubmit = (e) => {
 		const { addNotification } = this.props;
 		e.preventDefault();
-		console.log(this.props);
 		loginWithEmail(this.state.email, this.state.password)
 			.then(() => {
 				this.props.history.push('/auth/account')
@@ -32,6 +33,21 @@ class Login extends Component {
 	    [e.target.name] : e.target.value
 		});
   }
+
+	handleReset = () => {
+		const { addNotification } = this.props;
+		const email = this.state.email;
+
+		if(!email) {
+			return addNotification('Type your email in the email field and click this button again');
+		}
+
+		sendPasswordResetEmail(email).then(() => {
+			addNotification(`A reset link was sent to your email <${email}>`);
+		}).catch(e => {
+			addNotification(e.message);
+		})
+	}
 
   render() {
 		const { email, password } = this.state;
@@ -54,6 +70,7 @@ class Login extends Component {
 					<button type="submit">Login</button>
 				</form>
 				<p>Don't have an account yet? <Link to="/auth/register">Register</Link></p>
+				<p>Forgot your password? <button onClick={ this.handleReset }>Reset password</button></p>
 			</div>
 		)
   }
