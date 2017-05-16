@@ -63,7 +63,7 @@ a.Logo {
 	align-items: center;
 }
 @media (min-width: 30rem) {
-	.Nav {
+	.Nav--main {
 		flex-direction: column;
 		align-items: start;
 	}
