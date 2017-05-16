@@ -55,7 +55,7 @@ export function isAuthenticated() {
 }
 
 export function getCurrentUser() {
-	return auth.currentUser;
+	return new Promise((resolve, reject) => resolve(auth.currentUser) );
 }
 
 export function updateUserEmail(email) {
