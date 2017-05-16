@@ -78,7 +78,7 @@ class UserSettings extends Component {
 		return (
 			<div>
 				<h3>Settings <small>for your account</small></h3>
-				<section>
+				<section className="Section">
 					<label>
 						Your email:
 						<input title={ email }
@@ -91,7 +91,7 @@ class UserSettings extends Component {
 						{ !emailVerified && !newEmail && <button className="Button" onClick={ this.sendEmail }>Re-send verification email</button> }
 					</div>
 				</section>
-				<section>
+				<section className="Section">
 					<p>Your password:</p>
 					<button className="Button" onClick={ this.changePassword }>Change password</button>
 				</section>
