@@ -77,6 +77,7 @@ class UserSettings extends Component {
 
 		return (
 			<div>
+				<h3>Settings <small>for your account</small></h3>
 				<section>
 					<label>
 						Your email:

@@ -2,7 +2,7 @@ import React from 'react';
 import UserSettings from './UserSettings';
 import UserJobs from './UserJobs';
 import { Route,
-				 Link } from 'react-router-dom';
+				 NavLink } from 'react-router-dom';
 
 export default function Account(props) {
 	const { match } = props;
@@ -12,13 +12,15 @@ export default function Account(props) {
 
 			<section>
 				<nav className="Nav">
-					<Link to={`${match.url}`}>Jobs</Link>
-					<Link to={`${match.url}/settings`}>Settings</Link>
+					<NavLink exact to={`${match.url}`}>Jobs</NavLink>
+					<NavLink to={`${match.url}/settings`}>Settings</NavLink>
 				</nav>
 			</section>
 
-			<Route exact path={`${match.url}`} component={ UserJobs }/>
-			<Route path={`${match.url}/settings`} component={ UserSettings }/>
+			<section>
+				<Route exact path={`${match.url}`} component={ UserJobs }/>
+				<Route path={`${match.url}/settings`} component={ UserSettings }/>
+			</section>
 		</div>
 	)
 }
