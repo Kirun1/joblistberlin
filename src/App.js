@@ -24,7 +24,7 @@ export default function App() {
 					</NavLink>
 					<NavLink to="/" exact>Companies</NavLink>
 					<NavLink to="/jobs">Jobs</NavLink>
-
+					<hr/>
 					{ auth && <NavLink to="/auth/account">Account</NavLink> }
 					{ auth && <NavLink to="/auth/logout">Logout</NavLink> }
 					{ !auth && <NavLink to="/auth/login">Login</NavLink> }
