@@ -67,10 +67,12 @@ class Login extends Component {
 							<input name="password" type="password" placeholder="Password" onChange={ this.handleChange } value={ password }/>
 						</label>
 					</article>
-					<button type="submit">Login</button>
+					<div className="ButtonGroup">
+						<button className="Button" type="submit">Login</button>
+						<button className="Button" onClick={ this.handleReset }>Reset password</button>
+					</div>
 				</form>
 				<p>Don't have an account yet? <Link to="/auth/register">Register</Link></p>
-				<p>Forgot your password? <button onClick={ this.handleReset }>Reset password</button></p>
 			</div>
 		)
   }
