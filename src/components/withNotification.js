@@ -7,7 +7,7 @@ const withNotification = (ExtendedComponent) => class extends Component {
 	}
 
 	render() {
-		return <ExtendedComponent addNotification={ this.context.addNotification }/>
+		return <ExtendedComponent {...this.props} addNotification={ this.context.addNotification }/>
 	}
 }
 

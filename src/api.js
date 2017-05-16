@@ -77,7 +77,7 @@ export function loginWithEmail(email, password) {
 		} else {
 			sendVerificationEmail();
 			return logoutUser().then(() => {
-				throw new Error('Email is not verified, check your inbox');
+				throw new Error('You need to verify your <email>, check your inbox for a confirmation link.');
 			});
 		}
 	});

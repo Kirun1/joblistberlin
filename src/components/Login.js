@@ -14,12 +14,16 @@ class Login extends Component {
   }
 
   handleSubmit = (e) => {
+		const { addNotification } = this.props;
 		e.preventDefault();
+		console.log(this.props);
 		loginWithEmail(this.state.email, this.state.password)
-			.then(() => this.props.history.push('/'))
+			.then(() => {
+				this.props.history.push('/auth/account')
+				addNotification('You are logged in!')
+			})
 			.catch(e => {
-				this.props.addNotification(e.message)
-				console.log('Login error:', e)
+				addNotification(e.message)
 			});
   }
 

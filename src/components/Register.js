@@ -16,13 +16,15 @@ class Register extends Component {
 
   handleSubmit = (e) => {
 		e.preventDefault();
+		const { history, addNotification } = this.props;
 		const { email, password } = this.state;
 		registerWithEmail(email, password, getTime())
 			.then(() => {
-				this.props.history.push('/auth/login');
+				history.push('/auth/login');
+				addNotification('You now need to confirm your email before being able to Login. Check your inbox for a link!');
 			})
 			.catch(e => {
-				return this.props.addNotification(e.message);
+				return addNotification(e.message);
 			});
   }
 
