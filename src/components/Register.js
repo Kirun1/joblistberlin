@@ -39,6 +39,7 @@ class Register extends Component {
 		return (
 			<div>
 				<h2>Register<small>, create an account</small></h2>
+				<p>To submit on the Job Board and manage your account.</p>
 				<form onSubmit={ this.handleSubmit }>
 					<article>
 						<label>Email:
