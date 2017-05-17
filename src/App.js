@@ -1,14 +1,13 @@
 import React from 'react';
 import { Switch,
 				 Route,
-				 NavLink,
-				 Redirect } from 'react-router-dom';
+				 NavLink } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute.js';
 import { isAuthenticated } from './api';
 import NoMatchRoute from './components/NoMatchRoute';
 import CompaniesRoute from './components/CompaniesRoute';
-import Jobs from './components/Jobs';
+import JobsRoute from './components/JobsRoute';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Register from './components/Register';
@@ -39,7 +38,7 @@ export default function App() {
 			<main className="App-main Container Section">
 				<Switch>
 					<Route path="/companies" component={ CompaniesRoute }/>
-					<Route path="/jobs" component={ Jobs }/>
+					<Route path="/jobs" component={ JobsRoute }/>
 					<PublicRoute path="/auth/register" component={ Register }/>
 					<PublicRoute path="/auth/login" component={ Login }/>
 					<PrivateRoute path="/auth/logout" component={ Logout }/>

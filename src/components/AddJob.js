@@ -32,20 +32,23 @@ class PostJob extends Component {
 		const { description, title } = this.state;
 
 		return (
-			<form onSubmit={ this.handleSubmit }>
-				<article>
-					<label>Title:
-						<input name="title"  type="text" placeholder="Job's title" onChange={ this.handleChange } value={ title }/>
-					</label>
-				</article>
+			<div>
+				<h2>Add <small>a new job</small></h2>
+				<form onSubmit={ this.handleSubmit }>
+					<article>
+						<label>Title:
+							<input name="title"  type="text" placeholder="Job's title" onChange={ this.handleChange } value={ title }/>
+						</label>
+					</article>
 
-				<article>
-					<label>Url:
-						<textarea name="description" type="text" placeholder="Job's description" onChange={ this.handleChange } value={ description }/>
-					</label>
-				</article>
-				<button type="submit">add Job</button>
-			</form>
+					<article>
+						<label>Url:
+							<textarea name="description" type="text" placeholder="Job's description" onChange={ this.handleChange } value={ description }/>
+						</label>
+					</article>
+					<button type="submit">add Job</button>
+				</form>
+			</div>
 		)
   }
 }

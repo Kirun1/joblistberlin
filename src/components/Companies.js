@@ -20,7 +20,6 @@ export default class Companies extends Component {
 	}
 	render() {
 		if (!this.state.model ) return <Loading/>
-		const { match } = this.props;
 		return (
 		<div>
 			<h2><small>A list of </small>companies</h2>
