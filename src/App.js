@@ -1,7 +1,8 @@
 import React from 'react';
 import { Switch,
 				 Route,
-				 NavLink } from 'react-router-dom';
+				 NavLink,
+				 Redirect } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute.js';
 import { isAuthenticated } from './api';
@@ -37,6 +38,7 @@ export default function App() {
 
 			<main className="App-main Container Section">
 				<Switch>
+					<Redirect exact from='/' to='/companies'/>
 					<Route path="/companies" component={ CompaniesRoute }/>
 					<Route path="/jobs" component={ JobsRoute }/>
 					<PublicRoute path="/auth/register" component={ Register }/>
