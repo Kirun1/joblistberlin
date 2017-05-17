@@ -1,8 +1,12 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { Switch,
+				 Route,
+				 NavLink,
+				 Redirect } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute.js';
 import { isAuthenticated } from './api';
+import NoMatchRoute from './components/NoMatchRoute';
 import CompaniesRoute from './components/CompaniesRoute';
 import Jobs from './components/Jobs';
 import Login from './components/Login';
@@ -23,7 +27,7 @@ export default function App() {
 					<NavLink className="Logo" to="/">
 						<img className="Logo-img" src={logo} alt="Job List Berlin logo"/>
 					</NavLink>
-					<NavLink to="/" exact>Companies</NavLink>
+					<NavLink to="/companies">Companies</NavLink>
 					<NavLink to="/jobs">Jobs</NavLink>
 					<hr/>
 					{ auth && <NavLink to="/auth/account">Account</NavLink> }
@@ -33,14 +37,16 @@ export default function App() {
 			</aside>
 
 			<main className="App-main Container Section">
-				<Route exact path="/" component={ CompaniesRoute }/>
-				<Route path="/jobs" component={ Jobs }/>
-				<PublicRoute path="/auth/register"
-										 component={ Register }/>
-				<PublicRoute path="/auth/login"
-										 component={ Login }/>
-				<PrivateRoute path="/auth/logout" component={ Logout }/>
-				<PrivateRoute path="/auth/account" component={ Account }/>
+				<Switch>
+					<Route path="/companies" component={ CompaniesRoute }/>
+					<Route path="/jobs" component={ Jobs }/>
+					<PublicRoute path="/auth/register" component={ Register }/>
+					<PublicRoute path="/auth/login" component={ Login }/>
+					<PrivateRoute path="/auth/logout" component={ Logout }/>
+					<PrivateRoute path="/auth/account" component={ Account }/>
+					<Route component={NoMatchRoute}/>
+				</Switch>
+
 			</main>
 		</div>
 	)

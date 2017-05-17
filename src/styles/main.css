@@ -113,6 +113,11 @@ textarea {
 }
 .Company {
 	margin-bottom: 0.8rem;
+	font-size: 1rem;
+}
+.Company span {
+	margin-right: 0.3rem;
+	color: #9a9a9a;
 }
 
 .Notifications {
