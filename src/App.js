@@ -3,7 +3,7 @@ import { NavLink, Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute.js';
 import { isAuthenticated } from './api';
-import Companies from './components/Companies';
+import CompaniesRoute from './components/CompaniesRoute';
 import Jobs from './components/Jobs';
 import Login from './components/Login';
 import Logout from './components/Logout';
@@ -33,7 +33,7 @@ export default function App() {
 			</aside>
 
 			<main className="App-main Container Section">
-				<Route exact path="/" component={ Companies }/>
+				<Route exact path="/" component={ CompaniesRoute }/>
 				<Route path="/jobs" component={ Jobs }/>
 				<PublicRoute path="/auth/register"
 										 component={ Register }/>

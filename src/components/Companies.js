@@ -1,26 +1,29 @@
-import React from 'react';
-import {callAPI} from '../api';
+import React, { Component } from 'react';
+import { callAPI } from '../api';
 import Loading from './Loading';
 import Company from './Company';
-import PostCompany from './PostCompany';
 
-export default class Companies extends React.Component {
+export default class Companies extends Component {
+	constructor() {
+		super();
+		this.state = {
+			model: null
+		}
+	}
   componentDidMount() {
-		callAPI('links').then((data) => {
+		callAPI('links').then((model) => {
 			this.setState({
-				data
+				model
 			})
 		})
 	}
 	render() {
-		if( !this.state ) return <Loading/>
+		if (!this.state.model ) return <Loading/>
 		return (
 		<div>
-			<h2><small>A list of </small>companies</h2>
-			<p>Companies in this list have <strong>officies in Berlin</strong>, and have <strong>job offers</strong> on their website.</p>
-			<PostCompany/>
+			<p>Companies in this list have <strong>officies in Berlin</strong>, and <strong>job offers</strong> on their website.</p>
 			<div className="Companies">
-				{ this.state.data.map((job, index) => <Company key={ index } { ...job }/>) }
+				{ this.state.model.map((job, index) => <Company key={ index } { ...job }/>) }
 			</div>
 		</div>
 		)
