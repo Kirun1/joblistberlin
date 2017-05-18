@@ -93,5 +93,5 @@ export function loginWithEmail(email, password) {
 }
 
 export function sendVerificationEmail() {
-	return getCurrentUser().sendEmailVerification();
+	return getCurrentUser().then(user => user.sendEmailVerification());
 }
