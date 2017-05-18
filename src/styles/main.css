@@ -37,7 +37,7 @@ p {
 	margin-bottom: 1rem;
 	line-height: 1.6;
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
 	font-weight: bold;
 	margin-bottom: 1rem;
 }
@@ -112,12 +112,21 @@ textarea {
 	font-size: 100%;
 }
 .Company {
-	margin-bottom: 0.8rem;
+	margin-bottom: 1.8rem;
 	font-size: 1rem;
 }
-.Company span {
-	margin-right: 0.3rem;
-	color: #9a9a9a;
+.Company--isNotApproved {
+	border: 1px solid red;
+}
+.Company-title {
+	margin-bottom: 0.2rem;
+}
+.Company-link input {
+	cursor: pointer;
+	background-color: #e9e9e9;
+	padding: 0.1rem;
+	border: 1px solid transparent;
+	outline: 0;
 }
 
 .Notifications {

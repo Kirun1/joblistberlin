@@ -11,9 +11,10 @@ export default function Job(props) {
 
   return (
 	  <article key={ props.id } className={`Company ${companyStatus}`}>
-			<span></span>
 	    <h4 className="Company-title">{props.title}</h4>
-			<a href={props.url} className="Company-link">{props.url}</a>
+			<a href={props.url} className="Company-link">
+				<input value={props.url}/>
+			</a>
 		</article>
   )
 }
