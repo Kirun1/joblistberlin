@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { database } from 'firebase';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import AddJob from './AddJob.js';
+import Job from './Job';
 
 export default class Jobs extends Component {
 	constructor(props) {
@@ -24,12 +24,13 @@ export default class Jobs extends Component {
 			<div className="Jobs">
 				<section className="Section">
 					<h2>Job<small> board</small></h2>
-					<p>Want to add an offer to this list?</p>
-					<Link to="jobs/add">Add a job</Link>
+					<p>
+						Positions in this list are all located in <strong>Berlin</strong>.<br/>
+						Do you want to <Link to="jobs/add">add a job</Link> offer to this list?
+					</p>
 				</section>
 				<section className="Section">
-					<p>Job offers:</p>
-					{ this.state.model.map(job => <span>JOBI</span>)}
+					{ this.state.model.map((job, index) => <Job key={ index } model={ job }/>)}
 				</section>
 			</div>
 		)
