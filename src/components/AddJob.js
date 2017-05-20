@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
-import {
-	postToJobs,
-	getServerTime as getTime
-} from '../api';
+import { database } from 'firebase';
+import { serverTime } from '../api';
 
 class PostJob extends Component {
   constructor() {
 		super();
 		this.state = {
 	    title: '',
-			description: ''
+			description: '',
+			createdAt: serverTime
 		};
   }
 
   handleSubmit = (e) => {
 		e.preventDefault();
-		postToJobs(this.state);
+		const { title, description, createdAt } = this.state;
+		var newModelRef = database().ref('jobs').push();
+		newModelRef.set({
+			title,
+			description,
+			createdAt
+		})
   }
 
   handleChange = (e) => {
 		// if it is a URL fetch and set title
-		console.log(e.target.value);
 		this.setState({
-	    [e.target.name] : e.target.value,
-			createdAt: getTime()
+	    [e.target.name] : e.target.value
 		});
   }
 
