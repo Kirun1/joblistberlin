@@ -1,30 +1,40 @@
 import React, { Component } from 'react';
-import {
-	postToCompanies,
-	getServerTime as getTime
-} from '../api';
 import withNotification from './withNotification'
+import { database } from 'firebase';
+import { serverTime } from '../api';
 
 class AddCompany extends Component {
   constructor() {
 		super();
 		this.state = {
 	    url: '',
-	    title: ''
+	    title: '',
+			createdAt: serverTime
 		};
   }
 
   handleSubmit = (e) => {
 		e.preventDefault();
-		postToCompanies(this.state);
+		const { addNotification, history } = this.props;
+		const { url, title, createdAt } = this.state;
+		const newModelRef = database().ref('links').push();
+		newModelRef.set({
+			url,
+			title,
+			createdAt
+		}).then(newModel => {
+			console.log('addcompany:submit sucess');
+			addNotification(`The company ${title} has been added`);
+			history.push('/companies');
+		}).catch(error => {
+			console.log('addCompany:submit error:', error);
+			addNotification(`error adding the company: ${error}`);
+		})
   }
 
   handleChange = (e) => {
-		// if it is a URL fetch and set title
-		console.log(e.target.value);
 		this.setState({
-	    [e.target.name] : e.target.value,
-			createdAt: getTime()
+	    [e.target.name] : e.target.value
 		});
   }
 
