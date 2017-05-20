@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
+import { database } from 'firebase';
 import { Link } from 'react-router-dom';
-import { callAPI } from '../api';
 import Loading from './Loading';
 import Company from './Company';
 
@@ -12,7 +13,8 @@ export default class Companies extends Component {
 		}
 	}
   componentDidMount() {
-		callAPI('links').then((model) => {
+		database().ref('links').on('value', (snapshot) => {
+			const model = _.values(snapshot.val());
 			this.setState({
 				model
 			})
