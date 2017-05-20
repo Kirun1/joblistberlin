@@ -23,9 +23,7 @@ export const auth = firebaseApp.auth();
 // as determined by the Firebase servers.
 // https://firebase.google.com/docs/reference/js/firebase.database.ServerValue
 // it has nothing to do with firebase.database() ...
-export function getServerTime() {
-	return database.ServerValue.TIMESTAMP;
-}
+export const serverTime = database.ServerValue.TIMESTAMP;
 
 export function callAPI(endPoint) {
 	return new Promise((resolve, reject) => {
