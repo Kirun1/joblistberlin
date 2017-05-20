@@ -17,7 +17,7 @@ export default class Companies extends Component {
 			const model = _.values(snapshot.val());
 			this.setState({
 				model
-			})
+			});
 		})
 	}
 	render() {
