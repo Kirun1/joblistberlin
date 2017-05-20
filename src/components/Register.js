@@ -57,6 +57,11 @@ class Register extends Component {
 					<button type="submit">Register</button>
 				</form>
 				<p>Already have an account? <Link to="/auth/login">Login</Link></p>
+				<h2>Why <small>join?</small></h2>
+				<ul>
+					<li>Post jobs</li>
+					<li>Get notified by email when a new Job or Company is added</li>
+				</ul>
 			</div>
 		)
   }
