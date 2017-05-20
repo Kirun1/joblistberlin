@@ -13,20 +13,23 @@ var config = {
 const firebaseApp = firebase.initializeApp(config);
 // firebase auth namespace
 export const auth = firebaseApp.auth();
-export const db = firebase.database();
-
 
 /*
 	 Database
 */
 
+// A placeholder value for auto-populating the current
+// timestamp(time since the Unix epoch, in milliseconds)
+// as determined by the Firebase servers.
+// https://firebase.google.com/docs/reference/js/firebase.database.ServerValue
+// it has nothing to do with firebase.database() ...
 export function getServerTime() {
 	return database.ServerValue.TIMESTAMP;
 }
 
 export function callAPI(endPoint) {
 	return new Promise((resolve, reject) => {
-		db.ref(endPoint).on('value', (snapshot) => {
+		database().ref(endPoint).on('value', (snapshot) => {
 			const res = _.values(snapshot.val());
 			resolve(res);
 		})
