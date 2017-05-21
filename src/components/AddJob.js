@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { database } from 'firebase';
-import { serverTime } from '../api';
+import { serverTime,
+				 getCurrentUser } from '../api';
+import withNotification from './withNotification';
 
 class PostJob extends Component {
   constructor() {
@@ -14,12 +16,21 @@ class PostJob extends Component {
 
   handleSubmit = (e) => {
 		e.preventDefault();
+		const { addNotification, history } = this.props;
 		const { title, description, createdAt } = this.state;
 		var newModelRef = database().ref('jobs').push();
-		newModelRef.set({
-			title,
-			description,
-			createdAt
+		getCurrentUser().then(user => {
+			newModelRef.set({
+				title,
+				description,
+				createdAt,
+				user: user.uid
+			})
+		}).then(() => {
+			addNotification(`The job <${title}> has been added to the board`);
+			history.push('/jobs');
+		}).catch(error => {
+			console.log('AddJob submit error:', error);
 		})
   }
 
@@ -56,4 +67,4 @@ class PostJob extends Component {
   }
 }
 
-export default PostJob;
+export default withNotification(PostJob);
