@@ -47,6 +47,7 @@ ul {
 	list-style-type: circle;
   list-style-position: outside;
   padding-left: 1.1rem;
+	margin-bottom: 1rem;
 }
 
 hr {
