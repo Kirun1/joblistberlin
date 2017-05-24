@@ -12,11 +12,14 @@
 		align-items: start;
 	}
 }
-.Nav-Link,
-.Nav-link:visited {
+.Nav--horizontal .Nav-item {
+	margin-right: 0.5rem;
+}
+.Nav-item,
+.Nav-item:visited {
 	color: black;
 }
-.Nav-link {
+.Nav-item {
 	width: 100%;
 	padding-top: 0.3rem;
 	padding-bottom: 0.5rem;

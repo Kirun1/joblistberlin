@@ -24,15 +24,15 @@ export default function App() {
 
 			<aside className="App-aside Container Section">
 				<nav className="Nav Nav--main">
-					<NavLink className="Nav-link Logo" to="/">
+					<NavLink className="Nav-item Logo" to="/">
 						<img className="Logo-img" src={logo} alt="Job List Berlin logo"/>
 					</NavLink>
-					<NavLink className="Nav-link" to="/companies">Companies</NavLink>
-					<NavLink className="Nav-link" to="/jobs">Jobs</NavLink>
+					<NavLink className="Nav-item" to="/companies">Companies</NavLink>
+					<NavLink className="Nav-item" to="/jobs">Jobs</NavLink>
 					<hr/>
-					{ auth && <NavLink className="Nav-link" to="/auth/account">Account</NavLink> }
-					{ auth && <NavLink className="Nav-link" to="/auth/logout">Logout</NavLink> }
-					{ !auth && <NavLink className="Nav-link" to="/auth/login">Login</NavLink> }
+					{ auth && <NavLink className="Nav-item" to="/auth/account">Account</NavLink> }
+					{ auth && <NavLink className="Nav-item" to="/auth/logout">Logout</NavLink> }
+					{ !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> }
 				</nav>
 			</aside>
 
