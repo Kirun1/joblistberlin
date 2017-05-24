@@ -16,16 +16,19 @@ export default class ContextualToggle extends Component {
 	render() {
 		return (
 			<div className="ContextualToggle">
-				<span className="Button--contextualToggle Button Button--rotate">
-					<span>•••</span>
-				</span>
-				<select className="Contextual-nav"
+
+				<select className="ContextualToggle-select"
 								onChange={ this.handleChange.bind(this)}>
 					<option disabled defaultValue style={{display: 'none'}}>Default</option>
-					<optgroup>
+					<optgroup label={ this.props.label }>
 						{ this.props.children }
 					</optgroup>
 				</select>
+
+				<span className="Button Button--contextualToggle Button--rotate">
+					<span>•••</span>
+				</span>
+
 			</div>
 		)
 	}

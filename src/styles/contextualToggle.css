@@ -1,0 +1,15 @@
+.ContextualToggle {
+	position: relative;
+}
+.ContextualToggle-select {
+	cursor: pointer;
+	opacity: 0;
+	width: 100%;
+	max-width: 3rem;
+	height: 3rem;
+	position: relative;
+	z-index: 1;
+}
+.ContextualToggle:focus .Contextual-nav {
+	opacity: 1;
+}

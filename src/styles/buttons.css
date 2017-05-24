@@ -1,0 +1,35 @@
+.ButtonGroup .Button {
+	margin-left: 1rem;
+}
+.ButtonGroup .Button:first-child {
+	margin-left: 0;
+}
+.Button {
+	padding: 0.3rem;
+}
+.Button--rotate span {
+	display: inline-block;
+	transform: rotate(90deg)
+}
+.Button--contextualToggle {
+	padding-top: 0.4rem;
+	padding-bottom: 0.4rem;
+	padding-right: 0rem;
+	padding-left: 0;
+	font-size: 0.7rem;
+	letter-spacing: 1px;
+	color: gray;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 0;
+
+}
+.Button-contextualToggle span {
+	user-select: none;
+}

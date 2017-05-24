@@ -1,0 +1,30 @@
+.Section {
+	padding-bottom: 2rem;
+}
+.Container {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.App {
+	display: flex;
+	flex-direction: column;
+}
+@media (min-width: 30rem) {
+	.App {
+		flex-direction: row;
+	}
+}
+
+.App-main,
+.App-aside {
+	padding-top: 1.5rem;
+}
+
+a.Logo {
+	background-color: transparent;
+}
+.Logo-img {
+	width: 100%;
+	min-width: 3rem;
+}

@@ -33,7 +33,7 @@ export default class Job extends Component {
 		return (
 			<article key={ id } className={`Company ${companyStatus}`}>
 
-				<ContextualToggle>
+				<ContextualToggle label={ title }>
 					<Option action={ this.option1 }>Edit</Option>
 					<Option action={ this.option2.bind(this) }>Add to favorites</Option>
 					<Option action={ this.option3 }>Report broken link</Option>

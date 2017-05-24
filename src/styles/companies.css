@@ -1,0 +1,28 @@
+.Companies {
+	padding-top: 1rem;
+}
+.Company {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: row;
+	margin-bottom: 1.8rem;
+	font-size: 1rem;
+}
+.Company--isNotApproved {
+	background-color: gold;
+}
+.Company-body {
+	width: 100%;
+	padding: 0.3rem;
+}
+.Company-title {
+	margin-bottom: 0.2rem;
+}
+.Company-link input {
+	border: 0px solid transparent;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
