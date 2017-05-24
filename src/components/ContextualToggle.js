@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 export default class ContextualToggle extends Component {
 
 	handleChange(event) {
+		console.log(event)
 		const select = event.target;
 		// -1 because we don't count the default option
 		const selectedIndex = event.target.selectedIndex - 1;
@@ -18,9 +19,9 @@ export default class ContextualToggle extends Component {
 			<div className="ContextualToggle">
 
 				<select className="ContextualToggle-select"
-								onChange={ this.handleChange.bind(this)}>
-					<option disabled defaultValue style={{display: 'none'}}>Default</option>
+								onChange={ this.handleChange.bind(this) }>
 					<optgroup label={ this.props.label }>
+						<option style={{display: 'none'}}>Cancel</option>
 						{ this.props.children }
 					</optgroup>
 				</select>
