@@ -14,9 +14,8 @@ export default class Companies extends Component {
 	}
 
   componentDidMount() {
-		database().ref('links').on('value', (snapshot) => {
-			console.log('snapshot', snapshot.val())
-			const model = _.values(snapshot.val());
+		database().ref('links').orderByChild("createdAt").on('value', (snapshot) => {
+			const model = _.reverse(_.values(snapshot.val()));
 			this.setState({
 				model
 			});
