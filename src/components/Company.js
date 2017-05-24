@@ -16,8 +16,16 @@ export default class Company extends Component {
 	}
 	render() {
 		if(!this.state) return <Loading/>
+
+		const { model } = this.state;
+
 		return (
-			<CompanyCard { ...this.state.model }/>
+		<article>
+			<section>
+				<h2>Edit <small>{model.title}</small></h2>
+			</section>
+			<CompanyCard { ...model }/>
+		</article>
 		)
 	}
 }
