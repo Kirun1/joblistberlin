@@ -1,0 +1,38 @@
+form {
+	padding-bottom: 1rem;
+	max-width: 30rem;
+}
+
+input,
+textarea {
+	width : 100%;
+	font-family: inherit;
+	margin: 0;
+	padding: 0.5rem;
+	border: 1px solid #9a9a9a;
+	font-size: 100%;
+}
+
+label {
+  display: block;
+  padding-bottom: 1rem;
+}
+
+label input {
+	margin-top: 0.3rem;
+}
+
+optgroup {
+	padding: 0.5rem;
+	background-color: white;
+}
+
+optgroup::before {
+	display: none;
+}
+
+option {
+	font-size: 1.1rem;
+	padding: 0.2rem;
+	margin-top: 0.2rem;
+}

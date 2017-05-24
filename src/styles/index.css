@@ -15,27 +15,34 @@ body {
 a.active {
 	background-color: #e9e9e9;
 }
+
 p {
 	max-width: 40rem;
 	margin-bottom: 1rem;
 	line-height: 1.6;
 }
+
 h1, h2, h3, h4 {
 	font-weight: bold;
 	margin-bottom: 1.5rem;
 }
+
 h2 {
 	font-size: 2rem;
 }
+
 h3 {
 	font-size: 1.4rem;
 }
+
 small {
 	font-weight: normal;
 }
+
 strong {
 	font-weight: bold;
 }
+
 ul {
 	list-style-type: circle;
   list-style-position: outside;
@@ -45,38 +52,4 @@ ul {
 hr {
   margin-block-end: 0.2rem;
   margin-block-start: 0.2rem;
-}
-
-optgroup {
-	padding: 0.5rem;
-	background-color: white;
-}
-optgroup::before {
-	display: none;
-}
-option {
-	font-size: 1.1rem;
-	padding: 0.2rem;
-	margin-top: 0.2rem;
-}
-
-form {
-	padding-bottom: 1rem;
-	max-width: 30rem;
-}
-label {
-  display: block;
-  padding-bottom: 1rem;
-}
-label input {
-	margin-top: 0.3rem;
-}
-input,
-textarea {
-	width : 100%;
-	font-family: inherit;
-	margin: 0;
-	padding: 0.5rem;
-	border: 1px solid #9a9a9a;
-	font-size: 100%;
 }
