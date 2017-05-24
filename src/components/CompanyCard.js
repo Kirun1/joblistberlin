@@ -32,18 +32,20 @@ export default class Job extends Component {
 		}
 		return (
 			<article key={ id } className={`Company ${companyStatus}`}>
-				{ this.state.visible ?
-					<div className="Company-body">
-						<h4 className="Company-title">{title}</h4>
-						<a href={url} className="Company-link">{url}</a>
-					</div>
-					: <p>lol</p>
-				}
+
 				<ContextualToggle>
 					<Option action={ this.option1 }>Edit</Option>
 					<Option action={ this.option2.bind(this) }>Add to favorites</Option>
 					<Option action={ this.option3 }>Report broken link</Option>
 				</ContextualToggle>
+
+				<div className="Company-body">
+					<h4 className="Company-title">{ title }</h4>
+					<a href={ url } className="Company-link">
+						<input value={ url }/>
+					</a>
+				</div>
+
 			</article>
 		)
 	}

@@ -4,6 +4,7 @@ export default class ContextualToggle extends Component {
 
 	handleChange(event) {
 		const select = event.target;
+		// -1 because we don't count the default option
 		const selectedIndex = event.target.selectedIndex - 1;
 		const childProps = this.props.children[selectedIndex].props;
 		childProps.action();
@@ -21,7 +22,9 @@ export default class ContextualToggle extends Component {
 				<select className="Contextual-nav"
 								onChange={ this.handleChange.bind(this)}>
 					<option disabled defaultValue style={{display: 'none'}}>Default</option>
-					{ this.props.children }
+					<optgroup>
+						{ this.props.children }
+					</optgroup>
 				</select>
 			</div>
 		)

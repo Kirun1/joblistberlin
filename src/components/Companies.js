@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { database } from 'firebase';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
-import Company from './Company';
+import CompanyCard from './CompanyCard';
 
 export default class Companies extends Component {
 	constructor() {
@@ -30,7 +30,7 @@ export default class Companies extends Component {
 				This is a <strong>community currated</strong> list, anyone can <Link to='companies/add'>submit a company</Link> for review.
 			</p>
 			<div className="Companies">
-				{ this.state.model.map((job, index) => <Company key={ index } { ...job }/>) }
+				{ this.state.model.map((job, index) => <CompanyCard key={ index } { ...job }/>) }
 			</div>
 		</div>
 		)
