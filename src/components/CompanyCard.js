@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ContextualToggle from './ContextualToggle'
 import Option from './Option';
 
-export default class Job extends Component {
+export default class CompanyCard extends Component {
 	constructor() {
 		super();
 		this.state = {

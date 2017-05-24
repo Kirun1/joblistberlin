@@ -12,16 +12,27 @@ export default class Companies extends Component {
 			model: null
 		}
 	}
+
   componentDidMount() {
 		database().ref('links').on('value', (snapshot) => {
+			console.log('snapshot', snapshot.val())
 			const model = _.values(snapshot.val());
 			this.setState({
 				model
 			});
 		})
 	}
+
+	goToCompanyDetail(companyCreatedDate) {
+		const { path } = this.props.match;
+		const date = companyCreatedDate;
+		this.props.history.push(`${path}/${date}`)
+	}
+
 	render() {
+
 		if (!this.state.model ) return <Loading/>
+
 		return (
 		<div>
 			<h2><small>A list of </small>companies</h2>
