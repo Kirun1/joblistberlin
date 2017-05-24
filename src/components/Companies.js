@@ -23,7 +23,7 @@ export default class Companies extends Component {
 		})
 	}
 
-	goToCompanyDetail(companyCreatedDate) {
+	goToCompanyDetail = (companyCreatedDate) => {
 		const { path } = this.props.match;
 		const date = companyCreatedDate;
 		this.props.history.push(`${path}/${date}`)
@@ -41,7 +41,9 @@ export default class Companies extends Component {
 				This is a <strong>community currated</strong> list, anyone can <Link to='companies/add'>submit a company</Link> for review.
 			</p>
 			<div className="Companies">
-				{ this.state.model.map((job, index) => <CompanyCard key={ index } { ...job }/>) }
+				{ this.state.model.map((job, index) => <CompanyCard key={ index }
+																														goToDetail={ this.goToCompanyDetail }
+																														{ ...job } />) }
 			</div>
 		</div>
 		)

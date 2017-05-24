@@ -23,7 +23,12 @@ export default class CompanyCard extends Component {
 	}
 	render() {
 		let companyStatus;
-		const { id, title, url, isApproved } = this.props;
+		const { id,
+						title,
+						url,
+						isApproved,
+						createdAt,
+						goToDetail } = this.props;
 
 		if (isApproved) {
 			companyStatus = 'Company--isApproved';
@@ -34,7 +39,7 @@ export default class CompanyCard extends Component {
 			<article key={ id } className={`Company ${companyStatus}`}>
 
 				<ContextualToggle label={ title }>
-					<Option action={ this.option1 }>Edit</Option>
+					<Option action={ () => goToDetail(createdAt) }>Edit</Option>
 					<Option action={ this.option2.bind(this) }>Add to favorites</Option>
 					<Option action={ this.option3 }>Report broken link</Option>
 				</ContextualToggle>
