@@ -25,30 +25,6 @@ export const auth = firebaseApp.auth();
 // it has nothing to do with firebase.database() ...
 export const serverTime = database.ServerValue.TIMESTAMP;
 
-export function callAPI(endPoint) {
-	return new Promise((resolve, reject) => {
-		database().ref(endPoint).on('value', (snapshot) => {
-			const res = _.values(snapshot.val());
-			resolve(res);
-		})
-	});
-}
-
-export function postAPI(endpoint, data) {
-  const options = {
-		method: 'POST',
-		body: JSON.stringify(data)
-  }
-  return callAPI(endpoint, options).then(answer => {
-		console.log( 'answer', answer );
-  });
-}
-export function postToCompanies(data) {
-  postAPI('links', data);
-}
-export function postToJobs(data) {
-  postAPI('jobs', data);
-}
 
 /*
 	 Auth
