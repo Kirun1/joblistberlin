@@ -45,16 +45,21 @@ class AddCompany extends Component {
 		return (
 			<div className="AddCompany">
 				<h2>Add <small>a new company</small></h2>
+				<p>You can submit a new company to the list. Note that:</p>
+				<ul>
+					<li>Only <strong>companies/job-boards/...</strong> websites are accepted</li>
+					<li><strong>URL</strong>s should lead directly to a job/career page</li>
+					<li>All submissions are <strong>reviewed</strong> before publication</li>
+				</ul>
 				<form onSubmit={ this.handleSubmit }>
 					<article>
-						<label>Url:
-							<input name="url" type="text" placeholder="Company URL" onChange={ this.handleChange } value={ url } title="https://..."/>
+						<label>Name:
+							<input name="title"  type="text" placeholder="Company name" onChange={ this.handleChange } value={ title }/>
 						</label>
 					</article>
-
 					<article>
-						<label>Title:
-							<input name="title"  type="text" placeholder="Company name" onChange={ this.handleChange } value={ title }/>
+						<label>Url:
+							<input name="url" type="url" placeholder="Company's website /job" onChange={ this.handleChange } value={ url } title="https://..."/>
 						</label>
 					</article>
 					<button type="submit">add Company</button>
