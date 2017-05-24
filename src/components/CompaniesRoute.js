@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Companies from './Companies';
 import AddCompany from './AddCompany';
+import Company from './Company';
 
 export default class CompaniesRoute extends Component {
 	render() {
@@ -10,8 +11,11 @@ export default class CompaniesRoute extends Component {
 		return (
 		<div>
 			<section className="Section">
-				<Route exact path={match.url} component={ Companies }/>
-				<Route path={`${match.url}/add`} component={ AddCompany }/>
+				<Switch>
+					<Route exact path={match.url} component={ Companies }/>
+					<Route exact path={`${match.url}/add`} component={ AddCompany }/>
+					<Route path={`${match.url}/:id`} component={ Company }/>
+				</Switch>
 			</section>
 		</div>
 		)
