@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import withNotification from './withNotification';
 import { Link } from 'react-router-dom';
 import {
-	getServerTime as getTime,
+	serverTime,
 	registerWithEmail } from '../api';
 
 class Register extends Component {
@@ -18,7 +18,7 @@ class Register extends Component {
 		e.preventDefault();
 		const { history, addNotification } = this.props;
 		const { email, password } = this.state;
-		registerWithEmail(email, password, getTime())
+		registerWithEmail(email, password, serverTime)
 			.then(() => {
 				history.push('/auth/login');
 				addNotification('You now need to confirm your email before being able to Login. Check your inbox for a link!');
