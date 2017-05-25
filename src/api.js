@@ -25,6 +25,31 @@ export const auth = firebaseApp.auth();
 // it has nothing to do with firebase.database() ...
 export const serverTime = database.ServerValue.TIMESTAMP;
 
+export function getUserRef(firebaseUserUid) {
+	database().ref('userSettings')
+						.orderByChild('user')
+						.equalTo(firebaseUserUid)
+						.once('value')
+						.then(snapshot => {
+							const user = snapshot.val();
+							console.log(user)
+							if (!user) {
+								console.log('Created new user')
+								return createUser(firebaseUserUid)
+							} else {
+								return user;
+							}
+						})
+}
+
+function createUser(userUid) {
+	console.log('userUid', userUid);
+	var newUserRef = database().ref('userSettings').push();
+	return newUserRef.set({
+		user: userUid
+	})
+}
+
 
 /*
 	 Auth
@@ -59,11 +84,11 @@ export function logoutUser() {
 export function loginWithEmail(email, password) {
 	return auth.signInWithEmailAndPassword(email, password).then(user => {
 		if(user.emailVerified) {
-			return user;
+			return getUserRef(user.uid);
 		} else {
 			sendVerificationEmail();
 			return logoutUser().then(() => {
-				throw new Error('You need to verify your <email>, check your inbox for a confirmation link.');
+				throw new Error('You need to verify your email, check your inbox for a confirmation link.');
 			});
 		}
 	});
