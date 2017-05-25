@@ -13,7 +13,10 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import Register from './components/Register';
 import Account from './components/Account';
+import Admin from './components/Admin';
+
 import NotificationDisplay from './components/NotificationDisplay';
+
 import logo from '../public/jlb-logo.png'
 
 export default function App() {
@@ -45,6 +48,7 @@ export default function App() {
 					<PublicRoute path="/auth/login" component={ Login }/>
 					<PrivateRoute path="/auth/logout" component={ Logout }/>
 					<PrivateRoute path="/auth/account" component={ Account }/>
+					<Route path="/admin" component={ Admin }/>
 					<Route component={NoMatchRoute}/>
 				</Switch>
 
