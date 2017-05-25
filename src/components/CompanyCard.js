@@ -1,47 +1,41 @@
 import React, { Component } from 'react';
+import { Database } from 'firebase';
+import { getCurrentUserSetting } from '../api';
 import ContextualToggle from './ContextualToggle'
 import Option from './Option';
 
 export default class CompanyCard extends Component {
-	constructor() {
-		super();
-		this.state = {
-			visible: false
-		}
-	}
-	option1() {
-		window.alert("opt 1")
-	}
-	option2() {
-		console.log("option 2 visiblllle")
-		this.setState({
-			visible: true
+	addToUserFavorites = () => {
+		getCurrentUserSetting().then(settings => {
+			console.log('settings', settings);
 		})
 	}
-	option3() {
-		console.log('option3')
+	reportBrokenLink() {
+		console.log('report broken link')
+	}
+	companyIsApproved() {
+		if (this.props.isApproved) {
+			 return 'Company--isApproved';
+		} else {
+			 return 'Company--isNotApproved';
+		}
 	}
 	render() {
-		let companyStatus;
+
 		const { id,
 						title,
 						url,
-						isApproved,
 						createdAt,
-						goToDetail } = this.props;
+						goToDetail, // passed down from the companiesRoute
+						reportBrokenLink } = this.props;
 
-		if (isApproved) {
-			companyStatus = 'Company--isApproved';
-		} else {
-			companyStatus = 'Company--isNotApproved';
-		}
 		return (
-			<article key={ id } className={`Company ${companyStatus}`}>
+			<article key={ id } className={`Company ${this.companyIsApproved()}`}>
 
 				<ContextualToggle label={ title }>
 					<Option action={ () => goToDetail(createdAt) }>Edit</Option>
-					<Option action={ this.option2.bind(this) }>Add to favorites</Option>
-					<Option action={ this.option3 }>Report broken link</Option>
+					<Option action={ this.addToUserFavorites }>Add to favorites</Option>
+					<Option action={ this.reportBrokenLink }>Report broken link</Option>
 				</ContextualToggle>
 
 				<div className="Company-body">
