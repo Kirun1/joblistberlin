@@ -30,10 +30,9 @@ export default class Companies extends Component {
 		})
 	}
 
-	goToCompanyDetail = (companyCreatedDate) => {
+	goToCompanyDetail = (companyId) => {
 		const { path } = this.props.match;
-		const date = companyCreatedDate;
-		this.props.history.push(`${path}/${date}`)
+		this.props.history.push(`${path}/${companyId}`)
 	}
 
 	render() {

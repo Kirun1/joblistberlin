@@ -5,12 +5,11 @@ import Loading from './Loading';
 
 export default class Company extends Component {
 	componentDidMount() {
-		const id = Number(this.props.match.params.id);
-		db().ref('/links').orderByChild('createdAt').equalTo(id).on('value', (snapshot) => {
+		const id = this.props.match.params.id;
+		db().ref(`/links/${id}`).on('value', (snapshot) => {
 			const model = snapshot.val();
-			const item = Object.keys(model)
 			this.setState({
-				model: model[item]
+				model
 			})
 		})
 	}

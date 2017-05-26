@@ -25,15 +25,13 @@ export default class CompanyCard extends Component {
 		const { id,
 						title,
 						url,
-						createdAt,
-						goToDetail, // passed down from the companiesRoute
-						reportBrokenLink } = this.props;
+						goToDetail } = this.props;
 
 		return (
-			<article key={ id } className={`Company ${this.companyIsApproved()}`}>
+			<article className={`Company ${this.companyIsApproved()}`}>
 
 				<ContextualToggle label={ title }>
-					<Option action={ () => goToDetail(createdAt) }>Edit</Option>
+					<Option action={ () => goToDetail(id) }>Edit</Option>
 					<Option action={ this.addToUserFavorites }>Add to favorites</Option>
 					<Option action={ this.reportBrokenLink }>Report broken link</Option>
 				</ContextualToggle>
