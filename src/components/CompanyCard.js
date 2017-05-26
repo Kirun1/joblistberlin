@@ -39,7 +39,7 @@ export default class CompanyCard extends Component {
 				<div className="Company-body">
 					<h4 className="Company-title">{ title }</h4>
 					<a href={ url } className="Company-link">
-						<input value={ url }/>
+						<input readOnly value={ url }/>
 					</a>
 				</div>
 
