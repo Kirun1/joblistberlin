@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
+import { map,
+				 reverse } from 'lodash';
 import { database } from 'firebase';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
+
+function serializeKey(data, id) {
+	data.id = id;
+	return data;
+}
 
 export default class Companies extends Component {
 	constructor() {
@@ -16,12 +22,11 @@ export default class Companies extends Component {
   componentDidMount() {
 		database().ref('links').orderByChild("createdAt").on('value', (snapshot) => {
 			const companies = snapshot.val()
-			console.log('companies', companies);
-			/* _.values()
-				 const model = _.reverse();
-				 this.setState({
-				 model
-				 });*/
+			var sCompanies = map(companies, serializeKey);
+			const model = reverse(sCompanies);
+			this.setState({
+				model
+			});
 		})
 	}
 
