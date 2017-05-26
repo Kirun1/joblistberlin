@@ -12,7 +12,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 	console.log('hugolito');
 });
 
-exports.newUser = function.auth.user()
+exports.newUser = functions.auth.user()
 													.onCreate(event => {
 														console.log('newUser');
 													})
