@@ -26,12 +26,11 @@ export default class CompanyCard extends Component {
 						title,
 						url,
 						goToDetail } = this.props;
-
 		return (
 			<article className={`Company ${this.companyIsApproved()}`}>
 
 				<ContextualToggle label={ title }>
-					<Option action={ () => goToDetail(id) }>Edit</Option>
+					{ goToDetail ? <Option action={ () => goToDetail(id) }>Edit</Option> : null }
 					<Option action={ this.addToUserFavorites }>Add to favorites</Option>
 					<Option action={ this.reportBrokenLink }>Report broken link</Option>
 				</ContextualToggle>
