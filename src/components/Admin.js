@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { database } from 'firebase';
-import { getCurrentUser } from '../api';
+import { getCurrentUser } from '../api/auth';
 
 export default class Admin extends Component {
 	getUser() {

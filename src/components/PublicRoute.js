@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route,
 				 Redirect } from 'react-router-dom';
-import { isAuthenticated } from '../api';
+import { isAuthenticated } from '../api/auth';
 
 export default function PublicRoute({ component:Component, ...rest }) {
 	return (

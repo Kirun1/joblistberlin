@@ -15,10 +15,13 @@ export default class Companies extends Component {
 
   componentDidMount() {
 		database().ref('links').orderByChild("createdAt").on('value', (snapshot) => {
-			const model = _.reverse(_.values(snapshot.val()));
-			this.setState({
-				model
-			});
+			const companies = snapshot.val()
+			console.log('companies', companies);
+			/* _.values()
+				 const model = _.reverse();
+				 this.setState({
+				 model
+				 });*/
 		})
 	}
 

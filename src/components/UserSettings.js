@@ -3,7 +3,7 @@ import withNotification from './withNotification';
 import { getCurrentUser,
 				 sendVerificationEmail,
 				 updateUserEmail,
-				 sendPasswordResetEmail } from '../api';
+				 sendPasswordResetEmail } from '../api/auth';
 
 class UserSettings extends Component {
 	constructor() {

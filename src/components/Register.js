@@ -3,7 +3,7 @@ import withNotification from './withNotification';
 import { Link } from 'react-router-dom';
 import {
 	serverTime,
-	registerWithEmail } from '../api';
+	registerWithEmail } from '../api/auth';
 
 class Register extends Component {
 	constructor() {

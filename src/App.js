@@ -5,7 +5,7 @@ import { Switch,
 				 Redirect } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute.js';
-import { isAuthenticated } from './api';
+import { isAuthenticated } from './api/auth';
 import NoMatchRoute from './components/NoMatchRoute';
 import CompaniesRoute from './components/CompaniesRoute';
 import JobsRoute from './components/JobsRoute';

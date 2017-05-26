@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {
 	loginWithEmail,
-	sendPasswordResetEmail } from '../api';
+	sendPasswordResetEmail } from '../api/auth';
 import withNotification from './withNotification';
 
 class Login extends Component {

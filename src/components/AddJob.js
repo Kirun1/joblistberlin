@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { database } from 'firebase';
 import { serverTime,
-				 getCurrentUser } from '../api';
+				 getCurrentUser } from '../api/auth';
 import withNotification from './withNotification';
 
 class PostJob extends Component {

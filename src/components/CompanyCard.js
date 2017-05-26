@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Database } from 'firebase';
-import { getCurrentUserSetting } from '../api';
+import { getCurrentUserSetting } from '../api/auth';
 import ContextualToggle from './ContextualToggle'
 import Option from './Option';
 
