@@ -31,7 +31,7 @@ export default function App() {
 						<img className="Logo-img" src={logo} alt="Job List Berlin logo"/>
 					</NavLink>
 					<NavLink className="Nav-item" to="/companies">Companies</NavLink>
-					<NavLink className="Nav-item" to="/jobs">Jobs</NavLink>
+					{/* <NavLink className="Nav-item" to="/jobs">Jobs</NavLink> */}
 					<hr/>
 					{ auth && <NavLink className="Nav-item" to="/auth/account">Account</NavLink> }
 					{ auth && <NavLink className="Nav-item" to="/auth/logout">Logout</NavLink> }
