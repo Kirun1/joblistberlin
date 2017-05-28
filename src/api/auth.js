@@ -59,8 +59,9 @@ export function loginWithEmail(email, password) {
 		}
 
 		// does user has its userSetting relation?
-		getCurrentUserSetting().then(settings => {
-			if (!settings) {
+		getCurrentUserSettingRef().then(settings => {
+			console.log('settings', settings.val() )
+			if (!settings.val()) {
 				return createUserSetting().then(() => {
 					return user;
 				})
@@ -85,13 +86,12 @@ export function sendVerificationEmail() {
 // it has nothing to do with firebase.database() ...
 export const serverTime = database.ServerValue.TIMESTAMP;
 
-export function getCurrentUserSetting() {
+export function getCurrentUserSettingRef() {
 	return getCurrentUser().then(user => {
 		return database().ref('userSettings')
 										 .orderByChild('user')
 										 .equalTo(user.uid)
-										 .once('value')
-										 .then(snapshot => snapshot.val())
+										 .once('value');
 	})
 }
 
