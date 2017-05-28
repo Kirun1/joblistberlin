@@ -91,6 +91,7 @@ export function getCurrentUserSettingRef() {
 		return database().ref('userSettings')
 										 .orderByChild('user')
 										 .equalTo(user.uid)
+										 .limitToFirst(1)
 										 .once('value');
 	})
 }
