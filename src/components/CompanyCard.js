@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 import { database } from 'firebase';
+import withNotification from './withNotification';
 import { getCurrentUserSettingRef } from '../api/auth';
 import ContextualToggle from './ContextualToggle'
 import Option from './Option';
 
-export default class CompanyCard extends Component {
+class CompanyCard extends Component {
 	addToUserFavorites = () => {
+		const { addNotification,
+						id,
+						title } = this.props;
+
 		getCurrentUserSettingRef().then(settings => {
 			const settingsId = Object.keys(settings.val())[0];
-			const companyId = this.props.id;
-			database().ref(`userSettings/${settingsId}/favoriteCompanies/${companyId}`)
-								.set(true).then(data => console.log)
-		})
-	}
-	removeFromUserFavorites = () => {
-		getCurrentUserSettingRef().then(settings => {
-			const settingsId = Object.keys(settings.val())[0];
-			const companyId = this.props.id;
-			// empty set = delete()
-			database().ref(`userSettings/${settingsId}/favoriteCompanies/${companyId}`)
-								.set().then(data => console.log)
+			database().ref(`userSettings/${settingsId}/favoriteCompanies/${id}`)
+								.set(true).then(() => {
+									addNotification(`<${title}> added to your favorites`);
+								})
 		})
 	}
 	reportBrokenLink() {
@@ -58,3 +55,5 @@ export default class CompanyCard extends Component {
 		)
 	}
 }
+
+export default withNotification(CompanyCard);
