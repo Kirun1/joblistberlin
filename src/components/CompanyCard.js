@@ -23,10 +23,10 @@ class CompanyCard extends Component {
 		console.log('report broken link')
 	}
 	companyIsApproved() {
-		if (this.props.isApproved) {
-			 return 'Company--isApproved';
+		if (this.props.isFavorite) {
+			 return 'Company--isFavorite';
 		} else {
-			 return 'Company--isNotApproved';
+			 return 'Company--isNotFavorite';
 		}
 	}
 	render() {

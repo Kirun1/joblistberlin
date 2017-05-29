@@ -3,6 +3,8 @@ import { map,
 				 reverse } from 'lodash';
 import { database } from 'firebase';
 import { Link } from 'react-router-dom';
+import filter from 'lodash';
+import { getCurrentUserSettingRef } from '../api/auth';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
 
@@ -19,14 +21,52 @@ export default class Companies extends Component {
 		}
 	}
 
+	mutateCompanies(allCompanies, favCompaniesId) {
+		// go through all companies, find each favorites
+		var favCompanies = [];
+		var otherCompanies = [];
+
+		return allCompanies.map(value => {
+			favCompaniesId.forEach(id => {
+				// if in the favorite list, add favorite flag and push
+				if(value.id === id) {
+					value.isFavorite = true;
+					favCompanies.push(value)
+				} else {
+					// if not in favorite, push
+					otherCompanies.push(value)
+				}
+			})
+			// in any case push to all with favorite tag on favorites
+			return value;
+		});
+	}
+
   componentDidMount() {
+		// model will render all companies
+		var model;
+
 		database().ref('links').orderByChild("createdAt").on('value', (snapshot) => {
-			const companies = snapshot.val()
-			var sCompanies = map(companies, serializeKey);
-			const model = reverse(sCompanies);
-			this.setState({
-				model
-			});
+			// find and serialize all companies
+			const allCompanies = map(snapshot.val(), serializeKey);
+
+			// get favorite companies, ids only
+			getCurrentUserSettingRef().then(settings => {
+				const sSettings = map(settings.val(), serializeKey)[0];
+				var favCompaniesId = sSettings.favoriteCompanies;
+
+				if (favCompaniesId) {
+					const favCompaniesId = Object.keys(sSettings.favoriteCompanies);
+					model = this.mutateCompanies(allCompanies, favCompaniesId)
+				} else {
+					model = allCompanies;
+				}
+
+				// set state two models
+				this.setState({
+					model
+				});
+			})
 		})
 	}
 
