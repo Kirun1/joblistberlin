@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { logoutUser } from '../api/auth';
+import { logoutUser } from '../actions/auth';
 
 export default class Logout extends Component {
 	componentDidMount() {

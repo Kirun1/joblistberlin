@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import withNotification from './withNotification'
 import { database } from 'firebase';
-import { serverTime } from '../api/auth';
+import { serverTime } from '../actions/auth';
 
 class AddCompany extends Component {
   constructor() {

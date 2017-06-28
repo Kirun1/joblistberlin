@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { database } from 'firebase';
 import withNotification from './withNotification';
-import { getCurrentUserSettingRef } from '../api/auth';
+import { getCurrentUserSettingRef } from '../actions/auth';
 import ContextualToggle from './ContextualToggle'
 import Option from './Option';
 
