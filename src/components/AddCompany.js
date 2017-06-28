@@ -16,7 +16,7 @@ class AddCompany extends Component {
 		const { addNotification, history } = this.props;
 		const { url, title  } = this.state;
 
-		postCompany(url, title).then(newModel => {
+		postCompany(title, url).then(newModel => {
 			console.log('addcompany:submit sucess');
 			addNotification(`The company ${title} has been added`);
 			history.push('/companies');
