@@ -8,7 +8,7 @@ var stripe = require("stripe")(
 // https:firebase.google.com/docs/functions/write-firebase-functions
 
 exports.helloWorld = functions.https.onRequest((request, response) => {
-  response.send("Hello from HUGO!");
+  response.send("Hello from FALXA!");
 	console.log('hugolito');
 });
 
