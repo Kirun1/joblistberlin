@@ -13,6 +13,7 @@ import './styles/contextualToggle.css';
 import './styles/notification.css';
 import './styles/company.css';
 
+
 ReactDOM.render(
 	<Root />,
   document.getElementById('root')

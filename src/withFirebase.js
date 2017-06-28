@@ -13,12 +13,12 @@ const withFirebase = (refName) => {
       // of the component every time the 'value' event is triggered.
       // that way it will rerender the extended component with the latest
       // value coming from firebase every time.
-      firebase.database(this.state.firebaseApp).ref( refName ).on( 'value', snapshot => {
+      firebase.database().ref( refName ).on( 'value', snapshot => {
         const data = snapshot.val();
         this.setState( { data } );
       })
 		}
-		
+
 		render() {
 			return <ExtendedComponent { ...this.props } data={ this.state.data } />
 		}

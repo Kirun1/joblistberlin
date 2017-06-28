@@ -4,7 +4,7 @@ import { map,
 				 reverse,
 				 filter } from 'lodash';
 
-import withFirebase from '../withFirebase';
+/* import withFirebase from '../withFirebase';*/
 
 /* import { database } from 'firebase';*/
 /* import { getCurrentUserSettingRef } from '../api/auth';*/
@@ -96,4 +96,5 @@ class Companies extends Component {
 	}
 }
 
-export default withFirebase( 'links' )( Companies );
+/* export default withFirebase( 'links' )( Companies );*/
+export default Companies;

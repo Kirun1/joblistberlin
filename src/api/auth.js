@@ -1,18 +1,6 @@
-import env from '../env.json';
 import firebase, { database } from 'firebase';
-import _ from 'lodash';
 
-var config = {
-  "apiKey": env.apiKey,
-  "databaseURL": env.databaseURL,
-  "authDomain": env.authDomain,
-  "storageBucket": env.storageBucket
-};
-
-// root app just in case we need it
-const firebaseApp = firebase.initializeApp(config);
-// firebase auth namespace
-export const auth = firebaseApp.auth();
+export const auth = firebase.auth();
 
 
 /*
