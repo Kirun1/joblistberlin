@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
 import withNotification from './withNotification'
-import { database } from 'firebase';
-import { serverTime } from '../actions/auth';
+import { postCompany } from '../actions/companies';
 
 class AddCompany extends Component {
   constructor() {
 		super();
 		this.state = {
 	    url: '',
-	    title: '',
-			createdAt: serverTime
+	    title: ''
 		};
   }
 
   handleSubmit = (e) => {
 		e.preventDefault();
 		const { addNotification, history } = this.props;
-		const { url, title, createdAt } = this.state;
-		const newModelRef = database().ref('links').push();
-		newModelRef.set({
-			url,
-			title,
-			createdAt
-		}).then(newModel => {
+		const { url, title  } = this.state;
+
+		postCompany(url, title).then(newModel => {
 			console.log('addcompany:submit sucess');
 			addNotification(`The company ${title} has been added`);
 			history.push('/companies');
