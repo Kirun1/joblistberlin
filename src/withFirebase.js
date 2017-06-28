@@ -10,13 +10,8 @@ const withFirebase = (refName) => {
 		}
 
 		componentDidMount() {
-			// create the binding to firebase that will update the local state
-      // of the component every time the 'value' event is triggered.
-      // that way it will rerender the extended component with the latest
-      // value coming from firebase every time.
       firebase.database().ref(refName).orderByChild('createdAt').on('value', snapshot => {
         let data = map(snapshot.val()).reverse();
-
         this.setState( { data } );
       })
 		}

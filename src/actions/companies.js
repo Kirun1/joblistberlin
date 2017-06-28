@@ -6,6 +6,7 @@ export function postCompany(title, url) {
 	return newModelRef.set({
 		url,
 		title,
+		isApproved: false,
 		createdAt: database.ServerValue.TIMESTAMP
 	})
 }

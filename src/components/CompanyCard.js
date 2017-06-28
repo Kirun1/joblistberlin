@@ -33,20 +33,28 @@ class CompanyCard extends Component {
 	reportBrokenLink() {
 		console.log('report broken link')
 	}
-	companyIsApproved() {
+	companyIsFavorited() {
 		if (this.props.isFavorite) {
-			 return 'Company--isFavorite';
+			return 'Company--isFavorite';
 		} else {
-			 return 'Company--isNotFavorite';
+			return 'Company--isNotFavorite';
 		}
 	}
+	companyIsApproved() {
+		if (this.props.isApproved) {
+			return 'Company--isApproved';
+		} else {
+			return 'Company--isNotApproved';
+		}
+	}
+
 	render() {
 
 		const { title,
 						url,
 						isFavorite } = this.props;
 		return (
-			<article className={`Company ${this.companyIsApproved()}`}>
+			<article className={`Company ${this.companyIsFavorited()} ${this.companyIsApproved()}`}>
 
 				<ContextualToggle label={ title }>
 					{/* { goToDetail ? <Option action={ () => goToDetail(id) }>Edit</Option> : null } */}

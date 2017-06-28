@@ -12,6 +12,9 @@
 .Company--isFavorite {
 	background-color: gold;
 }
+.Company--isNotApproved {
+	display: none;
+}
 .Company-body {
 	width: 100%;
 	padding: 0.3rem;
