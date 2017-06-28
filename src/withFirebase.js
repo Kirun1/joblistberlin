@@ -14,8 +14,8 @@ const withFirebase = (refName) => {
       // of the component every time the 'value' event is triggered.
       // that way it will rerender the extended component with the latest
       // value coming from firebase every time.
-      firebase.database().ref(refName).on('value', snapshot => {
-        let data = map(snapshot.val());
+      firebase.database().ref(refName).orderByChild('createdAt').on('value', snapshot => {
+        let data = map(snapshot.val()).reverse();
 
         this.setState( { data } );
       })
