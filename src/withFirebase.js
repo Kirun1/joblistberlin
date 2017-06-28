@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
+import { map } from 'lodash';
 
 const withFirebase = (refName) => {
 	return ExtendedComponent => class extends React.Component {
@@ -13,11 +14,14 @@ const withFirebase = (refName) => {
       // of the component every time the 'value' event is triggered.
       // that way it will rerender the extended component with the latest
       // value coming from firebase every time.
-      firebase.database().ref( refName ).on( 'value', snapshot => {
-        const data = snapshot.val();
+      firebase.database().ref(refName).on('value', snapshot => {
+        let data = map(snapshot.val());
+
         this.setState( { data } );
       })
 		}
+
+
 
 		render() {
 			return <ExtendedComponent { ...this.props } data={ this.state.data } />
