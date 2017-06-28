@@ -21,8 +21,6 @@ const withFirebase = (refName) => {
       })
 		}
 
-
-
 		render() {
 			return <ExtendedComponent { ...this.props } data={ this.state.data } />
 		}

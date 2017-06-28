@@ -1,49 +1,37 @@
 import firebase, { database } from 'firebase';
-import env from '../env.json'
-
-var config = {
-	"apiKey": env.apiKey,
-	"databaseURL": env.databaseURL,
-	"authDomain": env.authDomain,
-	"storageBucket": env.storageBucket
-};
-
-const firebaseApp = firebase.initializeApp(config, 'wtf');
-const auth = firebase.auth(firebaseApp);
-
 
 /*
 	 Auth
 */
 
 export function getCurrentUser() {
-	return new Promise((resolve, reject) => resolve(auth.currentUser) );
+	return new Promise((resolve, reject) => resolve(firebase.auth().currentUser) );
 }
 
 export function isAuthenticated() {
-	return auth.currentUser;
+	return firebase.auth().currentUser;
 }
 
 export function updateUserEmail(email) {
-	return auth.currentUser.updateEmail(email);
+	return firebase.auth().currentUser.updateEmail(email);
 }
 
 export function sendPasswordResetEmail(email) {
-	return auth.sendPasswordResetEmail(email);
+	return firebase.auth().sendPasswordResetEmail(email);
 }
 
 export function registerWithEmail(email, password) {
-	return auth.createUserWithEmailAndPassword(email, password)
+	return firebase.auth().createUserWithEmailAndPassword(email, password)
 						 .then(sendVerificationEmail)
 						 .then(logoutUser);
 }
 
 export function logoutUser() {
-	return auth.signOut();
+	return firebase.auth().signOut();
 }
 
 export function loginWithEmail(email, password) {
-	return auth.signInWithEmailAndPassword(email, password).then(user => {
+	return firebase.auth().signInWithEmailAndPassword(email, password).then(user => {
 
 		// is the user email verified?
 		if (!user.emailVerified) {

@@ -13,6 +13,17 @@ import './styles/contextualToggle.css';
 import './styles/notification.css';
 import './styles/company.css';
 
+import firebase from 'firebase';
+import env from './env.json'
+
+var config = {
+	"apiKey": env.apiKey,
+	"databaseURL": env.databaseURL,
+	"authDomain": env.authDomain,
+	"storageBucket": env.storageBucket
+};
+
+firebase.initializeApp(config);
 
 ReactDOM.render(
 	<Root />,
