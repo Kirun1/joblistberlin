@@ -1,8 +1,6 @@
 import React from 'react';
 import UserSettings from './UserSettings';
-import UserJobs from './UserJobs';
-import { Route,
-				 NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 export default function Account(props) {
 	const { match } = props;

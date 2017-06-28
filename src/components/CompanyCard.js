@@ -42,10 +42,8 @@ class CompanyCard extends Component {
 	}
 	render() {
 
-		const { id,
-						title,
+		const { title,
 						url,
-						goToDetail,
 						isFavorite } = this.props;
 		return (
 			<article className={`Company ${this.companyIsApproved()}`}>

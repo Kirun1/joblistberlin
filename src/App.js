@@ -17,7 +17,7 @@ import Admin from './components/Admin';
 
 import NotificationDisplay from './components/NotificationDisplay';
 
-import logo from '../public/jlb-logo.png'
+/* import logo from '../public/jlb-logo.png'*/
 
 export default function App() {
 	let auth = isAuthenticated();
@@ -28,7 +28,8 @@ export default function App() {
 			<aside className="App-aside Container Section">
 				<nav className="Nav Nav--main">
 					<NavLink className="Nav-item Logo" to="/">
-						<img className="Logo-img" src={logo} alt="Job List Berlin logo"/>
+						{/* <img className="Logo-img" src={logo} alt="Job List Berlin logo"/> */}
+						<h1>JLB</h1>
 					</NavLink>
 					<NavLink className="Nav-item" to="/companies">Companies</NavLink>
 					{/* <NavLink className="Nav-item" to="/jobs">Jobs</NavLink> */}

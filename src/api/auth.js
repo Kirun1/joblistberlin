@@ -1,6 +1,15 @@
 import firebase, { database } from 'firebase';
+import env from '../env.json'
 
-export const auth = firebase.auth();
+var config = {
+	"apiKey": env.apiKey,
+	"databaseURL": env.databaseURL,
+	"authDomain": env.authDomain,
+	"storageBucket": env.storageBucket
+};
+
+const firebaseApp = firebase.initializeApp(config, 'wtf');
+const auth = firebase.auth(firebaseApp);
 
 
 /*

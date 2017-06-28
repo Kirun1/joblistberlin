@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { map,
-				 reverse,
-				 filter } from 'lodash';
+/* import { map,
+ *  				 reverse,
+ *  				 filter } from 'lodash';*/
 
 /* import withFirebase from '../withFirebase';*/
 
 /* import { database } from 'firebase';*/
 /* import { getCurrentUserSettingRef } from '../api/auth';*/
 
-import Loading from './Loading';
-import CompanyCard from './CompanyCard';
+/* import Loading from './Loading';
+ * import CompanyCard from './CompanyCard';*/
 
 /* function serializeKey(data, id) {
  * 	data.id = id;

@@ -13,8 +13,7 @@ var config = {
 	"storageBucket": env.storageBucket
 };
 
-const firebaseApp = firebase.initializeApp(config);
-
+firebase.initializeApp(config);
 
 export default class Root extends Component {
 	render() {
