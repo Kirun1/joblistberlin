@@ -1,5 +1,4 @@
-import firebase from 'firebase';
-import { serverTime } from '../actions/auth';
+import firebase, { database } from 'firebase';
 
 export function postCompany(title, url) {
 	const newModelRef = firebase.database().ref('links').push();
@@ -7,6 +6,6 @@ export function postCompany(title, url) {
 	return newModelRef.set({
 		url,
 		title,
-		createdAt: serverTime
+		createdAt: database.ServerValue.TIMESTAMP
 	})
 }

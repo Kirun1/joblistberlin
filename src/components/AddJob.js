@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { database } from 'firebase';
-import { serverTime,
-				 getCurrentUser } from '../actions/auth';
+import { getCurrentUser } from '../actions/auth';
 import withNotification from './withNotification';
 
 class PostJob extends Component {
@@ -9,8 +8,7 @@ class PostJob extends Component {
 		super();
 		this.state = {
 	    title: '',
-			description: '',
-			createdAt: serverTime
+			description: ''
 		};
   }
 

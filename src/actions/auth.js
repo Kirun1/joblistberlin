@@ -1,37 +1,37 @@
-import firebase, { database } from 'firebase';
+import firebase, { database, auth } from 'firebase';
 
 /*
 	 Auth
 */
 
 export function getCurrentUser() {
-	return new Promise((resolve, reject) => resolve(firebase.auth().currentUser) );
+	return new Promise((resolve, reject) => resolve(auth().currentUser) );
 }
 
 export function isAuthenticated() {
-	return firebase.auth().currentUser;
+	return auth().currentUser;
 }
 
 export function updateUserEmail(email) {
-	return firebase.auth().currentUser.updateEmail(email);
+	return auth().currentUser.updateEmail(email);
 }
 
 export function sendPasswordResetEmail(email) {
-	return firebase.auth().sendPasswordResetEmail(email);
+	return auth().sendPasswordResetEmail(email);
 }
 
 export function registerWithEmail(email, password) {
-	return firebase.auth().createUserWithEmailAndPassword(email, password)
+	return auth().createUserWithEmailAndPassword(email, password)
 						 .then(sendVerificationEmail)
 						 .then(logoutUser);
 }
 
 export function logoutUser() {
-	return firebase.auth().signOut();
+	return auth().signOut();
 }
 
 export function loginWithEmail(email, password) {
-	return firebase.auth().signInWithEmailAndPassword(email, password).then(user => {
+	return auth().signInWithEmailAndPassword(email, password).then(user => {
 
 		// is the user email verified?
 		if (!user.emailVerified) {
@@ -65,11 +65,6 @@ export function sendVerificationEmail() {
 /*
 	 Database
  */
-
-// A placeholder value for auto-populating the current timestamp
-// https://firebase.google.com/docs/reference/js/firebase.database.ServerValue
-// it has nothing to do with firebase.database() ...
-export const serverTime = database.ServerValue.TIMESTAMP;
 
 export function getCurrentUserSettingRef() {
 	return getCurrentUser().then(user => {
