@@ -14,14 +14,26 @@ import './styles/notification.css';
 import './styles/company.css';
 
 import firebase from 'firebase';
-import env from './env.json'
 
-var config = {
-	"apiKey": env.apiKey,
-	"databaseURL": env.databaseURL,
-	"authDomain": env.authDomain,
-	"storageBucket": env.storageBucket
-};
+let config;
+
+if (process.env.NODE_ENV !== "production") {
+	config = {
+		"apiRootUrl": "https://joblistberlin-staging.firebaseio.com",
+		"apiKey": "AIzaSyAOWDGWR6dgJXNvG_B9A6hIaJNVQBwg0jI",
+		"databaseURL": "joblistberlin-staging.firebaseio.com",
+		"authDomain": "joblistberlin-staging.firebaseapp.com",
+		"storageBucket": "joblistberlin-staging.appspot.com"
+	}
+} else {
+	config = {
+		"apiRootUrl": "https://joblistberlin.firebaseio.com",
+		"apiKey": "AIzaSyACEEOsMA6xpUV4uzgbQtK8T7GNLOdQRfQ",
+		"databaseURL": "joblistberlin.firebaseio.com",
+		"authDomain": "joblistberlin.firebaseapp.com",
+		"storageBucket": "joblistberlin.appspot.com"
+	}
+}
 
 firebase.initializeApp(config);
 

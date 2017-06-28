@@ -12,7 +12,7 @@ class Companies extends Component {
 
 	render() {
 		if(!this.props.data) return <Loading/>
-		console.log(this.props.data)
+
 		return (
 			<div>
 				<h2><small>A list of </small>companies</h2>
