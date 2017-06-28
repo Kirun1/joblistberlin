@@ -17,7 +17,6 @@ import Admin from './components/Admin';
 
 import NotificationDisplay from './components/NotificationDisplay';
 
-/* import logo from '../public/jlb-logo.png'*/
 
 export default function App() {
 	let auth = isAuthenticated();
@@ -28,15 +27,16 @@ export default function App() {
 			<aside className="App-aside Container Section">
 				<nav className="Nav Nav--main">
 					<NavLink className="Nav-item Logo" to="/">
-						{/* <img className="Logo-img" src={logo} alt="Job List Berlin logo"/> */}
-						<h1>JLB</h1>
+						<h1 title="Job List Berlin">
+							<img className="Logo-img" src={ process.env.PUBLIC_URL + '/jlb-logo.png' } alt="Job List Berlin logo"/>
+						</h1>
 					</NavLink>
 					<NavLink className="Nav-item" to="/companies">Companies</NavLink>
 					{/* <NavLink className="Nav-item" to="/jobs">Jobs</NavLink> */}
-					<hr/>
-					{ auth && <NavLink className="Nav-item" to="/auth/account">Account</NavLink> }
-					{ auth && <NavLink className="Nav-item" to="/auth/logout">Logout</NavLink> }
-					{ !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> }
+					{/* <hr/> */}
+					{/* { auth && <NavLink className="Nav-item" to="/auth/account">Account</NavLink> } */}
+					{/* { auth && <NavLink className="Nav-item" to="/auth/logout">Logout</NavLink> } */}
+					{/* { !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> } */}
 				</nav>
 			</aside>
 
