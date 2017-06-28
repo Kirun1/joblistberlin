@@ -17,7 +17,7 @@ class Companies extends Component {
 			<div>
 				<h2><small>A list of </small>companies</h2>
 				<p>
-					Companies in this list have <strong>officies in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
+					Companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
 					This is a <strong>community currated</strong> list, anyone can <Link to='companies/add'>submit a company</Link> for review.
 				</p>
 				{ this.props.data.map((company, index) => <CompanyCard key={ index }
