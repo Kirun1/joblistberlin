@@ -32,6 +32,7 @@ export default function App() {
 						</h1>
 					</NavLink>
 					<NavLink className="Nav-item" to="/companies">Companies</NavLink>
+					<a href="https://www.facebook.com/joblistberlin" target="_blank">Facebook</a>
 					{/* <NavLink className="Nav-item" to="/jobs">Jobs</NavLink> */}
 					{/* <hr/> */}
 					{/* { auth && <NavLink className="Nav-item" to="/auth/account">Account</NavLink> } */}
