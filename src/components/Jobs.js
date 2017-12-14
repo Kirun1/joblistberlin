@@ -25,12 +25,14 @@ export default class Jobs extends Component {
 				<section className="Section">
 					<h2>Job<small> board</small></h2>
 					<p>
-						Positions in this list are all located in <strong>Berlin</strong>.<br/>
-						Do you want to <Link to="jobs/add">add a job</Link> offer to this list?
+						Positions in this list are all located in the <strong>Berlin area</strong>.<br/>
+						Do you want to <Link to="jobs/add">add a job</Link> offer to this list?<br/>
+						Find more jobs on the <a href="https://www.facebook.com/pg/joblistberlin/community/" target="_blank">Facebook community</a>.
 					</p>
+
 				</section>
 				<section className="Section">
-					{ this.state.model.map((job, index) => <Job key={ index } model={ job }/>)}
+					{ this.state.model.map((job, index) => <Job key={ index } model={ job }/>) }
 				</section>
 			</div>
 		)
