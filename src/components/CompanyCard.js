@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { database } from 'firebase';
+import { format } from 'date-fns';
+
 import withNotification from './withNotification';
 import { getCurrentUserSettingRef } from '../actions/auth';
 import ContextualToggle from './ContextualToggle'
 import Option from './Option';
+
 
 class CompanyCard extends Component {
 	toggleToUserFavorites = () => {
@@ -52,23 +55,28 @@ class CompanyCard extends Component {
 
 		const { title,
 						url,
+						createdAt,
 						isFavorite } = this.props;
+
 		return (
 			<article className={`Company ${this.companyIsFavorited()} ${this.companyIsApproved()}`}>
 
 				<ContextualToggle label={ title }>
 					{/* { goToDetail ? <Option action={ () => goToDetail(id) }>Edit</Option> : null } */}
 					{ isFavorite ? (
-					<Option action={ this.toggleToUserFavorites }>Remove from favorites</Option>
+							<Option action={ this.toggleToUserFavorites }>Remove from favorites</Option>
 					) : (
-					<Option action={ this.toggleToUserFavorites }>Add to favorites</Option>
+							<Option action={ this.toggleToUserFavorites }>Add to favorites</Option>
 					) }
 
 					<Option action={ this.reportBrokenLink }>Report broken link</Option>
 				</ContextualToggle>
 
 				<div className="Company-body">
-					<h4 className="Company-title">{ title }</h4>
+					<div className="Company-header">
+						<h4 className="Company-title">{ title }</h4>
+						<span className="Company-createdDate">{ format(createdAt, 'YYYY-MM') }</span>
+					</div>
 					<a href={ url } className="Company-link">
 						<input readOnly value={ url }/>
 					</a>

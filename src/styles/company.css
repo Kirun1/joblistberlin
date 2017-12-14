@@ -18,9 +18,20 @@
 .Company-body {
 	width: 100%;
 	padding: 0.3rem;
+	display: flex;
+	flex-direction: column;
+}
+.Company-header {
+	display: flex;
+	align-items: center;
 }
 .Company-title {
 	margin-bottom: 0.2rem;
+	margin-right: 1rem;
+}
+.Company-createdDate {
+	font-size: 0.8rem;
+	font-style: italic;
 }
 .Company-link input {
 	cursor: pointer;

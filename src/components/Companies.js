@@ -20,6 +20,8 @@ class Companies extends Component {
 					Companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
 					This is a <strong>community currated</strong> list, anyone can <Link to='companies/add'>submit a company</Link> for review.
 				</p>
+
+				<p>Most recently added:</p>
 				{ this.props.data.map((company, index) => <CompanyCard key={ index }
 																														goToDetail={ this.goToCompanyDetail }
 																														{ ...company } />) }
