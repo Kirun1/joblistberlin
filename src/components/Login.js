@@ -72,7 +72,8 @@ class Login extends Component {
 						<button className="Button" onClick={ this.handleReset }>Reset password</button>
 					</div>
 				</form>
-				<p>Don't have an account yet? <Link to="/auth/register">Register</Link></p>
+				<p>Accounts are in beta, it is not yet possible to register.</p>
+				{/* <p>Don't have an account yet? <Link to="/auth/register">Register</Link></p> */}
 			</div>
 		)
   }
