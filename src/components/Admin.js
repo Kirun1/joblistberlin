@@ -18,7 +18,10 @@ export default class Admin extends Component {
 	render() {
 		return (
 			<div className="Admin">
-				<button onClick={ this.getUser }>Get user</button>
+				{/* <button onClick={ this.getUser }>Get user</button> */}
+				<a href="https://joblistberlin.firebaseio.com">(live) Firebase root</a>
+				<a href="https://joblistberlin.firebaseio.com/links/.json">(live) model: links </a>
+				<a href="https://joblistberlin-staging.firebaseio.com/links/.json">(staging) Firebase root</a>
 			</div>
 		)
 	}
