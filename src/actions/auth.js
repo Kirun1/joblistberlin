@@ -1,4 +1,4 @@
-import firebase, { database, auth } from 'firebase';
+import { database, auth } from 'firebase';
 
 /*
 	 Auth

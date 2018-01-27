@@ -5,7 +5,7 @@ import { Switch,
 				 Redirect } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute.js';
-import { isAuthenticated } from './actions/auth';
+/* import { isAuthenticated } from './actions/auth';*/
 import NoMatchRoute from './components/NoMatchRoute';
 import CompaniesRoute from './components/CompaniesRoute';
 import JobsRoute from './components/JobsRoute';
@@ -19,7 +19,7 @@ import NotificationDisplay from './components/NotificationDisplay';
 
 
 export default function App() {
-	let auth = isAuthenticated();
+	/* const auth = isAuthenticated();*/
 	return (
 		<div className="App">
 			<NotificationDisplay/>
@@ -38,7 +38,7 @@ export default function App() {
 							{ auth && <NavLink className="Nav-item" to="/auth/logout">Logout</NavLink> }
 							{ !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> } */}
 					<hr/>
-					<a href="https://www.facebook.com/joblistberlin" target="_blank" className="Nav-item">↱ Facebook</a>
+					<a href="https://www.facebook.com/joblistberlin" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Facebook</a>
 				</nav>
 			</aside>
 
