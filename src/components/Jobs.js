@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { database } from 'firebase';
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
+/* import { Link } from 'react-router-dom';*/
 import Job from './Job';
 
 export default class Jobs extends Component {
@@ -27,7 +27,7 @@ export default class Jobs extends Component {
 					<p>
 						{/* Positions in this list are all located in the <strong>Berlin area</strong>.<br/>
 								Do you want to <Link to="jobs/add">add a job</Link> offer to this list?<br/> */}
-						Find jobs on the <a href="https://www.facebook.com/pg/joblistberlin/community/" target="_blank">Facebook community</a>.
+						Find jobs on the <a href="https://www.facebook.com/pg/joblistberlin/community/" target="_blank" rel="noopener noreferrer">Facebook community</a>.
 					</p>
 
 				</section>

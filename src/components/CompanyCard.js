@@ -59,7 +59,8 @@ class CompanyCard extends Component {
 						isFavorite } = this.props;
 
 		return (
-			<article className={`Company ${this.companyIsFavorited()} ${this.companyIsApproved()}`}>
+			<article
+				className={`Company ${this.companyIsFavorited()} ${this.companyIsApproved()}`}>
 
 				<ContextualToggle label={ title }>
 					{/* { goToDetail ? <Option action={ () => goToDetail(id) }>Edit</Option> : null } */}

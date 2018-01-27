@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Jets from 'jets';
 import withFirebase from '../withFirebase';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
@@ -7,7 +8,20 @@ import CompanyCard from './CompanyCard';
 class Companies extends Component {
 	constructor() {
 		super();
-		this.state = {}
+
+		this.state = {
+			search: ''
+		}
+	}
+
+	handleSearch = (e) => {
+		this.setState({
+	    search : e.target.value
+		});
+	}
+
+	applySearch = (company) => {
+		return company.title.toLowerCase().includes(this.state.search.toLowerCase())
 	}
 
 	render() {
@@ -18,13 +32,31 @@ class Companies extends Component {
 				<h2><small>A list of </small>companies</h2>
 				<p>
 					Companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
-					This is a <strong>community currated</strong> list, anyone can <Link to='companies/add'>submit a company</Link> for review.
-				</p>
+			This is a <strong>community curated</strong> list, anyone can <Link to='companies/add'>submit a company</Link> for review.
+			</p>
 
-				<p>Most recently added:</p>
-				{ this.props.data.map((company, index) => <CompanyCard key={ index }
-																														goToDetail={ this.goToCompanyDetail }
-																														{ ...company } />) }
+			<label>
+			<input
+			type="search"
+			title="Search for a company"
+			placeholder="Search for a company"
+			onChange={ this.handleSearch }
+			value={ this.state.search } />
+				</label>
+
+				<div id="jetsContent">
+			{
+				this.props.data
+						.filter(this.applySearch)
+						.map((company, index) => (
+					<CompanyCard
+					key={ company.id }
+					goToDetail={ this.goToCompanyDetail }
+					{ ...company }
+					/>
+				))
+			}
+				</div>
 			</div>
 		)
 	}

@@ -11,9 +11,14 @@ const withFirebase = (refName) => {
 
 		componentDidMount() {
       firebase.database().ref(refName).orderByChild('createdAt').on('value', snapshot => {
-        let data = map(snapshot.val()).reverse();
+        let data = map(snapshot.val(), this.serialize).reverse();
         this.setState( { data } );
       })
+		}
+
+		serialize(data, id) {
+			data.id = id
+			return data;
 		}
 
 		render() {
