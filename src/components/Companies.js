@@ -8,6 +8,7 @@ import CompanyCard from './CompanyCard';
 class Companies extends Component {
 	constructor() {
 		super();
+
 		this.state = {
 			jetsSearch: '',
 			jets: {}
@@ -17,18 +18,18 @@ class Companies extends Component {
 	componentDidMount() {
 		const jets = new Jets({
 			callSearchManually: true,
-			searchTag: '#jetsSearch',
 			contentTag: '#jetsContent'
 		});
 
-		this.state = {
+		this.setState({
 			jets
-		}
+		})
 	}
 
 	componentWillUnmount() {
 		this.state.jets.destroy();
 	}
+
 
 	handleSearch = (e) => {
 		this.setState({
