@@ -29,7 +29,7 @@ export default class Jobs extends Component {
 								Do you want to <Link to="jobs/add">add a job</Link> offer to this list?<br/> */}
 						Find jobs on the <a href="https://www.facebook.com/pg/joblistberlin/community/" target="_blank" rel="noopener noreferrer">Facebook community</a>.
 					</p>
-
+					<p>If you want to share a job, you can post directly in <a href="https://www.facebook.com/groups/joblistberlin">Job List Berlin's Facebook group</a></p>
 				</section>
 				<section className="Section">
 					{ this.state.model.map((job, index) => <Job key={ index } model={ job }/>) }
