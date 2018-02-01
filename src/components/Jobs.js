@@ -30,6 +30,45 @@ export default class Jobs extends Component {
 						Find jobs on the <a href="https://www.facebook.com/pg/joblistberlin/community/" target="_blank" rel="noopener noreferrer">Facebook community</a>.
 					</p>
 					{/* <p>If you want to share a job, you can post directly in <a href="https://www.facebook.com/groups/joblistberlin">Job List Berlin's Facebook group</a></p> */}
+					<article>
+						<p>Top 10+ Facebook groups to <strong>find a job in Berlin</strong>:</p>
+						<ul>
+							<li>
+								<a href="https://www.facebook.com/groups/joblistberlin/">Job List Berlin</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/BerlinStartupJobs/">Berlin Startup Jobs</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/berlinexpats">Berlin Expats</a>
+							</li>
+							<li>
+								<a href="Berlin Art + Design Ads & Jobs">https://www.facebook.com/groups/berlinartdesignjobs</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/407566646051269">Berlin Startup Jobs</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/StartupJobsBerlin">Berlin Startup Jobs, Internships & Co-founders</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/berlintechjobs">Berlin Tech Jobs</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/Best.Jobs.Germany">Best Jobs Germany, Berlin</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/193382777888690">English German speaking jobs in Berlin</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/English.Jobs.Berlin">English jobs in Berlin</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/jobinberlin">English speaking jobs in Berlin</a>
+							</li>
+						</ul>
+					</article>
+					https://service.berlin.de/jobcenter/
 				</section>
 				<section className="Section">
 					{ this.state.model.map((job, index) => <Job key={ index } model={ job }/>) }
