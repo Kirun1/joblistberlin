@@ -74,15 +74,14 @@ class CompanyCard extends Component {
 				</ContextualToggle>
 
 				<div className="Company-body">
-					<div className="Company-header">
-						<h4 className="Company-title">{ title }</h4>
-						<span className="Company-createdDate">{ format(createdAt, 'YYYY-MM') }</span>
-					</div>
-					<a href={ url } className="Company-link">
+					<a href={ url } className="Company-link" target="_blank" rel="noopener noreferrer">
+						<div className="Company-header">
+							<h4 className="Company-title">{ title }</h4>
+							<span className="Company-createdDate">{ format(createdAt, 'YYYY-MM') }</span>
+						</div>
 						<input readOnly value={ url }/>
 					</a>
 				</div>
-
 			</article>
 		)
 	}
