@@ -43,7 +43,7 @@ export default class Jobs extends Component {
 								<a href="https://www.facebook.com/groups/berlinexpats">Berlin Expats</a>
 							</li>
 							<li>
-								<a href="Berlin Art + Design Ads & Jobs">https://www.facebook.com/groups/berlinartdesignjobs</a>
+								<a href="https://www.facebook.com/groups/berlinartdesignjobs">Berlin Art + Design Ads & Jobs</a>
 							</li>
 							<li>
 								<a href="https://www.facebook.com/groups/407566646051269">Berlin Startup Jobs</a>
@@ -68,7 +68,10 @@ export default class Jobs extends Component {
 							</li>
 						</ul>
 					</article>
-					https://service.berlin.de/jobcenter/
+
+					<article>
+						<p>Job centers are public institutions that can help you find a job. Here is a list of<a href="https://service.berlin.de/jobcenter">all <strong>Jobcenters</strong> in Berlin</a>. They can assist and give advises on how to write you resume and cover letter in German, provide german language classes and many other ressources. You should go there with someone that speaks german if you don't.</p>
+					</article>
 				</section>
 				<section className="Section">
 					{ this.state.model.map((job, index) => <Job key={ index } model={ job }/>) }
