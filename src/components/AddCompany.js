@@ -56,7 +56,7 @@ class AddCompany extends Component {
 							<input name="url" type="url" placeholder="Company's website /job" onChange={ this.handleChange } value={ url } title="https://..."/>
 						</label>
 					</article>
-					<button type="submit">add Company</button>
+					<button className="Button Button--validate" type="submit">add Company</button>
 				</form>
 			</div>
 		)

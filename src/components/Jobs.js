@@ -25,17 +25,19 @@ export default class Jobs extends Component {
 				<section className="Section">
 					<h2>Job<small> board</small></h2>
 					<p>
+						If you are either looking for a job or willing to hire someone, use the following links for best results.
+					</p>
+
+					<p>
 						{/* Positions in this list are all located in the <strong>Berlin area</strong>.<br/>
 								Do you want to <Link to="jobs/add">add a job</Link> offer to this list?<br/> */}
-						Find jobs on the <a href="https://www.facebook.com/pg/joblistberlin/community/" target="_blank" rel="noopener noreferrer">Facebook community</a>.
+						<a className="Button Button--validate" href="https://www.facebook.com/pg/joblistberlin/community/">Publish new Job</a> and share it to the community in Berlin.
 					</p>
-					{/* <p>If you want to share a job, you can post directly in <a href="https://www.facebook.com/groups/joblistberlin">Job List Berlin's Facebook group</a></p> */}
+				</section>
+				<section className="Section">
 					<article>
-						<p>Top 10+ Facebook groups to <strong>find a job in Berlin</strong>:</p>
+						<h3><small>Usefull Facebook groups to</small> find a job in Berlin</h3>
 						<ul>
-							<li>
-								<a href="https://www.facebook.com/groups/joblistberlin/">Job List Berlin</a>
-							</li>
 							<li>
 								<a href="https://www.facebook.com/groups/BerlinStartupJobs/">Berlin Startup Jobs</a>
 							</li>
@@ -68,7 +70,8 @@ export default class Jobs extends Component {
 							</li>
 						</ul>
 					</article>
-
+				</section>
+				<section className="Section">
 					<article>
 						<p>Job centers are public institutions that can help you find a job. Here is a list of<a href="https://service.berlin.de/jobcenter">all <strong>Jobcenters</strong> in Berlin</a>. They can assist and give advises on how to write you resume and cover letter in German, provide german language classes and many other ressources. You should go there with someone that speaks german if you don't.</p>
 					</article>
