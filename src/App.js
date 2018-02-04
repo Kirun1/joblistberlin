@@ -39,6 +39,7 @@ export default function App() {
 							{ !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> } */}
 					<hr/>
 					<a href="https://www.facebook.com/joblistberlin" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Facebook</a>
+					<a href="https://www.linkedin.com/company/joblistberlin/" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Linkedin</a>
 				</nav>
 			</aside>
 

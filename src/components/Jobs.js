@@ -73,7 +73,7 @@ export default class Jobs extends Component {
 				</section>
 				<section className="Section">
 					<article>
-						<p>Job centers are public institutions that can help you find a job. Here is a list of<a href="https://service.berlin.de/jobcenter">all <strong>Jobcenters</strong> in Berlin</a>. They can assist and give advises on how to write you resume and cover letter in German, provide german language classes and many other ressources. You should go there with someone that speaks german if you don't.</p>
+						<p>Job centers are public institutions that can help you find a job. Here is a list of <a href="https://service.berlin.de/jobcenter">all <strong>Jobcenters</strong> in Berlin</a>. They can assist and give advises on how to write you resume and cover letter in German, provide german language classes and many other ressources. You should go there with someone that speaks german if you don't.</p>
 					</article>
 				</section>
 				<section className="Section">
