@@ -35,8 +35,3 @@ at [htps://joblistberlin.com](https://joblistberlin.com).
 
 Thank you for reading,
 HF
-
-
-
-
-

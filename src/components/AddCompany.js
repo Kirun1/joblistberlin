@@ -49,17 +49,17 @@ class AddCompany extends Component {
 				<form onSubmit={ this.handleSubmit }>
 					<article>
 						<label>Name:
-							<input name="title"  type="text" placeholder="Company name" onChange={ this.handleChange } value={ title }/>
+							<input required name="title"  type="text" placeholder="Company name" onChange={ this.handleChange } value={ title }/>
 						</label>
 					</article>
 					<article>
 						<label>Url:
-							<input name="url" type="url" placeholder="Company's website /job" onChange={ this.handleChange } value={ url } title="https://..."/>
+							<input required name="url" type="url" placeholder="Company's website /job" onChange={ this.handleChange } value={ url } title="https://..."/>
 						</label>
 					</article>
 					<article>
 						<label>Description:
-							<textarea name="body" type="text" placeholder="What is this company about? #startup #bar #jobBoard ..." onChange={ this.handleChange } value={ body } title="Write a little description about this Company, what it does, or what type of jobs it offers"/>
+							<textarea name="body" type="text" maxLength="999" placeholder="What is this company about? #startup #bar #jobBoard ..." onChange={ this.handleChange } value={ body } title="Write a little description about this Company, what it does, or what type of jobs it offers (max. 1000 characters)"></textarea>
 						</label>
 					</article>
 					<button className="Button Button--validate" type="submit">add Company</button>
