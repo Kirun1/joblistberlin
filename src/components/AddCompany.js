@@ -7,16 +7,17 @@ class AddCompany extends Component {
 		super();
 		this.state = {
 	    url: '',
-	    title: ''
+	    title: '',
+			body: ''
 		};
   }
 
   handleSubmit = (e) => {
 		e.preventDefault();
 		const { addNotification, history } = this.props;
-		const { url, title  } = this.state;
+		const { url, title, body  } = this.state;
 
-		postCompany(title, url).then(newModel => {
+		postCompany(title, url, body).then(newModel => {
 			console.log('addcompany:submit sucess');
 			addNotification(`The company ${title} has been added`);
 			history.push('/companies');
@@ -34,7 +35,7 @@ class AddCompany extends Component {
 
 
   render() {
-		const { url, title } = this.state;
+		const { url, title, body } = this.state;
 
 		return (
 			<div className="AddCompany">
@@ -54,6 +55,11 @@ class AddCompany extends Component {
 					<article>
 						<label>Url:
 							<input name="url" type="url" placeholder="Company's website /job" onChange={ this.handleChange } value={ url } title="https://..."/>
+						</label>
+					</article>
+					<article>
+						<label>Description:
+							<textarea name="body" type="text" placeholder="What is this company about? #startup #bar #jobBoard ..." onChange={ this.handleChange } value={ body } title="Write a little description about this Company, what it does, or what type of jobs it offers"/>
 						</label>
 					</article>
 					<button className="Button Button--validate" type="submit">add Company</button>

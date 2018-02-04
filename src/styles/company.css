@@ -18,11 +18,23 @@
 .Company-link {
   text-decoration: none;
 }
-.Company-body {
+.Company-main {
 	width: 100%;
 	padding: 0.3rem;
 	display: flex;
 	flex-direction: column;
+}
+
+.Company input {
+	cursor: pointer;
+	border: 0px solid transparent;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+.Company-body {
+	margin-bottom: 0;
 }
 .Company-header {
 	display: flex;
@@ -35,14 +47,4 @@
 .Company-createdDate {
 	font-size: 0.8rem;
 	font-style: italic;
-}
-.Company-link input {
-	cursor: pointer;
-}
-.Company-link input {
-	border: 0px solid transparent;
-	background-color: transparent;
-	padding: 0;
-	margin: 0;
-	width: 100%;
 }

@@ -55,6 +55,7 @@ class CompanyCard extends Component {
 
 		const { title,
 						url,
+						body,
 						createdAt,
 						isFavorite } = this.props;
 
@@ -73,14 +74,17 @@ class CompanyCard extends Component {
 					<Option action={ this.reportBrokenLink }>Report broken link</Option>
 				</ContextualToggle>
 
-				<div className="Company-body">
-					<a href={ url } className="Company-link" target="_blank" rel="noopener noreferrer">
-						<div className="Company-header">
+				<div className="Company-main">
+					<div className="Company-header">
+						<a href={ url } className="Company-link" target="_blank" rel="noopener noreferrer">
 							<h4 className="Company-title">{ title }</h4>
-							<span className="Company-createdDate">{ format(createdAt, 'YYYY-MM') }</span>
-						</div>
-						<input readOnly value={ url }/>
-					</a>
+						</a>
+						<span className="Company-createdDate">{ format(createdAt, 'YYYY-MM') }</span>
+					</div>
+					<input readOnly value={ url }/>
+					{ body && (
+							<p className="Company-body">{ body }</p>
+					) }
 				</div>
 			</article>
 		)

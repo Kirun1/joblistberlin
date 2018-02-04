@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Jets from 'jets';
 import withFirebase from '../withFirebase';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
@@ -44,18 +43,18 @@ class Companies extends Component {
 			value={ this.state.search } />
 				</label>
 
-				<div id="jetsContent">
-			{
-				this.props.data
-						.filter(this.applySearch)
-						.map((company, index) => (
-					<CompanyCard
-					key={ company.id }
-					goToDetail={ this.goToCompanyDetail }
-					{ ...company }
-					/>
-				))
-			}
+				<div className="Companies">
+					{
+						this.props.data
+								.filter(this.applySearch)
+								.map((company, index) => (
+									<CompanyCard
+									key={ company.id }
+									goToDetail={ this.goToCompanyDetail }
+									{ ...company }
+									/>
+								))
+					}
 				</div>
 			</div>
 		)

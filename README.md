@@ -1,8 +1,8 @@
 # Job List Berlin - react
 
-a react app
+Scripts to run, build and test the projects are defined in `package.json`.
 
-`npm start` to run it
+`npm start` to run it.
 
 ## deploy
 
