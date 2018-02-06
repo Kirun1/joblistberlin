@@ -26,7 +26,7 @@
 }
 
 .Company input {
-	cursor: pointer;
+	font-size: 0.8rem;
 	border: 0px solid transparent;
 	background-color: transparent;
 	padding: 0;
