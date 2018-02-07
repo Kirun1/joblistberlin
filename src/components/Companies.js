@@ -18,7 +18,7 @@ class Companies extends Component {
 		const value = e.target.value
 		this.setState({search: value})
 		// Update query param in URL as well.
-		const location = {search: `?search=${value}`}
+		const location = {search: `?search=${encodeURIComponent(value)}`}
 		this.props.history.replace(location)
 	}
 
@@ -26,6 +26,7 @@ class Companies extends Component {
 		var searchPool = this.buildSearchPool(company);
 		return searchPool.toLowerCase().includes(this.state.search.toLowerCase())
 	}
+
 	buildSearchPool(company) {
 		return company.title + company.body
 	}
