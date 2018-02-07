@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import withFirebase from '../withFirebase';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
+import {parse} from 'query-string';
 
 class Companies extends Component {
 	constructor() {
@@ -21,6 +22,14 @@ class Companies extends Component {
 
 	applySearch = (company) => {
 		return company.title.toLowerCase().includes(this.state.search.toLowerCase())
+	}
+
+	componentWillMount() {
+		// Set initial search query from the URL.
+		const params = parse(this.props.location.search)
+		if (params.search) {
+			this.setState({search: params.search})
+		}
 	}
 
 	render() {
