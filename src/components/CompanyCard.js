@@ -66,7 +66,7 @@ class CompanyCard extends Component {
 
 				<ContextualToggle label={ title }>
 					{/* { <Option action={ () => console.log('yolol') }>Edit</Option> } */}
-					<Option action={ () => this.reportBrokenLink(this.props.id) }>Report broken link</Option>
+					<Option action={ () => this.reportBrokenLink(this.props.id) }>Report broken link (popup)</Option>
 				</ContextualToggle>
 
 				<div className="Company-main">
