@@ -17,7 +17,7 @@ class Companies extends Component {
 	handleSearch = (value) => {
 		this.setState({search: value})
 		// Update query param in URL as well.
-		const location = {search: `?search=${value}`}
+		const location = {search: `?search=${window.encodeURIComponent(value)}`}
 		this.props.history.replace(location)
 	}
 
@@ -35,9 +35,11 @@ class Companies extends Component {
 
 	componentWillMount() {
 		// Set initial search query from the URL.
-			const params = parse(this.props.location.search)
+		const params = parse(this.props.location.search)
 		if (params.search) {
-			this.setState({search: params.search})
+			this.setState({
+				search: window.decodeURIComponent(params.search)
+			})
 		}
 	}
 
