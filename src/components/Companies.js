@@ -1,3 +1,4 @@
+import queryString from 'query-string';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withFirebase from '../withFirebase';
@@ -7,20 +8,35 @@ import CompanyCard from './CompanyCard';
 class Companies extends Component {
 	constructor() {
 		super();
-
 		this.state = {
 			search: ''
 		}
 	}
 
+	componentWillMount() {
+		const parsedQuery = queryString.parse(this.props.location.search);
+		this.setSearch(parsedQuery.search)
+	}
+
 	handleSearch = (e) => {
+		const {location, history} = this.props;
+		var test = location.pathname + '?search=' + e.target.value
+		history.push(test);
+	}
+	setSearch = (search) => {
+		console.log('searSearch', search)
 		this.setState({
-	    search : e.target.value
+	    search
 		});
 	}
 
 	applySearch = (company) => {
-		return company.title.toLowerCase().includes(this.state.search.toLowerCase())
+		const search = this.state.search;
+		const searchPool = company.title;
+		if (search) {
+			return searchPool.toLowerCase().includes(search.toLowerCase())
+		}
+		return company;
 	}
 
 	render() {
