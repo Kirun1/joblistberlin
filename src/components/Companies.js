@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import withFirebase from '../withFirebase';
+import withCompanies from '../withCompanies';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
+import {parse} from 'query-string';
 
 class Companies extends Component {
 	constructor() {
@@ -13,14 +14,31 @@ class Companies extends Component {
 		}
 	}
 
-	handleSearch = (e) => {
-		this.setState({
-	    search : e.target.value
-		});
+	handleSearch = (value) => {
+		this.setState({search: value})
+		// Update query param in URL as well.
+		const location = {search: `?search=${value}`}
+		this.props.history.replace(location)
 	}
 
 	applySearch = (company) => {
-		return company.title.toLowerCase().includes(this.state.search.toLowerCase())
+		return this.buildSearchPool(company)
+							 .toLowerCase()
+							 .includes(this.state.search.toLowerCase())
+	}
+	clearSearch = () => {
+		this.handleSearch('')
+	}
+	buildSearchPool(company) {
+		return company.title + company.body
+	}
+
+	componentWillMount() {
+		// Set initial search query from the URL.
+			const params = parse(this.props.location.search)
+		if (params.search) {
+			this.setState({search: params.search})
+		}
 	}
 
 	render() {
@@ -31,16 +49,17 @@ class Companies extends Component {
 				<h2><small>Companies</small> hiring in Berlin</h2>
 				<p>
 					Companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
-					This is a <strong>community curated</strong> list, anyone can <Link to='companies/add'>submit a company</Link> for review.
+					This is a <strong>community curated</strong> list, anyone can <Link className="Button Button--validate" to='companies/add'>submit a company</Link> for review.
 				</p>
 
-				<label>
+				<label className="FormItem FormItem--h">
 					<input
 					type="search"
 					title="Search for a company"
 					placeholder="Search for a company"
-					onChange={ this.handleSearch }
+					onChange={ (e) => this.handleSearch(e.target.value) }
 					value={ this.state.search } />
+					<button className="Button" onClick={ this.clearSearch }>Clear</button>
 				</label>
 
 				<div className="Companies">
@@ -61,4 +80,4 @@ class Companies extends Component {
 	}
 }
 
-export default withFirebase('links')(Companies);
+export default withCompanies(Companies);

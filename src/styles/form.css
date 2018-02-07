@@ -36,3 +36,12 @@ option {
 	padding: 0.2rem;
 	margin-top: 0.2rem;
 }
+
+
+.FormItem--h {
+	display: flex;
+	align-items: center;
+}
+.FormItem--h input {
+	margin-top: 0;
+}
