@@ -9,14 +9,24 @@ export default class ContextualToggle extends Component {
 	}
 
 	handleChange(event) {
-		const select = event.target;
-
 		// get the <Option> index in the <select>
+		const select = event.target;
+		let childProps;
+
 		// -1 because we don't count the default option
 		const selectedIndex = select.selectedIndex - 1;
+
 		// get the props of the selected <Option>
-		const childProps = this.props.children[selectedIndex].props;
+		// if array, get the selected element,
+		// or there is just one child
+		if (this.props.children instanceof Array) {
+			childProps = this.props.children[selectedIndex].props;
+		} else {
+			childProps = this.props.children.props;
+		}
+
 		// run the function stored in the `action` prop
+		// aka, the action we passed down
 		childProps.action();
 
 		this.resetSelect(select);

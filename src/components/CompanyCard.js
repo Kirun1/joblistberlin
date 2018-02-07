@@ -33,9 +33,8 @@ class CompanyCard extends Component {
 								})
 		})
 	}
-	reportBrokenLink() {
-		const linkURL = this.props.id;
-		const reportURL = `https://docs.google.com/forms/d/e/1FAIpQLSfBpCBvw7ApDW4ZUni85zqZyzHhoJ0aimNAdLc4Jnr_Pxzk7A/viewform?usp=pp_url&entry.727514964=${linkURL}&entry.730769846`
+	reportBrokenLink(linkID) {
+		const reportURL = `https://docs.google.com/forms/d/e/1FAIpQLSfBpCBvw7ApDW4ZUni85zqZyzHhoJ0aimNAdLc4Jnr_Pxzk7A/viewform?usp=pp_url&entry.727514964=${linkID}&entry.730769846`
 		window.open(reportURL, '_blank');
 	}
 	companyIsFavorited() {
@@ -66,8 +65,8 @@ class CompanyCard extends Component {
 				className={`Company ${this.companyIsFavorited()} ${this.companyIsApproved()}`}>
 
 				<ContextualToggle label={ title }>
-					{/* { goToDetail ? <Option action={ () => goToDetail(id) }>Edit</Option> : null } */}
-					<Option action={ () => this.reportBrokenLink() }>Report broken link</Option>
+					{/* { <Option action={ () => console.log('yolol') }>Edit</Option> } */}
+					<Option action={ () => this.reportBrokenLink(this.props.id) }>Report broken link</Option>
 				</ContextualToggle>
 
 				<div className="Company-main">
