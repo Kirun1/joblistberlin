@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import withFirebase from '../withFirebase';
+import withCompanies from '../withCompanies';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
 import {parse} from 'query-string';
@@ -76,4 +76,4 @@ class Companies extends Component {
 	}
 }
 
-export default withFirebase('links')(Companies);
+export default withCompanies(Companies);

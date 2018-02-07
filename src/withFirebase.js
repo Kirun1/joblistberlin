@@ -2,7 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 import { map } from 'lodash';
 
-const withFirebase = (refName) => {
+const withFirebase = (refName, serializer) => {
 	return ExtendedComponent => class extends React.Component {
 		constructor() {
 			super();
@@ -11,14 +11,9 @@ const withFirebase = (refName) => {
 
 		componentDidMount() {
       firebase.database().ref(refName).orderByChild('createdAt').on('value', snapshot => {
-        let data = map(snapshot.val(), this.serialize).reverse();
+        let data = map(snapshot.val(), serializer).reverse();
         this.setState( { data } );
       })
-		}
-
-		serialize(data, id) {
-			data.id = id
-			return data;
 		}
 
 		render() {
