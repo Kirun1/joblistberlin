@@ -67,13 +67,6 @@ class CompanyCard extends Component {
 
 				<ContextualToggle label={ title }>
 					{/* { goToDetail ? <Option action={ () => goToDetail(id) }>Edit</Option> : null } */}
-					<optgroup className="dn">
-						{ isFavorite ? (
-								<Option action={ this.toggleToUserFavorites }>Remove from favorites</Option>
-						) : (
-								<Option action={ this.toggleToUserFavorites }>Add to favorites</Option>
-						) }
-					</optgroup>
 					<Option action={ () => this.reportBrokenLink() }>Report broken link</Option>
 				</ContextualToggle>
 
