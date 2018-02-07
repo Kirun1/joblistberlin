@@ -15,9 +15,11 @@ class Companies extends Component {
 	}
 
 	handleSearch = (e) => {
-		this.setState({
-	    search : e.target.value
-		});
+		const value = e.target.value
+		this.setState({search: value})
+		// Update query param in URL as well.
+		const location = {search: `?search=${value}`}
+		this.props.history.push(location)
 	}
 
 	applySearch = (company) => {
