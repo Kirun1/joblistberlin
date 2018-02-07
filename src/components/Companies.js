@@ -14,8 +14,7 @@ class Companies extends Component {
 		}
 	}
 
-	handleSearch = (e) => {
-		const value = e.target.value
+	handleSearch = (value) => {
 		this.setState({search: value})
 		// Update query param in URL as well.
 		const location = {search: `?search=${value}`}
@@ -23,8 +22,12 @@ class Companies extends Component {
 	}
 
 	applySearch = (company) => {
-		var searchPool = this.buildSearchPool(company);
-		return searchPool.toLowerCase().includes(this.state.search.toLowerCase())
+		return this.buildSearchPool(company)
+							 .toLowerCase()
+							 .includes(this.state.search.toLowerCase())
+	}
+	clearSearch = () => {
+		this.handleSearch('')
 	}
 	buildSearchPool(company) {
 		return company.title + company.body
@@ -32,7 +35,7 @@ class Companies extends Component {
 
 	componentWillMount() {
 		// Set initial search query from the URL.
-		const params = parse(this.props.location.search)
+			const params = parse(this.props.location.search)
 		if (params.search) {
 			this.setState({search: params.search})
 		}
@@ -46,16 +49,17 @@ class Companies extends Component {
 				<h2><small>Companies</small> hiring in Berlin</h2>
 				<p>
 					Companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
-					This is a <strong>community curated</strong> list, anyone can <Link to='companies/add'>submit a company</Link> for review.
+					This is a <strong>community curated</strong> list, anyone can <Link className="Button Button--validate" to='companies/add'>submit a company</Link> for review.
 				</p>
 
-				<label>
+				<label className="FormItem FormItem--h">
 					<input
 					type="search"
 					title="Search for a company"
 					placeholder="Search for a company"
-					onChange={ this.handleSearch }
+					onChange={ (e) => this.handleSearch(e.target.value) }
 					value={ this.state.search } />
+					<button className="Button" onClick={ this.clearSearch }>Clear</button>
 				</label>
 
 				<div className="Companies">
