@@ -5,6 +5,7 @@ import Root from './Root';
 
 import './styles/reset.css';
 import './styles/index.css';
+import './styles/utilities.css';
 import './styles/layout.css';
 import './styles/button.css';
 import './styles/form.css';

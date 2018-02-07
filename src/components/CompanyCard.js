@@ -34,7 +34,9 @@ class CompanyCard extends Component {
 		})
 	}
 	reportBrokenLink() {
-		console.log('report broken link')
+		const linkURL = this.props.id;
+		const reportURL = `https://docs.google.com/forms/d/e/1FAIpQLSfBpCBvw7ApDW4ZUni85zqZyzHhoJ0aimNAdLc4Jnr_Pxzk7A/viewform?usp=pp_url&entry.727514964=${linkURL}&entry.730769846`
+		window.open(reportURL, '_blank');
 	}
 	companyIsFavorited() {
 		if (this.props.isFavorite) {
@@ -65,13 +67,14 @@ class CompanyCard extends Component {
 
 				<ContextualToggle label={ title }>
 					{/* { goToDetail ? <Option action={ () => goToDetail(id) }>Edit</Option> : null } */}
-					{ isFavorite ? (
-							<Option action={ this.toggleToUserFavorites }>Remove from favorites</Option>
-					) : (
-							<Option action={ this.toggleToUserFavorites }>Add to favorites</Option>
-					) }
-
-					<Option action={ this.reportBrokenLink }>Report broken link</Option>
+					<optgroup className="dn">
+						{ isFavorite ? (
+								<Option action={ this.toggleToUserFavorites }>Remove from favorites</Option>
+						) : (
+								<Option action={ this.toggleToUserFavorites }>Add to favorites</Option>
+						) }
+					</optgroup>
+					<Option action={ () => this.reportBrokenLink() }>Report broken link</Option>
 				</ContextualToggle>
 
 				<div className="Company-main">
