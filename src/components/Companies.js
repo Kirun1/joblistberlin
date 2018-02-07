@@ -23,7 +23,11 @@ class Companies extends Component {
 	}
 
 	applySearch = (company) => {
-		return company.title.toLowerCase().includes(this.state.search.toLowerCase())
+		var searchPool = this.buildSearchPool(company);
+		return searchPool.toLowerCase().includes(this.state.search.toLowerCase())
+	}
+	buildSearchPool(company) {
+		return company.title + company.body
 	}
 
 	componentWillMount() {
