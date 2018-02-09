@@ -76,7 +76,11 @@ class Companies extends Component {
 		}
 	}
 	generateNav() {
-		const items = this.generateTags(this.props.data)
+		const items = this.generateTags(this.props.data).filter((value, index, self) => {
+			return self.indexOf(value) === index;
+		})
+
+		console.log('items', items)
 
 		if (!items) return
 
