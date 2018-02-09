@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import {
+	Link,
+	NavLink} from 'react-router-dom';
 import withCompanies from '../withCompanies';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
@@ -34,11 +36,20 @@ class Companies extends Component {
 	}
 
 	componentWillMount() {
-		// Set initial search query from the URL.
-		const params = parse(this.props.location.search)
-		if (params.search) {
+		console.log('willMount')
+		this.setSearchFromURL(parse(this.props.location.search))
+	}
+	componentWillReceiveProps(nextProps) {
+		let current = this.props.location.search
+		let next = nextProps.location.search || ''
+		if (current !== next) {
+			this.setSearchFromURL(parse(next))
+		}
+	}
+	setSearchFromURL(query) {
+		if (query.search) {
 			this.setState({
-				search: window.decodeURIComponent(params.search)
+				search: window.decodeURIComponent(query.search)
 			})
 		}
 	}
@@ -63,6 +74,24 @@ class Companies extends Component {
 					value={ this.state.search } />
 					<button className="Button" onClick={ this.clearSearch }>Clear</button>
 				</label>
+				<nav className="Nav Nav--filters">
+					<NavLink
+						className="Nav-item"
+						exact
+						to={{
+							pathname: '/companies',
+							search: '?search=%23builders',
+							state: { search: '#builders' }
+						}}>#builders</NavLink>
+					<NavLink
+						className="Nav-item"
+						exact
+						to={{
+							pathname: '/companies',
+							search: '?search=%23music',
+							state: { search: '#music' }
+						}}>#music</NavLink>
+				</nav>
 
 				<div className="Companies">
 					{
