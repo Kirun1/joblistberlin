@@ -28,23 +28,42 @@ class Companies extends Component {
 							 .toLowerCase()
 							 .includes(this.state.search.toLowerCase())
 	}
+
 	clearSearch = () => {
 		this.handleSearch('')
 	}
+
 	buildSearchPool(company) {
 		return company.title + company.body
 	}
-	generateTags(tags) {
-		console.log('companies', tags)
+
+	generateTags(companies) {
+		const findHashTags = searchText => {
+			var regexp = /\B\#\w\w+\b/g
+			let result = searchText.match(regexp);
+			if (result) {
+				return result.map(item => item.replace('#',''));
+			} else {
+				return false;
+			}
+		}
+
+		const tags = companies.map(item => item.body).reduce((acc, curr) => {
+			return acc + ' ' + curr
+		})
+
+		return findHashTags(tags)
 	}
 
 	componentWillMount(props) {
 		this.setSearchFromURL(parse(this.props.location.search))
 	}
+
 	componentWillReceiveProps(nextProps) {
-		this.generateTags(this.props)
+
 		let current = this.props.location.search
 		let next = nextProps.location.search || ''
+
 		if (current !== next) {
 			this.setSearchFromURL(parse(next))
 		}
@@ -57,8 +76,10 @@ class Companies extends Component {
 		}
 	}
 	generateNav() {
-		let items = ['builder', 'music'];
-		console.log('nav', items)
+		const items = this.generateTags(this.props.data)
+
+		if (!items) return
+
 		return items.map((item, index) => (
 			<NavLink
 				className="Nav-item"
@@ -104,7 +125,7 @@ class Companies extends Component {
 							state: { search: '' }
 						}}>All</NavLink>
 
-					{ this.generateNav() }
+					{ this.generateNav(this.props.data) }
 				</nav>
 
 				<div className="Companies">
