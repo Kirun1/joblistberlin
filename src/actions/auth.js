@@ -22,8 +22,7 @@ export function sendPasswordResetEmail(email) {
 
 export function registerWithEmail(email, password) {
 	return auth().createUserWithEmailAndPassword(email, password)
-						 .then(sendVerificationEmail)
-						 .then(logoutUser);
+						 .then(sendVerificationEmail);
 }
 
 export function logoutUser() {

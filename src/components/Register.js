@@ -16,10 +16,11 @@ class Register extends Component {
 		e.preventDefault();
 		const { history, addNotification } = this.props;
 		const { email, password } = this.state;
+
 		registerWithEmail(email, password)
 			.then(() => {
 				history.push('/auth/login');
-				addNotification('You now need to confirm your email before being able to Login. Check your inbox for a link!');
+				addNotification('You are now logged in. Welcome!');
 			})
 			.catch(e => {
 				return addNotification(e.message);
