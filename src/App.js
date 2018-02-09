@@ -5,7 +5,7 @@ import { Switch,
 				 Redirect } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute.js';
-/* import { isAuthenticated } from './actions/auth';*/
+import { isAuthenticated } from './actions/auth';
 import NoMatchRoute from './components/NoMatchRoute';
 import CompaniesRoute from './components/CompaniesRoute';
 import JobsRoute from './components/JobsRoute';
@@ -19,7 +19,8 @@ import NotificationDisplay from './components/NotificationDisplay';
 
 
 export default function App() {
-	/* const auth = isAuthenticated();*/
+	const auth = isAuthenticated();
+
 	return (
 		<div className="App">
 			<NotificationDisplay/>
@@ -33,15 +34,14 @@ export default function App() {
 					</NavLink>
 					<NavLink className="Nav-item" to="/companies">Companies</NavLink>
 					<NavLink className="Nav-item" to="/jobs">Jobs</NavLink>
-					{/* <hr/>
-							{ auth && <NavLink className="Nav-item" to="/auth/account">Account</NavLink> }
-							{ auth && <NavLink className="Nav-item" to="/auth/logout">Logout</NavLink> }
-							{ !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> } */}
 					<hr/>
-					<a href="https://www.facebook.com/joblistberlin" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Facebook</a>
-					<a href="https://www.linkedin.com/company/joblistberlin/" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Linkedin</a>
+					{ auth && <NavLink className="Nav-item" to="/auth/account">Account</NavLink> }
+					{ auth && <NavLink className="Nav-item" to="/auth/logout">Logout</NavLink> }
+					{ !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> }
 					<hr/>
 					<a href="https://goo.gl/forms/Z63hQv4DPXSKGJW52" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Contact</a>
+					<a href="https://www.facebook.com/joblistberlin" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Facebook</a>
+					{/* <a href="https://www.linkedin.com/company/joblistberlin/" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Linkedin</a> */}
 				</nav>
 			</aside>
 

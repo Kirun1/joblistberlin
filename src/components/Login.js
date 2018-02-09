@@ -72,7 +72,11 @@ class Login extends Component {
 						<button className="Button" onClick={ this.handleReset }>Reset password</button>
 					</div>
 				</form>
-				<p>Accounts are in beta, it is not yet possible to register.</p>
+				<p>
+					Accounts are now in <strong>private beta</strong>.
+					We're building a nice tool to make it easy for candidates to find a great job, and for companies to reach a good match.
+				</p>
+				<p>Would like to join? <a className="Button Button--validate" href="https://goo.gl/forms/VhBMchA9j70kkPTv1" rel="noopener nofollow">Request access to the beta</a></p>
 				{/* <p>Don't have an account yet? <Link to="/auth/register">Register</Link></p> */}
 			</div>
 		)
