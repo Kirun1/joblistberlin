@@ -34,12 +34,15 @@ class Companies extends Component {
 	buildSearchPool(company) {
 		return company.title + company.body
 	}
+	generateTags(tags) {
+		console.log('companies', tags)
+	}
 
-	componentWillMount() {
-		console.log('willMount')
+	componentWillMount(props) {
 		this.setSearchFromURL(parse(this.props.location.search))
 	}
 	componentWillReceiveProps(nextProps) {
+		this.generateTags(this.props)
 		let current = this.props.location.search
 		let next = nextProps.location.search || ''
 		if (current !== next) {
@@ -52,6 +55,23 @@ class Companies extends Component {
 				search: window.decodeURIComponent(query.search)
 			})
 		}
+	}
+	generateNav() {
+		let items = ['builder', 'music'];
+		console.log('nav', items)
+		return items.map((item, index) => (
+			<NavLink
+				className="Nav-item"
+				exact
+				key={ index }
+				to={{
+					pathname: '/companies',
+					search: `?search=%23${item}`,
+					state: {
+						search: item
+					}
+				}}>#{item}</NavLink>
+		))
 	}
 
 	render() {
@@ -80,17 +100,11 @@ class Companies extends Component {
 						exact
 						to={{
 							pathname: '/companies',
-							search: '?search=%23builders',
-							state: { search: '#builders' }
-						}}>#builders</NavLink>
-					<NavLink
-						className="Nav-item"
-						exact
-						to={{
-							pathname: '/companies',
-							search: '?search=%23music',
-							state: { search: '#music' }
-						}}>#music</NavLink>
+							search: '?search=',
+							state: { search: '' }
+						}}>All</NavLink>
+
+					{ this.generateNav() }
 				</nav>
 
 				<div className="Companies">
