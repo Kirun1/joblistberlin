@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import {
+	Link,
+	NavLink} from 'react-router-dom';
 import withCompanies from '../withCompanies';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
@@ -26,21 +28,75 @@ class Companies extends Component {
 							 .toLowerCase()
 							 .includes(this.state.search.toLowerCase())
 	}
+
 	clearSearch = () => {
 		this.handleSearch('')
 	}
+
 	buildSearchPool(company) {
 		return company.title + company.body
 	}
 
-	componentWillMount() {
-		// Set initial search query from the URL.
-		const params = parse(this.props.location.search)
-		if (params.search) {
+	generateTags(companies) {
+		const findHashTags = searchText => {
+			var regexp = /\B\#\w\w+\b/g
+			let result = searchText.match(regexp);
+			if (result) {
+				return result.map(item => item.replace('#',''));
+			} else {
+				return false;
+			}
+		}
+
+		const tags = companies.map(item => item.body).reduce((acc, curr) => {
+			return acc + ' ' + curr
+		})
+
+		return findHashTags(tags)
+	}
+
+	componentWillMount(props) {
+		this.setSearchFromURL(parse(this.props.location.search))
+	}
+
+	componentWillReceiveProps(nextProps) {
+
+		let current = this.props.location.search
+		let next = nextProps.location.search || ''
+
+		if (current !== next) {
+			this.setSearchFromURL(parse(next))
+		}
+	}
+	setSearchFromURL(query) {
+		if (query.search) {
 			this.setState({
-				search: window.decodeURIComponent(params.search)
+				search: window.decodeURIComponent(query.search)
 			})
 		}
+	}
+	generateNav() {
+		const items = this.generateTags(this.props.data).filter((value, index, self) => {
+			return self.indexOf(value) === index;
+		})
+
+		console.log('items', items)
+
+		if (!items) return
+
+		return items.map((item, index) => (
+			<NavLink
+				className="Nav-item"
+				exact
+				key={ index }
+				to={{
+					pathname: '/companies',
+					search: `?search=%23${item}`,
+					state: {
+						search: item
+					}
+				}}>#{item}</NavLink>
+		))
 	}
 
 	render() {
@@ -63,6 +119,18 @@ class Companies extends Component {
 					value={ this.state.search } />
 					<button className="Button" onClick={ this.clearSearch }>Clear</button>
 				</label>
+				<nav className="Nav Nav--filters">
+					<NavLink
+						className="Nav-item"
+						exact
+						to={{
+							pathname: '/companies',
+							search: '?search=',
+							state: { search: '' }
+						}}>All</NavLink>
+
+					{ this.generateNav(this.props.data) }
+				</nav>
 
 				<div className="Companies">
 					{
