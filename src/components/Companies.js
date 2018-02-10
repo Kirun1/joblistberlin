@@ -60,7 +60,6 @@ class Companies extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-
 		let current = this.props.location.search
 		let next = nextProps.location.search || ''
 
@@ -68,19 +67,16 @@ class Companies extends Component {
 			this.setSearchFromURL(parse(next))
 		}
 	}
-	setSearchFromURL(query) {
-		if (query.search) {
-			this.setState({
-				search: window.decodeURIComponent(query.search)
-			})
-		}
+
+	setSearchFromURL({search}) {
+		if (!search) search = ''
+		this.setState({search: window.decodeURIComponent(search)})
 	}
+
 	generateNav() {
 		const items = this.generateTags(this.props.data).filter((value, index, self) => {
 			return self.indexOf(value) === index;
 		})
-
-		console.log('items', items)
 
 		if (!items) return
 
@@ -125,8 +121,7 @@ class Companies extends Component {
 						exact
 						to={{
 							pathname: '/companies',
-							search: '?search=',
-							state: { search: '' }
+							search: ''
 						}}>All</NavLink>
 
 					{ this.generateNav(this.props.data) }
