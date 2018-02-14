@@ -62,7 +62,8 @@ class CompanyCard extends Component {
 
 		return (
 			<article
-				className={`Company ${this.companyIsFavorited()} ${this.companyIsApproved()}`}>
+				className={`Company ${this.companyIsFavorited()} ${this.companyIsApproved()}`}
+				title={ body && body }>
 
 				<ContextualToggle label={ title }>
 					{/* { <Option action={ () => console.log('yolol') }>Edit</Option> } */}
@@ -77,9 +78,6 @@ class CompanyCard extends Component {
 						<span className="Company-createdDate">{ format(createdAt, 'YYYY-MM') }</span>
 					</div>
 					<input readOnly value={ url }/>
-					{ body && (
-							<p className="Company-body">{ body }</p>
-					) }
 				</div>
 			</article>
 		)
