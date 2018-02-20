@@ -23,6 +23,10 @@
 .Button--validate {
 	background-color: #e0c115;
 }
+.Button--text {
+	background-color: transparent;
+	border-color: transparent;
+}
 .Button--rotate span {
 	display: inline-block;
 	transform: rotate(90deg)

@@ -12,6 +12,9 @@ textarea {
 	border: 1px solid #9a9a9a;
 	font-size: 100%;
 }
+input[type="search"] {
+	max-width: 25rem;
+}
 
 label {
   display: block;

@@ -18,10 +18,10 @@
 	width: 100%;
 }
 
-.Nav--filters {
+.Nav--tags {
 	flex-wrap: wrap;
 }
-.Nav--filters .Nav-item {
+.Nav--tags .Nav-item {
 	margin-right: 0.2rem;
 	margin-bottom: 0.2rem;
 }

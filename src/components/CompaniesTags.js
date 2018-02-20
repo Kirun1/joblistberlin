@@ -30,7 +30,8 @@ export default class CompaniesTags extends Component {
 	constructor() {
 		super()
 		this.state = {
-			tags: []
+			tags: [],
+			tagsAllVisible: false
 		}
 	}
 
@@ -65,34 +66,41 @@ export default class CompaniesTags extends Component {
 
 		if(!tags) return
 
-		return tags.map((item, index) => (
-			<NavLink
-				className="Nav-item Tag"
-				key={ index }
-				to={{
-					pathname: '/companies',
-					search: `?search=%23${item[0]}`,
-					state: {
-						search: item
-					}
-				}}>
-				<Tag name={ item[0]} number={ item[1] }></Tag>
-			</NavLink>
+		return tags.map((item, i) => (
+				<Tag key={ i } name={ item[0] } number={ item[1] }/>
 		))
+	}
+
+	isShowingAllTags = () => {
+		return `Nav Nav--tags ${this.state.tagsAllVisible && 'is-visible'}`
+	}
+
+	toggleTags = () => {
+		console.log('test')
+		this.setState({
+			tagsAllVisible: !this.state.tagsAllVisible
+		})
 	}
 
 	render () {
 		return (
-			<div className="Nav Nav--filters">
-				<Link
-					className="Nav-item"
-					to={{
-						pathname: '/companies',
-						search: ''
-					}}>All</Link>
+			<div>
+				<div className={ this.isShowingAllTags() }>
+					<Link
+						exact
+						className="Nav-item Tag"
+						to={{
+							pathname: '/companies',
+							search: ''
+						}}>All</Link>
 
-				{ this.generateLinks() }
-
+					{ this.generateLinks() }
+				</div>
+				<button
+					className="Button Button--text"
+					onClick={ this.toggleTags }>
+					⇵ show/hide tags
+				</button>
 			</div>
 		)
 	}

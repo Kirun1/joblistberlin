@@ -77,7 +77,7 @@ class Companies extends Component {
 					<button className="Button" onClick={ this.clearSearch }>Clear</button>
 				</label>
 
-				<CompaniesTags companies={ this.props.data } className="Nav--filters" />
+				<CompaniesTags companies={ this.props.data }/>
 
 				<div className="Companies">
 					{
