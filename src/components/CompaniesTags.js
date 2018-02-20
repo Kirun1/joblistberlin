@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
 	Link,
 	NavLink} from 'react-router-dom';
+import Tag from './Tag'
 
 const generateTags = companies => {
 
@@ -29,38 +30,54 @@ export default class CompaniesTags extends Component {
 	constructor() {
 		super()
 		this.state = {
-			items: []
+			tags: []
 		}
 	}
 
 	componentDidMount() {
 		const { companies } = this.props;
 
-		const items =  generateTags(companies).filter((value, index, self) => {
-			return self.indexOf(value) === index;
+		let items = generateTags(companies)
+			.reduce((acc,
+							 cur) => {
+								 if(acc.hasOwnProperty(cur)) {
+									 acc[cur]++
+								 } else {
+									 acc[cur] = 1
+								 }
+								 return acc
+							 }, {})
+
+		let tags = Object.entries(items).sort((a, b) => {
+			console.log(a, b)
+			return b[1] - a[1]
 		})
 
+		console.log('tags', tags)
+
 		this.setState({
-			items
+			tags
 		})
 	}
 
 	generateLinks = () => {
-		const {items} = this.state;
+		const {tags} = this.state;
 
-		if(!items) return
+		if(!tags) return
 
-		return items.map((item, index) => (
+		return tags.map((item, index) => (
 			<NavLink
-				className="Nav-item"
+				className="Nav-item Tag"
 				key={ index }
 				to={{
 					pathname: '/companies',
-					search: `?search=%23${item}`,
+					search: `?search=%23${item[0]}`,
 					state: {
 						search: item
 					}
-				}}>#{item}</NavLink>
+				}}>
+				<Tag name={ item[0]} number={ item[1] }></Tag>
+			</NavLink>
 		))
 	}
 

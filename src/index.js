@@ -13,6 +13,7 @@ import './styles/nav.css';
 import './styles/contextualToggle.css';
 import './styles/notification.css';
 import './styles/company.css';
+import './styles/tag.css';
 
 import firebase from 'firebase';
 

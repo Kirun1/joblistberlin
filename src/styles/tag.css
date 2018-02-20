@@ -1,0 +1,9 @@
+.Tag {
+	position: relative;
+}
+.Tag-number {
+	position: absolute;
+	top: -0.6rem;
+	right: -0.3rem;
+	font-size: 0.6rem;
+}
