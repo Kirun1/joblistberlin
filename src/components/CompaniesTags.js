@@ -99,7 +99,7 @@ export default class CompaniesTags extends Component {
 				<button
 					className="Button Button--text"
 					onClick={ this.toggleTags }>
-					⇵ show/hide tags
+					⇵ show/hide all tags
 				</button>
 			</div>
 		)
