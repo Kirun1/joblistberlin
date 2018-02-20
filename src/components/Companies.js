@@ -5,6 +5,7 @@ import {
 import withCompanies from '../withCompanies';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
+import CompaniesTags from './CompaniesTags';
 import {parse} from 'query-string';
 
 class Companies extends Component {
@@ -37,24 +38,6 @@ class Companies extends Component {
 		return company.title + company.body
 	}
 
-	generateTags(companies) {
-		const findHashTags = searchText => {
-			var regexp = /\B\#\w\w+\b/g
-			let result = searchText.match(regexp);
-			if (result) {
-				return result.map(item => item.replace('#',''));
-			} else {
-				return false;
-			}
-		}
-
-		const tags = companies.map(item => item.body).reduce((acc, curr) => {
-			return acc + ' ' + curr
-		})
-
-		return findHashTags(tags)
-	}
-
 	componentWillMount(props) {
 		this.setSearchFromURL(parse(this.props.location.search))
 	}
@@ -71,28 +54,6 @@ class Companies extends Component {
 	setSearchFromURL({search}) {
 		if (!search) search = ''
 		this.setState({search: window.decodeURIComponent(search)})
-	}
-
-	generateNav() {
-		const items = this.generateTags(this.props.data).filter((value, index, self) => {
-			return self.indexOf(value) === index;
-		})
-
-		if (!items) return
-
-		return items.map((item, index) => (
-			<NavLink
-				className="Nav-item"
-				exact
-				key={ index }
-				to={{
-					pathname: '/companies',
-					search: `?search=%23${item}`,
-					state: {
-						search: item
-					}
-				}}>#{item}</NavLink>
-		))
 	}
 
 	render() {
@@ -115,17 +76,8 @@ class Companies extends Component {
 					value={ this.state.search } />
 					<button className="Button" onClick={ this.clearSearch }>Clear</button>
 				</label>
-				<nav className="Nav Nav--filters">
-					<NavLink
-						className="Nav-item"
-						exact
-						to={{
-							pathname: '/companies',
-							search: ''
-						}}>All</NavLink>
 
-					{ this.generateNav(this.props.data) }
-				</nav>
+				<CompaniesTags companies={ this.props.data } className="Nav--filters" />
 
 				<div className="Companies">
 					{
