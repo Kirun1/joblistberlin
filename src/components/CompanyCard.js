@@ -78,6 +78,9 @@ class CompanyCard extends Component {
 						<span className="Company-createdDate">{ format(createdAt, 'YYYY-MM') }</span>
 					</div>
 					<input readOnly value={ url }/>
+					{ body && (
+							<p className="Company-body">{ body }</p>
+					) }
 				</div>
 			</article>
 		)
