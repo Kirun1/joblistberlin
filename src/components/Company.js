@@ -21,7 +21,7 @@ export default class Company extends Component {
 		return (
 		<article>
 			<section>
-				<h2>Edit <small>{model.title}</small></h2>
+				<h2>{model.title}</h2>
 			</section>
 			<CompanyCard { ...model }/>
 		</article>

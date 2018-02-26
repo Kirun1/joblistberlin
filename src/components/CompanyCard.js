@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { database } from 'firebase';
 import { format } from 'date-fns';
-
 import withNotification from './withNotification';
 import { getCurrentUserSettingRef } from '../actions/auth';
 import ContextualToggle from './ContextualToggle'
@@ -54,11 +54,13 @@ class CompanyCard extends Component {
 
 	render() {
 
-		const { title,
-						url,
-						body,
-						createdAt,
-						isFavorite } = this.props;
+		const {
+			id,
+			title,
+			url,
+			body,
+			createdAt,
+			isFavorite } = this.props;
 
 		return (
 			<article
@@ -75,7 +77,9 @@ class CompanyCard extends Component {
 						<a href={ url } className="Company-link" target="_blank" rel="noopener noreferrer">
 							<h4 className="Company-title">{ title }</h4>
 						</a>
-						<span className="Company-createdDate">{ format(createdAt, 'YYYY-MM') }</span>
+						<Link
+							className="Company-createdDate"
+							to={ `/companies/${id}` }>{ format(createdAt, 'YYYY-MM') }</Link>
 					</div>
 					<input readOnly value={ url }/>
 					{ body && (
