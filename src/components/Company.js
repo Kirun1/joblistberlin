@@ -25,7 +25,7 @@ export default class Company extends Component {
           <title>{model.title} - Careers</title>
           <meta
 					name="description"
-					content={ `Careers @ ${model.title} in Berlin — ${model.body}` } />
+					content={ `Job opportunities @ ${model.title} in Berlin — ${model.body}` } />
         </Helmet>
 				<section>
 					<h2>{model.title}</h2>
