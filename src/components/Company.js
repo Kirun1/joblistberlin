@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import { database as db } from 'firebase';
 import CompanyCard from './CompanyCard';
 import Loading from './Loading';
