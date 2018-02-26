@@ -86,7 +86,6 @@ class Companies extends Component {
 								.map((company, index) => (
 									<CompanyCard
 									key={ company.id }
-									goToDetail={ this.goToCompanyDetail }
 									{ ...company }
 									/>
 								))
