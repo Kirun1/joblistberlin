@@ -37,7 +37,7 @@ export default function App() {
 					<hr/>
 					{ auth && <NavLink className="Nav-item" to="/auth/account">Account</NavLink> }
 					{ auth && <NavLink className="Nav-item" to="/auth/logout">Logout</NavLink> }
-					{/* { !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> } */}
+					{ !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> }
 					<hr/>
 					<a href="https://goo.gl/forms/Z63hQv4DPXSKGJW52" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Contact</a>
 					<a href="https://www.facebook.com/joblistberlin" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Facebook</a>
