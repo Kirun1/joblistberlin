@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Helmet} from "react-helmet";
 import { database as db } from 'firebase';
 import CompanyCard from './CompanyCard';
 import Loading from './Loading';
@@ -19,12 +20,18 @@ export default class Company extends Component {
 		const { model } = this.state;
 
 		return (
-		<article>
-			<section>
-				<h2>{model.title}</h2>
-			</section>
-			<CompanyCard { ...model }/>
-		</article>
+			<article>
+				<Helmet>
+          <title>{model.title} - Careers</title>
+          <meta
+					name="description"
+					content={ `Careers @ ${model.title} in Berlin — ${model.body}` } />
+        </Helmet>
+				<section>
+					<h2>{model.title}</h2>
+				</section>
+				<CompanyCard { ...model }/>
+			</article>
 		)
 	}
 }
