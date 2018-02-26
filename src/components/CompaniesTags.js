@@ -50,11 +50,8 @@ export default class CompaniesTags extends Component {
 							 }, {})
 
 		let tags = Object.entries(items).sort((a, b) => {
-			console.log(a, b)
 			return b[1] - a[1]
 		})
-
-		console.log('tags', tags)
 
 		this.setState({
 			tags
@@ -76,7 +73,6 @@ export default class CompaniesTags extends Component {
 	}
 
 	toggleTags = () => {
-		console.log('test')
 		this.setState({
 			tagsAllVisible: !this.state.tagsAllVisible
 		})
@@ -87,7 +83,6 @@ export default class CompaniesTags extends Component {
 			<div>
 				<div className={ this.isShowingAllTags() }>
 					<Link
-						exact
 						className="Nav-item Tag"
 						to={{
 							pathname: '/companies',

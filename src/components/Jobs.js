@@ -36,7 +36,7 @@ export default class Jobs extends Component {
 				</section>
 				<section className="Section">
 					<article>
-						<h3><small>Usefull Facebook groups to</small> find a job in Berlin</h3>
+						<h3><small>Useful Facebook groups to</small> find a job in Berlin</h3>
 						<ul>
 							<li>
 								<a href="https://www.facebook.com/groups/BerlinStartupJobs/">Berlin Startup Jobs</a>
