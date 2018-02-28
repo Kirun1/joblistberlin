@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from "react-helmet";
 import withCompanies from '../withCompanies';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
@@ -18,7 +19,7 @@ class Companies extends Component {
 	handleSearch = (value) => {
 		this.setState({search: value})
 		// Update query param in URL as well.
-		const location = {search: `?search=${window.encodeURIComponent(value)}`}
+				 const location = {search: `?search=${window.encodeURIComponent(value)}`}
 		this.props.history.replace(location)
 	}
 
@@ -59,6 +60,13 @@ class Companies extends Component {
 
 		return (
 			<div>
+				<Helmet>
+          <title>Companies hiring in Berlin — Job List Berlin</title>
+          <meta
+					name="description"
+					content="A list of companies hiring in Berlin, and a direct link to their career page. Job List Berlin also lists job boards and other websites, making it clear, simple and fast to find a work opportunities in Berlin."/>
+        </Helmet>
+
 				<h2><small>Companies</small> hiring in Berlin</h2>
 				<p>
 					Companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>

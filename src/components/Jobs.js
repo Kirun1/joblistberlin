@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from "react-helmet";
 import { database } from 'firebase';
 import _ from 'lodash';
 /* import { Link } from 'react-router-dom';*/
@@ -22,6 +23,13 @@ export default class Jobs extends Component {
 	render() {
 		return (
 			<div className="Jobs">
+				<Helmet>
+          <title>Job offers in Berlin — Job List Berlin</title>
+          <meta
+					name="description"
+					content="Job opportunities in Berlin. All companies on Job List Berlin are currently hirring in Berlin."q/>
+        </Helmet>
+
 				<section className="Section">
 					<h2>Job<small> board</small></h2>
 					<p>

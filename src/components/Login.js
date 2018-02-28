@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Helmet} from 'react-helmet';
 import { Link } from 'react-router-dom';
 import {
 	loginWithEmail,
@@ -54,6 +55,12 @@ class Login extends Component {
 
 		return (
 			<div>
+				<Helmet>
+          <title>Login — Job List Berlin</title>
+          <meta
+					name="description"
+					content="Login — Job List Berlin, a list of companies hiring in Berlin."/>
+        </Helmet>
 				<h2>Login to <small><Link to="/">Job List Berlin</Link></small></h2>
 				<form onSubmit={ this.handleSubmit }>
 					<article>

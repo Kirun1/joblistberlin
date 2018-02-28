@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Helmet} from 'react-helmet';
 import withNotification from './withNotification';
 import { Link } from 'react-router-dom';
 import { registerWithEmail } from '../actions/auth';
@@ -39,28 +40,34 @@ class Register extends Component {
 
 		return (
 			<div>
+				<Helmet>
+          <title>Register — Job List Berlin</title>
+          <meta
+					name="description"
+					content="Register, create an account — Job List Berlin, a list of companies hiring in Berlin."/>
+        </Helmet>
 				<h2>Register<small>, create an account</small></h2>
-				<p>To submit on the Job Board and manage your account.</p>
-				<form onSubmit={ this.handleSubmit }>
-					<article>
-						<label>Email:
-							<input name="email"  type="email" placeholder="Email" onChange={ this.handleChange } value={ email }/>
-						</label>
-					</article>
+			<p>To submit on the Job Board and manage your account.</p>
+			<form onSubmit={ this.handleSubmit }>
+				<article>
+					<label>Email:
+						<input name="email"  type="email" placeholder="Email" onChange={ this.handleChange } value={ email }/>
+					</label>
+				</article>
 
-					<article>
-						<label>Password:
-							<input name="password" type="password" placeholder="Password" onChange={ this.handleChange } value={ password }/>
-						</label>
-					</article>
-					<button type="submit">Register</button>
-				</form>
-				<p>Already have an account? <Link to="/auth/login">Login</Link></p>
-				{/* <h2>Why <small>join?</small></h2>
-						<ul>
-						<li>Post jobs directly </li>
-						<li>Get notified by email when a new Job or Company is added</li>
-						</ul> */}
+				<article>
+					<label>Password:
+						<input name="password" type="password" placeholder="Password" onChange={ this.handleChange } value={ password }/>
+					</label>
+				</article>
+				<button type="submit">Register</button>
+			</form>
+			<p>Already have an account? <Link to="/auth/login">Login</Link></p>
+			{/* <h2>Why <small>join?</small></h2>
+					<ul>
+					<li>Post jobs directly </li>
+					<li>Get notified by email when a new Job or Company is added</li>
+					</ul> */}
 			</div>
 		)
   }
