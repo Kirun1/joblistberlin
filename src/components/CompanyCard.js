@@ -1,49 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { database } from 'firebase';
 import { format } from 'date-fns';
 import withNotification from './withNotification';
-import { getCurrentUserSettingRef } from '../actions/auth';
 import ContextualToggle from './ContextualToggle'
 import Option from './Option';
 
 
 class CompanyCard extends Component {
-	toggleToUserFavorites = () => {
-		const { addNotification,
-						id,
-						title,
-						isFavorite } = this.props;
-		var status,
-				message;
-
-		if (isFavorite) {
-			status = null;
-			message = `Removed ${title}`;
-		} else {
-			status = true;
-			message = `Added ${title}`;
-		}
-
-		getCurrentUserSettingRef().then(settings => {
-			const settingsId = Object.keys(settings.val())[0];
-			database().ref(`userSettings/${settingsId}/favoriteCompanies/${id}`)
-								.set(status).then(() => {
-									addNotification(message);
-								})
-		})
-	}
 	reportBrokenLink(linkID) {
 		const reportURL = `https://docs.google.com/forms/d/e/1FAIpQLSfBpCBvw7ApDW4ZUni85zqZyzHhoJ0aimNAdLc4Jnr_Pxzk7A/viewform?usp=pp_url&entry.727514964=${linkID}&entry.730769846`
 		window.open(reportURL, '_blank');
 	}
-	companyIsFavorited() {
-		if (this.props.isFavorite) {
-			return 'Company--isFavorite';
-		} else {
-			return 'Company--isNotFavorite';
-		}
-	}
+
 	companyIsApproved() {
 		if (this.props.isApproved) {
 			return 'Company--isApproved';
@@ -59,12 +27,11 @@ class CompanyCard extends Component {
 			title,
 			url,
 			body,
-			createdAt,
-			isFavorite } = this.props;
+			createdAt } = this.props;
 
 		return (
 			<article
-				className={`Company ${this.companyIsFavorited()} ${this.companyIsApproved()}`}
+				className="Company"
 				title={ body && body }>
 
 				<ContextualToggle label={ title }>

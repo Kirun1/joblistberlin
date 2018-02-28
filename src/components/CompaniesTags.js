@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import {
-	Link,
-	NavLink} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Tag from './Tag'
 
 const generateTags = companies => {
 
 	const findHashTags = searchText => {
-		var regexp = /\B\#\w\w+\b/g
+		var regexp = /\B#\w\w+\b/g
 		let result = searchText.match(regexp);
 		if (result) {
 			return result.map(item => item.replace('#',''));
