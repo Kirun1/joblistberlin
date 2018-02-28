@@ -31,7 +31,7 @@ class CompanyCard extends Component {
 
 		return (
 			<article
-				className="Company"
+				className={`Company ${this.companyIsApproved()}`}
 				title={ body && body }>
 
 				<ContextualToggle label={ title }>
