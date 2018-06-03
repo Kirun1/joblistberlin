@@ -44,7 +44,9 @@
 	margin-bottom: 0.2rem;
 	margin-right: 1rem;
 }
-.Company-createdDate {
+.Company-permalink {
 	font-size: 0.8rem;
+	text-decoration: none;
+	color: black;
 	font-style: italic;
 }

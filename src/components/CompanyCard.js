@@ -44,14 +44,14 @@ class CompanyCard extends Component {
 						<a href={ url } className="Company-link" target="_blank" rel="noopener noreferrer">
 							<h4 className="Company-title">{ title }</h4>
 						</a>
-						<Link
-							className="Company-createdDate"
-							to={ `/companies/${id}` }>{ format(createdAt, 'YYYY-MM') }</Link>
 					</div>
 					<input readOnly value={ url }/>
 					{ body && (
 							<p className="Company-body">{ body }</p>
 					) }
+				<Link
+			className="Company-permalink"
+			to={ `/companies/${id}` }>Permalink</Link>
 				</div>
 			</article>
 		)
