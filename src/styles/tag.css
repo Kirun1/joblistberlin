@@ -1,14 +1,21 @@
+.Tags {
+	display: flex;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid lightgray;
+}
+
 .Tag {
 	position: relative;
 }
 .Tag-number {
 	position: absolute;
-	top: -0.3rem;
-	right: 0.2rem;
+	top: -0.1rem;
+	right: -0.1rem;
 	font-size: 0.6rem;
+	font-weight: normal;
 }
 
-.Nav--tags .Tag:nth-child(n+10) {
+.Nav--tags .Tag:nth-child(n+9) {
 	display: none;
 }
 .Nav--tags.is-visible .Tag:nth-child(n+10) {

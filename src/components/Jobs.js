@@ -4,6 +4,7 @@ import { database } from 'firebase';
 import _ from 'lodash';
 /* import { Link } from 'react-router-dom';*/
 import Job from './Job';
+import IntroText from './IntroText';
 
 export default class Jobs extends Component {
 	constructor(props) {
@@ -31,16 +32,14 @@ export default class Jobs extends Component {
         </Helmet>
 
 				<section className="Section">
-					<h2>Job<small> board</small></h2>
-					<p>
-						If you are either looking for a job or willing to hire someone, use the following links for best results.
-					</p>
-
-					<p>
-						{/* Positions in this list are all located in the <strong>Berlin area</strong>.<br/>
-								Do you want to <Link to="jobs/add">add a job</Link> offer to this list?<br/> */}
+					<IntroText>
+						<p>
+							If you are either looking for a job or willing to hire someone, use the following links for best results.
+						</p>
+						<p>
 						<a className="Button Button--validate" href="https://www.facebook.com/pg/joblistberlin/community/">Publish new Job</a> and share it to the community in Berlin.
 					</p>
+					</IntroText>
 				</section>
 				<section className="Section">
 					<article>

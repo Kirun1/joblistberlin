@@ -78,7 +78,7 @@ export default class CompaniesTags extends Component {
 
 	render () {
 		return (
-			<div>
+			<div className="Tags">
 				<div className={ this.isShowingAllTags() }>
 					<Link
 						className="Nav-item Tag"
@@ -88,12 +88,13 @@ export default class CompaniesTags extends Component {
 						}}>All</Link>
 
 					{ this.generateLinks() }
+
 				</div>
 				<button
-					className="Button Button--text"
-					onClick={ this.toggleTags }>
-					⇵ show/hide all tags
-				</button>
+						className="Button Button--text Tag"
+						onClick={ this.toggleTags }>
+						⇵ show/hide all tags
+					</button>
 			</div>
 		)
 	}

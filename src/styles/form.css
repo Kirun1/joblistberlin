@@ -45,6 +45,11 @@ option {
 	display: flex;
 	align-items: center;
 }
+.FormItem--h span {
+	margin-right: 1rem;
+	font-weight: bold;
+}
 .FormItem--h input {
 	margin-top: 0;
+	margin-right: 1rem;
 }

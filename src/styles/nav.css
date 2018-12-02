@@ -1,17 +1,21 @@
 .Nav {
 	display: flex;
 	flex-direction: row;
-	width: 100%;
 	align-items: center;
 }
-.Nav--main {
-	min-width: 8rem;
-	max-width: 8rem;
+.Nav h1 {
+	margin-bottom: 0;
 }
-@media (min-width: 30rem) {
+.Nav--logo {
+	align-content: center;
+	margin-left: -1rem;
+}
+.Nav--logo .Nav-item {
+	background-color: transparent;
+}
+@media (max-width: 30rem) {
 	.Nav--main {
-		flex-direction: column;
-		align-items: start;
+		overflow-x: scroll;
 	}
 }
 .Nav--main .Nav-item {

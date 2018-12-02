@@ -12,6 +12,7 @@ import './styles/form.css';
 import './styles/nav.css';
 import './styles/contextualToggle.css';
 import './styles/notification.css';
+import './styles/intro-text.css';
 import './styles/company.css';
 import './styles/tag.css';
 

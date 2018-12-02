@@ -26,12 +26,17 @@ export default function App() {
 			<NotificationDisplay/>
 
 			<aside className="App-aside Container Section">
-				<nav className="Nav Nav--main">
+				<nav className="Nav Nav--logo">
 					<NavLink className="Nav-item Logo" to="/">
+						<img className="Logo-img" src={ process.env.PUBLIC_URL + '/jlb-logo.png' } alt="Job List Berlin logo"/>
+					</NavLink>
+					<NavLink className="Nav-item" to="/">
 						<h1 title="Job List Berlin">
-							<img className="Logo-img" src={ process.env.PUBLIC_URL + '/jlb-logo.png' } alt="Job List Berlin logo"/>
+							Job List Berlin
 						</h1>
 					</NavLink>
+				</nav>
+				<nav className="Nav Nav--main">
 					<NavLink className="Nav-item" to="/companies">Companies</NavLink>
 					<NavLink className="Nav-item" to="/jobs">Jobs</NavLink>
 					<hr/>
@@ -39,8 +44,8 @@ export default function App() {
 					{ auth && <NavLink className="Nav-item" to="/auth/logout">Logout</NavLink> }
 					{ !auth && <NavLink className="Nav-item" to="/auth/login">Login</NavLink> }
 					<hr/>
-					<a href="https://goo.gl/forms/Z63hQv4DPXSKGJW52" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Contact</a>
-					<a href="https://www.facebook.com/joblistberlin" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Facebook</a>
+					<a href="https://goo.gl/forms/Z63hQv4DPXSKGJW52" target="_blank" rel="noopener noreferrer" className="Nav-item">Contact</a>
+					<a href="https://www.facebook.com/joblistberlin" target="_blank" rel="noopener noreferrer" className="Nav-item">Facebook</a>
 					{/* <a href="https://www.linkedin.com/company/joblistberlin/" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Linkedin</a> */}
 				</nav>
 			</aside>
