@@ -44,10 +44,18 @@
 .Company-title {
 	margin-bottom: 0.2rem;
 	margin-right: 1rem;
+	font-size: 1.2rem;
 }
 .Company-permalink {
 	font-size: 0.8rem;
 	text-decoration: none;
 	color: black;
 	font-style: italic;
+}
+
+.CompanySitePreview {
+	width: 100%;
+	border: 3px solid turquoise;
+	border-radius: 4px;
+	min-height: 50vh;
 }

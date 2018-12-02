@@ -69,8 +69,8 @@ class Companies extends Component {
         </Helmet>
 
 				<IntroText>
-					Companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
-				This is a <strong>community curated</strong> list, anyone can <Link className="Button Button--validate" to='companies/add'>submit a company</Link> for review.
+					All <u>{this.props.data.length}</u> companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
+				This is a <strong>community curated</strong> list,  <Link className="Button Button--validate" to='companies/add'>submit a company.</Link>
 				</IntroText>
 
 				<CompaniesTags companies={ this.props.data }/>
@@ -87,16 +87,16 @@ class Companies extends Component {
 				</label>
 
 				<div className="Companies">
-					{
-						this.props.data
-								.filter(this.applySearch)
-								.map((company, index) => (
-									<CompanyCard
-									key={ company.id }
-									{ ...company }
-									/>
-								))
-					}
+				{
+					this.props.data
+						.filter(this.applySearch)
+						.map((company, index, companies) => (
+							<CompanyCard
+								key={ company.id }
+								{ ...company }
+								/>
+						))
+				}
 				</div>
 			</div>
 		)
