@@ -1,6 +1,58 @@
 {
   "rules": {
-    ".read": "true",
-    ".write": "true"
+    ".read": false,
+    ".write": false,
+
+    "links": {
+      ".indexOn": "isApproved",
+      ".read": true,
+      ".write": false,
+
+      "$link": {
+        ".read": true,
+        ".write": "!data.exists()",
+				".validate": "newData.hasChildren(['title', 'url', 'isApproved', 'createdAt'])",
+
+        "title": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 60"
+        },
+        "url": {
+          ".validate": "newData.isString() && newData.val().length > 3 && newData.val().length < 300"
+        },
+        "body": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 1000"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "isApproved": {
+          ".validate": "newData.val() === false"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "users": {
+      ".read": true,
+      ".write": true,
+      "$user": {
+        // a valid widget must have attributes "title", "url" "isApproved"
+        // ".validate": "newData.hasChildren(['title', 'url', 'isApproved'])",
+        ".read": true, // true at parent, so no need to say it, but clearer to see
+        ".write": "!data.exists()" // determine if the object they're trying to write already exists
+      }
+    },
+
+    "jobs": {
+      ".read": true,
+      ".write": true,
+      "$job": {
+        // a valid widget must have attributes "title", "url" "isApproved"
+        // ".validate": "newData.hasChildren(['title', 'url', 'isApproved'])",
+        ".read": true, // true at parent, so no need to say it, but clearer to see
+        ".write": "!data.exists()" // determine if the object they're trying to write already exists
+      }
+    }
   }
 }
