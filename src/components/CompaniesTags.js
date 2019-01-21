@@ -5,7 +5,8 @@ import Tag from './Tag'
 const generateTags = companies => {
 
 	const findHashTags = searchText => {
-		var regexp = /\B#\w\w+\b/g
+		// https://regexr.com/46r2p
+		var regexp = /(?:\B#)(\w|-?)+\b/g
 		let result = searchText.match(regexp);
 		if (result) {
 			return result.map(item => item.replace('#',''));
