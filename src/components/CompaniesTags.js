@@ -68,7 +68,7 @@ export default class CompaniesTags extends Component {
 	}
 
 	isShowingAllTags = () => {
-		return `Nav Nav--tags ${this.state.tagsAllVisible && 'is-visible'}`
+		return `${this.state.tagsAllVisible && 'visible'}` || ''
 	}
 
 	toggleTags = () => {
@@ -79,8 +79,9 @@ export default class CompaniesTags extends Component {
 
 	render () {
 		return (
-			<div className="Tags">
-				<div className={ this.isShowingAllTags() }>
+			<div className={`Tags ${this.isShowingAllTags()}`}
+					 onClick={ this.toggleTags }>
+				<div className="Nav Nav--tags">
 					<Link
 						className="Nav-item Tag"
 						to={{
@@ -92,9 +93,9 @@ export default class CompaniesTags extends Component {
 
 				</div>
 				<button
-						className="Button Button--text Tag"
+						className="Button"
 						onClick={ this.toggleTags }>
-						⇵ show/hide all tags
+						⇵ show/hide all #tags
 					</button>
 			</div>
 		)

@@ -73,6 +73,7 @@ class Companies extends Component {
 				This is a <strong>community curated</strong> list,  <Link className="Button Button--validate" to='companies/add'>submit a company.</Link>
 				</IntroText>
 
+				<p className="mb-0">You can explore all companies by their tags.</p>
 				<CompaniesTags companies={ this.props.data }/>
 
 				<label className="FormItem FormItem--h">
