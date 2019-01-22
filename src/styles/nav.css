@@ -24,10 +24,16 @@
 
 .Nav--tags {
 	flex-wrap: wrap;
+	background-color: skyblue;
+	padding: 1rem;
 }
+
 .Nav--tags .Nav-item {
 	margin-right: 0.2rem;
 	margin-bottom: 0.2rem;
+}
+.Nav--tags .Nav-item:first-child {
+	background-color: cyan;
 }
 .Nav--horizontal .Nav-item {
 	margin-right: 0.5rem;

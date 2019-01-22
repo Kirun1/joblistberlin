@@ -1,9 +1,41 @@
 .Tags {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
+	align-items: center;
 	margin-bottom: 2rem;
-	border-bottom: 1px solid lightgray;
+}
+.Tags .Button {
+	background-color: hotpink;
+}
+
+.Tags.visible {
+	margin-bottom: 0;
+
+	flex-grow: 1;
+	justify-content: space-between;
+
+	padding: 3rem;
+
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	overflow-x: scroll;
+
+	background-color: #d3d3d366;
+}
+.Tags.visible .Button {
+	position: fixed;
+	z-index: 2;
+	top: 0.5rem;
+	right: 1rem;
+}
+.Tags:not(.visible) .Nav--tags {
+	display: none;
 }
 
 .Tag {
@@ -15,11 +47,4 @@
 	right: -0.1rem;
 	font-size: 0.6rem;
 	font-weight: normal;
-}
-
-.Nav--tags .Tag:nth-child(n+9) {
-	display: none;
-}
-.Nav--tags.is-visible .Tag:nth-child(n+10) {
-	display: inherit;
 }
