@@ -1,18 +1,9 @@
-.Tags {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: center;
-}
 .Tags .Button {
 	background-color: hotpink;
 }
 
 .Tags.visible {
 	margin-bottom: 0;
-
-	flex-grow: 1;
-	justify-content: space-between;
 
 	padding: 3rem;
 

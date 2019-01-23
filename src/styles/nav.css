@@ -26,6 +26,16 @@
 	flex-wrap: wrap;
 	background-color: skyblue;
 	padding: 1rem;
+	position: relative;
+}
+.Nav--tags::before {
+  content: 'All #tags';
+  position: absolute;
+	top: -2.7rem;
+	left: -2rem;
+	background-color: cyan;
+  padding: 0.1rem 2rem;
+  font-size: 2rem;
 }
 
 .Nav--tags .Nav-item {
