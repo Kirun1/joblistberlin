@@ -73,19 +73,21 @@ class Companies extends Component {
 				This is a <strong>community curated</strong> list,  <Link className="Button Button--validate" to='companies/add'>submit a company.</Link>
 				</IntroText>
 
-				<p className="mb-0">You can explore all companies by their tags.</p>
-				<CompaniesTags companies={ this.props.data }/>
+				<p>You can explore all companies by their tags.</p>
 
-				<label className="FormItem FormItem--h">
-				<span>Search</span>
-					<input
-					type="search"
-					title="Search for a company"
-					placeholder="company name, description, activity, tag"
-					onChange={ (e) => this.handleSearch(e.target.value) }
-					value={ this.state.search } />
-					<button className="Button" onClick={ this.clearSearch }>Clear</button>
+				<nav className="Nav Nav--sticky">
+					<label className="FormItem FormItem--h">
+						<span>Search</span>
+						<input
+							type="search"
+							title="Search for a company"
+							placeholder="company name, description, activity, tag"
+							onChange={ (e) => this.handleSearch(e.target.value) }
+							value={ this.state.search } />
+						<button className="Button" onClick={ this.clearSearch }>Clear</button>
+						<CompaniesTags companies={ this.props.data }/>
 				</label>
+			</nav>
 
 				<div className="Companies">
 				{
