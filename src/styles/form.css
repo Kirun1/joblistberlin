@@ -44,6 +44,13 @@ option {
 .FormItem--h {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+	flex-grow: 1;
+	flex-wrap: wrap;
+}
+.FormItem--h > * {
+	margin-top: 0.2rem;
+	margin-bottom: 0.2rem;
 }
 .FormItem--h span {
 	margin-right: 1rem;

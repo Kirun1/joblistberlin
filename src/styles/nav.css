@@ -38,6 +38,21 @@
 .Nav--horizontal .Nav-item {
 	margin-right: 0.5rem;
 }
+.Nav--sticky {
+  position: sticky;
+  top: 0.4rem;
+  padding: 0.5rem;
+  box-shadow: 0px 2px 4px #5f9ea040;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: mintcream;
+  z-index: 1;
+}
+.Nav--sticky label {
+	padding-bottom: 0;
+}
+
 .Nav-item,
 .Nav-item:visited {
 	color: black;
