@@ -54,7 +54,7 @@ class Login extends Component {
 		const { email, password } = this.state;
 
 		return (
-			<div>
+			<div class="Login">
 				<Helmet>
           <title>Login — Job List Berlin</title>
           <meta

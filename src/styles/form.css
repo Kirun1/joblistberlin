@@ -1,11 +1,13 @@
 form {
 	padding-bottom: 1rem;
 	max-width: 30rem;
+	width: 100%;
 }
 
 input,
 textarea {
-	width : 100%;
+	width: 100%;
+	min-width: 100%;
 	font-family: inherit;
 	margin: 0;
 	padding: 0.5rem;
@@ -14,10 +16,12 @@ textarea {
 }
 input[type="search"] {
 	max-width: 25rem;
+	min-width: auto;
 }
 
 label {
-  display: block;
+	display: flex;
+	flex-direction: column;
   padding-bottom: 1rem;
 }
 
@@ -43,6 +47,7 @@ option {
 
 .FormItem--h {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	flex-grow: 1;
