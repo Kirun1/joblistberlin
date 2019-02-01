@@ -12,6 +12,11 @@ class CompanyCard extends Component {
 		window.open(reportURL, '_blank');
 	}
 
+	reportSuggestion(linkID) {
+		const reportURL = `https://docs.google.com/forms/d/e/1FAIpQLSeCFXeT92LbiQApCcFHmiWgUxaesV25iXrPNQ2RlcXwpvlsLw/viewform?usp=sf_link&entry.673651500=${linkID}`
+		window.open(reportURL, '_blank');
+	}
+
 	companyIsApproved() {
 		if (this.props.isApproved) {
 			return 'Company--isApproved';
@@ -36,7 +41,8 @@ class CompanyCard extends Component {
 
 				<ContextualToggle label={ title }>
 					{/* { <Option action={ () => console.log('yolol') }>Edit</Option> } */}
-					<Option action={ () => this.reportBrokenLink(this.props.id) }>Report broken link (popup)</Option>
+					<Option action={ () => this.reportBrokenLink(this.props.id) }>Report broken link (&rarr; popup)</Option>
+					<Option action={ () => this.reportSuggestion(this.props.id) }>Suggest improvements (&rarr; popup)</Option>
 				</ContextualToggle>
 
 				<div className="Company-main">
