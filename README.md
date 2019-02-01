@@ -5,20 +5,22 @@
 
 This is a React.js application, front-end for [htps://joblistberlin.com](https://joblistberlin.com).
 
-You will need `npm`, the javascript package manager, [install
-instructions are
-here](https://docs.npmjs.com/getting-started/installing-node).
+You will need `yarn`, one of the javascript package manager.
 
 The npm scripts that are used to work on this project are, `install`, `start`,
 `build` and `test`. These are defined the project's `./package.json`.
 
 1. To install the dependencies:
 
-`npm install`
+`yarn`
 
 2. To start the development server
 
-`npm start` to run it.
+`yarn start` to run it.
+
+3. To start build a production ready app in a build folder:
+
+`yarn build`
 
 
 ## Submit a change
