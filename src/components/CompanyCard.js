@@ -17,6 +17,14 @@ class CompanyCard extends Component {
 		window.open(reportURL, '_blank');
 	}
 
+	openInMaps(linkTitle) {
+		// the last bit adds the the bicyle lanes layer
+		const mapUrl = 'https://www.google.com/maps/search/'
+					+ encodeURIComponent(`${linkTitle} berlin germany`)
+					+ '/data=!5m1!1e3'
+		window.open(mapUrl, '_blank');
+	}
+
 	companyIsApproved() {
 		if (this.props.isApproved) {
 			return 'Company--isApproved';
@@ -43,6 +51,7 @@ class CompanyCard extends Component {
 					{/* { <Option action={ () => console.log('yolol') }>Edit</Option> } */}
 					<Option action={ () => this.reportBrokenLink(this.props.id) }>Report broken link (&rarr; popup)</Option>
 					<Option action={ () => this.reportSuggestion(this.props.id) }>Suggest improvements (&rarr; popup)</Option>
+					<Option action={ () => this.openInMaps(this.props.title) }>Show in maps (&rarr; popup)</Option>
 				</ContextualToggle>
 
 				<div className="Company-main">
