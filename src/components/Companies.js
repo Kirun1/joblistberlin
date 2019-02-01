@@ -70,7 +70,7 @@ class Companies extends Component {
 
 				<IntroText>
 					All <u>{this.props.data.length}</u> companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
-				This is a <strong>community curated</strong> list,  <Link className="Button Button--validate" to='companies/add'>submit a company.</Link>
+				This is an <strong>open list</strong>,  <Link className="Button Button--validate" to='companies/add'>submit a company.</Link>
 				</IntroText>
 
 				<p>You can explore all companies by their tags.</p>
