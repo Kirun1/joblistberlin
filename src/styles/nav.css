@@ -3,6 +3,11 @@
 	flex-direction: row;
 	align-items: center;
 }
+@media (max-width: 30rem) {
+	.Nav {
+		font-size: 1.1rem;
+	}
+}
 .Nav h1 {
 	margin-bottom: 0;
 }
@@ -21,23 +26,18 @@
 .Nav--main .Nav-item {
 	width: 100%;
 }
+.Nav--main .Nav-item.active {
+	background-color: orchid;
+	border-radius: 0.1rem;
+}
 
 .Nav--tags {
 	flex-wrap: wrap;
 	background-color: skyblue;
 	padding: 1rem;
 	position: relative;
+	margin-top: 1rem;
 }
-.Nav--tags::before {
-  content: 'All #tags';
-  position: absolute;
-	top: -2.7rem;
-	left: -2rem;
-	background-color: cyan;
-  padding: 0.1rem 2rem;
-  font-size: 2rem;
-}
-
 .Nav--tags .Nav-item {
 	margin-right: 0.2rem;
 	margin-bottom: 0.2rem;
@@ -51,7 +51,7 @@
 .Nav--sticky {
   position: sticky;
   top: 0.4rem;
-  padding: 0.5rem;
+  padding: 0.3rem;
   box-shadow: 0px 2px 4px #5f9ea040;
   align-items: center;
   justify-content: space-between;
@@ -61,6 +61,13 @@
 }
 .Nav--sticky label {
 	padding-bottom: 0;
+}
+
+.Nav--companies > * {
+	margin: 0.15rem;
+}
+.Nav--companies .Button {
+	flex-grow: 1;
 }
 
 .Nav-item,
@@ -73,4 +80,9 @@
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 	text-decoration: none;
+}
+
+.Nav .Button {
+	padding-top: 0.6rem;
+	padding-bottom: 0.6rem;
 }

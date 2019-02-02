@@ -67,36 +67,18 @@ export default class CompaniesTags extends Component {
 		))
 	}
 
-	isShowingAllTags = () => {
-		return `${this.state.tagsAllVisible && 'visible'}` || ''
-	}
-
-	toggleTags = () => {
-		this.setState({
-			tagsAllVisible: !this.state.tagsAllVisible
-		})
-	}
-
 	render () {
 		return (
-			<div className={`Tags ${this.isShowingAllTags()}`}
-					 onClick={ this.toggleTags }>
+			<div className="Tags">
 				<div className="Nav Nav--tags">
 					<Link
-						className="Nav-item Tag"
-						to={{
-							pathname: '/companies',
-							search: ''
-						}}>All</Link>
-
+					className="Nav-item Button Button--color4 Tag"
+					to={{
+						pathname: '/companies',
+						search: ''
+					}}>All tags</Link>
 					{ this.generateLinks() }
-
 				</div>
-				<button
-						className="Button"
-						onClick={ this.toggleTags }>
-						⇵ show/hide all #tags
-					</button>
 			</div>
 		)
 	}
