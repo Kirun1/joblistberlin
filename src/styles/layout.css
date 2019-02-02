@@ -9,7 +9,7 @@
 .App {
 	display: flex;
 	flex-direction: column;
-	max-width: 55rem;
+	max-width: 59rem;
   margin-left: auto;
   margin-right: auto;
 }

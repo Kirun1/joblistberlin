@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import withCompanies from '../withCompanies';
 import Loading from './Loading';
 import CompanyCard from './CompanyCard';
-import CompaniesTags from './CompaniesTags';
 import IntroText from './IntroText';
 import {parse} from 'query-string';
 
@@ -70,23 +69,20 @@ class Companies extends Component {
 
 				<IntroText>
 					All <u>{this.props.data.length}</u> companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
-				This is an <strong>open list</strong>,  <Link className="Button Button--validate" to='companies/add'>submit a company.</Link>
+				This is an <strong>open list</strong>, everyone can <Link className="Button Button--color3" to='companies/add'>add a company.</Link>
 				</IntroText>
 
-				<p>You can explore all companies by their tags.</p>
-
-				<nav className="Nav Nav--sticky">
+				<nav className="Nav Nav--sticky Nav--companies">
 					<label className="FormItem FormItem--h">
-						<span>Search</span>
 						<input
 							type="search"
 							title="Search for a company"
-							placeholder="company name, description, activity, tag"
+							placeholder="Search all companies, descriptions, #tags..."
 							onChange={ (e) => this.handleSearch(e.target.value) }
 							value={ this.state.search } />
-						<button className="Button" onClick={ this.clearSearch }>Clear</button>
-						<CompaniesTags companies={ this.props.data }/>
 				</label>
+				<button className="Button"  onClick={ this.clearSearch }>Clear</button>
+				<Link className="Button Button--color2" to='companies/tags'>Show all<strong> #tags</strong></Link>
 			</nav>
 
 				<div className="Companies">
