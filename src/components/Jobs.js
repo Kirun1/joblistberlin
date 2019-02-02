@@ -37,7 +37,7 @@ export default class Jobs extends Component {
 							If you are either looking for a job or willing to hire someone, use the following links for best results.
 						</p>
 						<p>
-						<a className="Button Button--validate" href="https://www.facebook.com/pg/joblistberlin/community/">Publish new Job</a> and share it to the community in Berlin.
+						<a className="Button Button--color3" href="https://www.facebook.com/pg/joblistberlin/community/">Publish new Job</a> and share it to the community in Berlin.
 					</p>
 					</IntroText>
 				</section>

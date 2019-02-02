@@ -5,6 +5,9 @@
 	margin-left: 0;
 }
 .Button {
+	text-decoration: none;
+	border-radius: 0.2rem;
+	font-size: 1.1rem;
 	padding: 0.3rem 0.6rem;
 	align-items: center;
 	box-sizing: border-box; /* 1 */
@@ -21,9 +24,6 @@
 	text-align: center;
 	user-select: none; /* 4 */
 	background-color: transparent;
-}
-.Button--validate {
-	background-color: turquoise;
 }
 .Button--text {
 	background-color: transparent;
@@ -54,4 +54,26 @@
 }
 .Button-contextualToggle span {
 	user-select: none;
+}
+.Button--back {
+	position: relative;
+}
+.Button--back:before {
+	content: '↜';
+	position: absolute;
+	top: -0.4rem;
+	left: -0.6rem;
+	font-size: 1.6rem;
+}
+.Button--color1 {
+	background-color: seashell;
+}
+.Button--color2 {
+	background-color: turquoise;
+}
+.Button--color3 {
+	background-color: orchid;
+}
+.Button--color4 {
+	background-color: cyan;
 }
