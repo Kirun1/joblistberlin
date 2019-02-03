@@ -11,7 +11,9 @@ textarea {
 	font-family: inherit;
 	margin: 0;
 	padding: 0.5rem;
-	border: 0.18rem inset lightgray;
+	border-width: 0.1rem;
+	border-style: solid;
+	border-color: chartreuse;
 	font-size: 100%;
 }
 input:active,
