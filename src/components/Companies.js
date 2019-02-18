@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {format} from 'date-fns'
 import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import withCompanies from '../withCompanies';
@@ -58,6 +59,8 @@ class Companies extends Component {
 	render() {
 		if(!this.props.data) return <Loading/>
 
+		const lastCompany = this.props.data.filter((item) => item.isApproved)[0]
+
 		return (
 			<div>
 				<Helmet>
@@ -69,7 +72,8 @@ class Companies extends Component {
 
 				<IntroText>
 					All <u>{this.props.data.length}</u> companies in this list have <strong>offices in Berlin</strong>, and <strong>job offers</strong> on their website.<br/>
-				This is an <strong>open list</strong>, everyone can <Link className="Button Button--color3" to='companies/add'>add a company.</Link>
+				This is an <strong>open list</strong>, everyone can <Link className="Button Button--color3" to='companies/add'>add a company.</Link><br/>
+				<small title={format(lastCompany.createdAt, 'DD MMMM YYYY')}>Last updated: {format(lastCompany.createdAt, 'YYYY/MM/DD')}</small>
 				</IntroText>
 
 				<nav className="Nav Nav--sticky Nav--companies">
