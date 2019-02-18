@@ -46,6 +46,7 @@ export default function App() {
 					<hr/>
 					<a href="https://goo.gl/forms/Z63hQv4DPXSKGJW52" target="_blank" rel="noopener noreferrer" className="Nav-item">Contact</a>
 					<a href="https://www.facebook.com/joblistberlin" target="_blank" rel="noopener noreferrer" className="Nav-item">Facebook</a>
+					<a href="https://www.linkedin.com/company/joblistberlin" target="_blank" rel="noopener noreferrer" className="Nav-item">Linkedin</a>
 					{/* <a href="https://www.linkedin.com/company/joblistberlin/" target="_blank" rel="noopener noreferrer" className="Nav-item">↱ Linkedin</a> */}
 				</nav>
 			</aside>
